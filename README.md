@@ -2,12 +2,8 @@
 
 <!--Programming notes - these are notes, etcetera, inspired from things I have done or seen.-->
 
-<div style="text-align:left">
-    <img src="resources/images/atkuzmanov-pretty.png" alt="atkuzmanov"/>
-</div>
+<div style="text-align:left"><img src="resources/images/atkuzmanov-pretty.png" alt="atkuzmanov"/></div>
 
-<div style="text-align:center">
-    <img src="resources/images/atcog.png" alt="atcog"/>
-</div>
+<div style="text-align:center"><img src="resources/images/atcog.png" alt="atcog"/></div>
 
 [References](resources/programming-notes-main-page-references.md)
