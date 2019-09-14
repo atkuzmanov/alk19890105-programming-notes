@@ -622,3 +622,150 @@ Mat
 ```
 
 ----
+
+|||unix commands
+|||linux commands
+|||mac commands
+|||mac locale
+|||export environment variables
+|||environment variables
+
+```bash
+# OS X Terminal UTF-8 issues
+
+$ locale
+LANG="en_GB.UTF-8"
+LC_COLLATE="en_GB.UTF-8"
+LC_CTYPE="en_GB.UTF-8"
+LC_MESSAGES="en_GB.UTF-8"
+LC_MONETARY="en_GB.UTF-8"
+LC_NUMERIC="en_GB.UTF-8"
+LC_TIME="en_GB.UTF-8"
+LC_ALL="en_GB.UTF-8"
+
+$ export LC_ALL=en_GB.UTF-8
+```
+
+----
+
+|||unix commands
+|||linux commands
+|||mac commands
+|||curl
+|||bash http https request maker
+
+CURL + Mavericks + Homebrew
+
+The default curl which comes with Mavericks is not working.
+To get curl working with Mavericks get a new version using Homebrew
+
+```bash
+brew install curl --with-openssl
+```
+
+After this you need to link it so it can replace the default curl in your terminal:
+
+```bash
+brew link curl --force
+```
+
+You might need to use brew switch as well:
+
+```bash
+brew switch curl [CURL-VERSION-INSTALLED-WITH-BREW-YOU-WANT-TO-SWITCH-TO]
+```
+
+Verify in the command line by running:
+
+```bash
+curl --version
+```
+
+The "/usr/local/bin" path in your $PATH environment variable must be the last thing that gets added onto it, so that it has precedence to the Mac OSX default curl.
+One way of enforcing this is to add this as the very last line in your bash profile:
+
+```bash
+export PATH=/usr/local/bin:$PATH
+```
+
+Now you should be able to use curl with the following parameters:
+
+```bash
+curl --cert "$PATH_TO_DEV_CERT:$CERT_PASS" --cert-type p12 --insecure [URL-YOU-WANT-TO-CURL]
+```
+
+To simplify things so you don't have to type all those details, you can add them to a .curlrc file in your home dir (~/.curlrc):
+
+```bash
+cert "$PATH_TO_DEV_CERT:$CERT_PASS"
+cert-type p12
+insecure
+```
+
+Now you should be able to use curl like this:
+
+```bash
+curl [URL-YOU-WANT-TO-CURL]
+```
+
+Links:
+http://curl.haxx.se/docs/mk-ca-bundle.html
+http://curl.haxx.se/docs/caextract.html
+
+----
+
+|||curl bypass proxies
+
+```bash
+export NO_PROXY=localhost,127.0.0.1,127.0.0.0/8,::1,192.168.59.103,sandbox.dev.example.co.uk
+```
+
+----
+
+|||curl with parameters and verb
+
+```bash
+curl -X DELETE -G \
+'http://localhost:5000/locations' \
+-d id=3 \
+-d name=Mario \
+-d surname=Bros
+```
+
+```bash
+curl -X GET 'https://api-ssl.bitly.com/v3/shorten?access_token=XXX&longUrl=http%3A%2F%2Fwww.example.co.uk%2Fnews%2F2XXXXXXXXX'
+```
+
+```bash
+curl --cert /etc/pki/tls/certs/client.crt --key /etc/pki/tls/private/exampleKey.key --cacert /etc/pki/tls/certs/example-ca-chain.crt <endpoint>
+```
+
+```bash
+curl -v --proxy http://www-example.proxy.com:80/ --cacert /etc/pki/tls/example-ca.pem --cert /Volumes/example/dir/example-cert.cert --key /Volumes/example/dir/example-key.key https://example.com
+```
+```bash
+curl -i -v -X GET \
+  -x 'http://www-example.proxy.com:80' \
+  -d \
+  '' \
+  'https://example.com/example/path?access_token=example_token123&longUrl=http%3A%2F%2Fwww.example.com%2Fexample_path%2F' \
+  --cacert '/etc/pki/example_certificate.pem' \
+  --capath '/etc/pki/'
+```
+
+----
+
+
+
+----
+----
+----
+----
+----
+
+
+
+
+
+
+
