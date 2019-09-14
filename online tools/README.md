@@ -9,7 +9,7 @@
 // Good mobile push notifications provider:
 https://www.urbanairship.com/
 
-// Bad mobile push notifications provider:
+// Less preferable mobile push notifications provider:
 https://boxcar.io/
 
 ----
