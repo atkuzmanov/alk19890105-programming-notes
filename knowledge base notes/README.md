@@ -81,9 +81,56 @@ usability testing
 
 a/b testing
 
-
-
 ----
+
+|||programming language categories - rough
+
+Back-end - Object Oriented Programming languages:
+- Java
+- C# (C Sharp)
+- C++
+
+Back-end - Functional Programming languages:
+- Haskell
+
+Back-end hybrid - Object Oriented Functional Programming languages:
+- Scala
+- Go
+
+Front-end scripting languages:
+- JavaScript
+- Python
+- PHP
+
+Front-end interpreted languages:
+- HTML
+- CSS
+
+Database languages:
+- SQL
+- MySQL
+
+No-SQL database technologies:
+- MongoDB
+
+Mathematics languages:
+- Matlab
+- Wolfram
+
+Other languages:
+- R
+
+Back-end frameworks:
+- Play2
+- Spring
+
+Front-end frameworks & technologies:
+- Express.js
+- Socket.IO
+
+JavaScript run time environments:
+- NodeJS
+
 ----
 ----
 ----

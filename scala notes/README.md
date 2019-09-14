@@ -1,3 +1,4 @@
+# scala notes
 
 ----
 |||scala monad library |||scala monads |||monads
@@ -240,4 +241,17 @@ http://docs.scala-lang.org/tutorials/FAQ/yield.html
   useProxy()
 ```
 
+----
+
+|||variance in scala |||variance |||covariance |||contravariance
+|||scala variance |||scala covariance |||scala contravariance
+
+https://lansalo.com/2017/10/22/variance-in-scala/
+by Lorenzo Ansaloni
+
+----
+
+Scala Companion object pattern - object + trait pattern
+
+----
 
