@@ -39,3 +39,23 @@ scutil --set HostName "localhost"
 ```
 
 ----
+
+|||jvm metrics
+|||metrics
+|||java metrics
+|||scala metrics
+|||cloudwatch metrics
+|||aws cloudwatch metrics
+|||amazon aws
+
+https://github.com/dropwizard/metrics
+
+----
+----
+----
+----
+----
+----
+----
+----
+
