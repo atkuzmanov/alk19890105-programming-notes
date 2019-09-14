@@ -1,3 +1,4 @@
+# organisational and managerial notes
 
 ----
 

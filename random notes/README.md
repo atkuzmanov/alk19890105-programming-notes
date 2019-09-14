@@ -24,13 +24,14 @@ Eisenhower Matrix (Urgent vs. Importnat) decision making:
 https://crew.co/blog/urgent-vs-important/
 https://en.wikipedia.org/wiki/Time_management#The_Eisenhower_Method
 
+```text
 					Urgent 	|	Not Urgent
 Important 					|
 							|
 --------------------------------------------
 							|
 Not Important 				|
-
+```
 
 The Eisenhower Method
 
