@@ -754,6 +754,245 @@ curl -i -v -X GET \
 ```
 
 ----
+|||curl loop script
+
+```bash
+clear
+
+echo "[CURL-Loop-Bash-v2.1]" ;
+
+counter=1
+
+while [ true ] ;
+do
+  # UNIX timestamp concatenated with nanoseconds
+  T1="$(date +%s)"
+
+  curl \
+  --insecure \
+  --request GET \
+  --proxy "http://www-example.proxy.com:80" \
+  --url "https://example.com/example/path" \
+  --header "Cache: no-cache" \
+  --header "Content-Type: text/plain" \
+  --header "Content-Length: 1024" \
+  --data-urlencode "cash_buster=$counter" \
+  --data-urlencode "cash_buster-2=$counter" \
+  --user-agent "[CURL-Loop-Bash-v2.1]" \
+  --include \
+  --verbose \
+  --location \
+  --output "/dev/null" \
+  --write-out "\\n Response-HTTP-code: %{http_code} | Current-time: $(date "+%H:%M:%S %d-%m-%Y") | Size: %{size_download} | Total-time-to-complete: %{time_total} \\n"
+
+    ## curl -X POST --data-urlencode 'payload=SOME_DATA' \
+    ##  --trace-ascii \
+
+  T2="$(date +%s)"
+  T="$(($T2-$T1))"
+  ## echo "[Request-Time]: ${T}"
+
+  counter=$((counter+1))
+  ## echo "$counter";
+
+  sleep 1 ;
+done
+```
+
+----
+
+|||curl watch |||watch curl
+
+```bash
+watch -n1\
+curl -i GET \
+   -H "Cache-Control:no-cache" \
+   -H "Accept:application/xml" \
+ 'http://example.com/example/path'
+```
+
+----
+
+|||curl formatted output
+|||curl formatted time output
+|||curl time output |||curl time formatted
+
+https://blog.josephscott.org/2011/10/14/timing-details-with-curl/
+https://stackoverflow.com/questions/18215389/how-do-i-measure-request-and-response-times-at-once-using-curl
+
+Create a new file, curl-format.txt, and paste in:
+
+```bash
+    time_namelookup:  %{time_namelookup}\n
+       time_connect:  %{time_connect}\n
+    time_appconnect:  %{time_appconnect}\n
+   time_pretransfer:  %{time_pretransfer}\n
+      time_redirect:  %{time_redirect}\n
+ time_starttransfer:  %{time_starttransfer}\n
+                    ----------\n
+         time_total:  %{time_total}\n
+```
+
+Make a request:
+
+```bash
+curl -w "@curl-format.txt" -o /dev/null -s "http://wordpress.com/"
+```
+
+Or on Windows, it's...
+
+```bash
+curl -w "@curl-format.txt" -o NUL -s "http://wordpress.com/"
+```
+
+What this does:
+
+```bash
+-w "@curl-format.txt" tells cURL to use our format file
+-o /dev/null redirects the output of the request to /dev/null
+-s tells cURL not to show a progress meter
+"http://wordpress.com/" is the URL we are requesting. Use quotes particularly if your URL has "&" query string parameters
+```
+
+----
+
+|||wget
+|||bash http https request maker
+
+```bash
+wget "https://example.com/example/path"
+
+wget "https://example.com/example/path" --no-check-certificate
+
+wget "https://example.com/example/path" --ca-certificate="/etc/pki/example_truststore"
+
+wget -qO- "https://example.com/example/path" --ca-certificate="/etc/pki/example_truststore"
+
+wget -O- -v -d "https://example.com/example/path" --no-check-certificate
+```
+
+----
+
+|||bash |||bash script |||bashscript
+|||bash concurrency |||bash script concurrency |||bashscript concurrency
+|||concurrent bash |||concurrent bash script |||concurrent bashscript
+|||xargs |||xargs concurrency
+
+https://stackoverflow.com/questions/3002493/bash-how-to-simply-parallelize-tasks
+
+```bash
+# find . -iname "*png" -print0 | xargs -0 --max-procs=4 -n 1 pngout
+
+# xargs -P0 --max-procs=4 -n 1 pngout
+
+find . -iname "*png" -print0 | xargs -P 4 -n 2 pngout
+```
+
+----
+
+|||bash
+|||bash script
+|||grep multiline
+|||pcrepgrep multiline
+|||multiline grep
+|||multiline pcregrep
+
+```bash
+pcregrep -M  'ERROR(\n|.)*?TimeoutException'
+
+cat /var/log/example-app/application.log | pcregrep -M  'ERROR(\n|.)*?TimeoutException'
+```
+
+https://stackoverflow.com/questions/2686147/how-to-find-patterns-across-multiple-lines-using-grep
+
+How to find patterns across multiple lines using grep?
+
+```bash
+pcregrep -M  'abc.*(\n|.)*efg' test.txt
+```
+
+```bash
+perl -ne 'if (/abc/) { $abc = 1; next }; print "Found in $ARGV\n" if ($abc && /efg/); }' yourfilename.txt
+
+perl -e '@lines = <>; $content = join("", @lines); print "Found in $ARGV\n" if ($content =~ /abc.*efg/s);' yourfilename.txt
+```
+
+```bash
+grep -Pzo "abc(.|\n)*efg" /tmp/tes*
+grep -Pzl "abc(.|\n)*efg" /tmp/tes*
+```
+
+```bash
+awk '/abc/{ln1=NR} /efg/{ln2=NR} END{if(ln1 && ln2 && ln1 < ln2){print "found"}else{print "not found"}}' foo
+```
+
+```bash
+sed -e '/abc/,/efg/!d' [file-with-content]
+```
+
+instead of !d you can simply use p to print:
+
+```bash
+sed -n '/abc/,/efg/p' file
+```
+
+https://stackoverflow.com/questions/3717772/regex-grep-for-multi-line-search-needed/7167115#7167115
+
+Regex (grep) for multi-line search needed `[duplicate]`
+
+Without the need to install the grep variant pcregrep, you can do multiline search with grep.
+
+```bash
+$ grep -Pzo "(?s)^(\s*)\N*main.*?{.*?^\1}" *.c
+```
+
+Explanation:
+
+-P activate perl-regexp for grep (a powerful extension of regular extensions)
+
+-z suppress newline at the end of line, subtituting it for null character. That is, grep knows where end of line is, but sees the input as one big line.
+
+-o print only matching. Because we're using -z, the whole file is like a single big line, so if there is a match, the entire file would be printed; this way it won't do that.
+
+In regexp:
+
+(?s) activate PCRE_DOTALL, which means that . finds any character or newline
+
+\N find anything except newline, even with PCRE_DOTALL activated
+
+.*? find . in nongreedy mode, that is, stops as soon as possible.
+
+^ find start of line
+
+\1 backreference to first group (\s*) This is a try to find same indentation of method
+
+As you can imagine, this search prints the main method in a C (*.c) source file.
+
+```bash
+awk '/select/,/from/' *.sql
+```
+
+https://stackoverflow.com/questions/152708/how-can-i-search-for-a-multiline-pattern-in-a-file
+How can I search for a multiline pattern in a file?
+
+```bash
+find . -iname '*.py' | xargs pcregrep -M '_name.*\n.*_description'
+```
+
+https://serverfault.com/questions/408265/what-are-pcre-limits/408272
+What are PCRE limits?
+
+These appear to be settings internal to the PCRE engine in order to limit the maximum amount of memory/time spent on trying to match some text to a pattern.
+
+https://linux.die.net/man/3/pcreapi
+
+
+https://stackoverflow.com/questions/16856308/segmentation-fault-in-bash-script-using-find-grep-sed
+Segmentation fault in bash script using find, grep, sed
+
+UPDATE #2: So apparently sed doesn't support non greedy matching, which makes part of my answer invalid. There are ways around this, but I will not include them here as it's far removed from the original question. The answer to this question is using the --disable-stack-for-recursion flag as described below.
+
+----
 
 
 
@@ -762,7 +1001,15 @@ curl -i -v -X GET \
 ----
 ----
 ----
-
+----
+----
+----
+----
+----
+----
+----
+----
+----
 
 
 
