@@ -12,6 +12,8 @@
 
 ----
 
+[skills matter advanced scala training 2016](skills-matter-advanced-scala-training-2016.md)
+
 ----
 ----
 ----
