@@ -2,6 +2,8 @@
 
 <!--Programming notes - these are notes, etcetera, inspired from things I have done or seen.-->
 
-![atkuzmanov](resources/images/atkuzmanov-atkuzmanov.png)
+![atkuzmanov](resources/images/atkuzmanov-pretty.png)
+
+![atcog](resources/images/atcog.png)
 
 [References](resources/programming-notes-main-page-references.md)
