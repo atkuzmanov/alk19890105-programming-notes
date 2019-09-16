@@ -1,6 +1,10 @@
+# github notes
 
+----
 
-
+[work guide 1](work-guide-1.md)
+## Reference
+<https://github.com/Financial-Times/upp-docs/blob/master/guides/git-guide/README.md>
 
 ----
 |||git aliases
@@ -25,4 +29,3 @@ new messages
 ```
 
 ----
-
