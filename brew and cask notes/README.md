@@ -2,6 +2,9 @@
 
 brews:
 
+autojump
+
+
 
 casks:
 

@@ -1,5 +1,39 @@
 # shell zsh zshrc zprofile
 
+----
+
+|||iterm2 zsh |||zsh iterm2
+
+https://stackoverflow.com/questions/13476232/make-iterm2-launch-with-zsh
+
+```text
+Change your default shell to /bin/zsh by running the chsh -s /bin/zsh command.
+
+shareimprove this answer
+edited May 6 at 8:49
+
+Nishant
+2,35222 gold badges1515 silver badges3434 bronze badges
+answered Nov 20 '12 at 
+```
+
+```text
+Although the change with chsh -s $(which zsh) worked perfectly for me, my iTerm2 wouldn't automatically open new terminals with zsh.
+
+Instead I went to iTerm2 -> Preferences -> Profiles -> Default and in the General Tab set the Command to /usr/local/bin/zsh instead of Login shell.
+
+Update: With the current version of iTerm (as of 2.1.1) it perfectly worked for me by changing the default shell (shown above) only.
+
+shareimprove this answer
+edited Jul 9 '15 at 12:04
+answered Jul 28 '14 at 8:43
+
+Thomas Fankhauser
+4,14611 gold badge2525 silver badges30
+```
+
+----
+
 ```zsh
 
 ### zsh-autosuggestions
