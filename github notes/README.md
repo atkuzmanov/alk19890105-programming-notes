@@ -13,6 +13,10 @@
 [gitconfig example 1](gitconfig-1.md)
 
 ----
+
+[.gitignore example 1](gitignore-1.md)
+
+----
 |||git aliases
 
 ```bash
