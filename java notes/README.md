@@ -62,6 +62,8 @@ https://github.com/dropwizard/metrics
 
 - Effective Java, Third Edition by Joshua Bloch
 
+- Core Java SE 9 For Impatient
+
 - Spring in Action, 4th Edition by Craig Walls
 
 - Clean Code: A Handbook of Agile Software Craftsmanship by Robert C. Martin
