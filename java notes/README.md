@@ -78,6 +78,8 @@ https://github.com/dropwizard/metrics
 
 - Head First Design Patterns
 
+- Java in a Nutshell: A Desktop Quick Reference 7th Edition
+
 `Reference:`
 https://www.java67.com/2018/02/3-books-to-learn-java-from-scratch-in.html
 
