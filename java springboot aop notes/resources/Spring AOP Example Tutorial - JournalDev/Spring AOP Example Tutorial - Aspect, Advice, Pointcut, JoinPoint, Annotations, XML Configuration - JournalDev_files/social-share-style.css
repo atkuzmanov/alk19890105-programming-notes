@@ -1,0 +1,69 @@
+.social-share {
+  position: static;
+}
+
+.social-share .social-share__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.social-share .social-share__list>li a {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color--primary);
+}
+
+.social-share .social-share__list>li a svg {
+  width: 18px;
+  height: 18px;
+}
+
+.social-share .social-share__list>li+li {
+  margin-top: 0;
+  margin-left: .3em;
+}
+
+.social-share .social-share__list>li a.ss-fb {
+  background: #3b5999;
+}
+
+.social-share .social-share__list>li a.ss-pinterest {
+  background: #bd081c;
+}
+
+.social-share .social-share__list>li a.ss-twitter {
+  background: #62cdf0;
+}
+
+.social-share .social-share__list>li a.ss-gmail {
+  background: #7a7a7a;
+}
+
+.social-share .social-share__list>li a.ss-linkedin {
+  background: #0077b5;
+}
+
+.social-share .social-share__list>li a.ss-reddit {
+  background: #ff4401;
+}
+
+.social-share .social-share__list>li a.ss-whatsapp {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .social-share .social-share__list>li a.ss-whatsapp {
+    display: inline-block;
+    background: #26d366;    
+  }
+  .ss-whatsapp svg{
+    margin: 5px 0px 0px 6px;
+  }
+}

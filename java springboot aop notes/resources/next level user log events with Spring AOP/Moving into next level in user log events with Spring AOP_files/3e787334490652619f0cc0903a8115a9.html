@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://medium.com/media/3e787334490652619f0cc0903a8115a9 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Medium 4 - combine pointcuts – Medium</title><meta name="description" content="GitHub is where people build software. More than 27 million people use GitHub to discover, fork, and contribute to over 80 million projects."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./1cf3d0778e5cfc164b09d6d148117255.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-123720f37c57ce9a8f29de081c38ed61.css"><div id="gist88678420" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-aspect-java" class="file">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-java ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-aspect-java-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-aspect-java-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>declaring pointcuts</span></td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-aspect-java-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-k">@Pointcut</span>(<span class="pl-s"><span class="pl-pds">"</span>execution(void saveUser*(..))<span class="pl-pds">"</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-aspect-java-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-k">public</span> <span class="pl-k">void</span> saveUserMethod() {}</td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-aspect-java-LC4" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-aspect-java-LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-k">@Pointcut</span>(<span class="pl-s"><span class="pl-pds">"</span>within(com.wkrzywiec.library.service.*)<span class="pl-pds">"</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-aspect-java-LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-k">public</span> <span class="pl-k">void</span> inServicePackage() {}</td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-aspect-java-LC7" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-aspect-java-LC8" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-aspect-java-LC9" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>implementing pointcuts</span></td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-aspect-java-LC10" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>combine two of them</span></td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-aspect-java-LC11" class="blob-code blob-code-inner js-file-line"><span class="pl-k">@Before</span>(<span class="pl-s"><span class="pl-pds">"</span>saveUserMethod() &amp;&amp; inServicePackage()<span class="pl-pds">"</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-aspect-java-LC12" class="blob-code blob-code-inner js-file-line"><span class="pl-k">public</span> <span class="pl-k">void</span> saveUserMethodInServicePackage() {</td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-aspect-java-LC13" class="blob-code blob-code-inner js-file-line"> </td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-aspect-java-LC14" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>User is saved using UserService class located in Service package.<span class="pl-pds">"</span></span>);</td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-aspect-java-LC15" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-aspect-java-LC16" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-aspect-java-LC17" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>use only one of them</span></td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-aspect-java-LC18" class="blob-code blob-code-inner js-file-line"><span class="pl-k">@Before</span>(<span class="pl-s"><span class="pl-pds">"</span>saveUserMethod()<span class="pl-pds">"</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-aspect-java-LC19" class="blob-code blob-code-inner js-file-line"><span class="pl-k">public</span> <span class="pl-k">void</span> saveUserMethodInAnyPackage() {</td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-aspect-java-LC20" class="blob-code blob-code-inner js-file-line">  </td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-aspect-java-LC21" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>User is saved, but don't know from which package method was used!<span class="pl-pds">"</span></span>);</td>
+      </tr>
+      <tr>
+        <td id="file-aspect-java-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-aspect-java-LC22" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/wkrzywiec/1cf3d0778e5cfc164b09d6d148117255/raw/f85a36049269a6b3a03dfacc5ecb95e104112c58/aspect.java" style="float:right">view raw</a>
+        <a href="https://gist.github.com/wkrzywiec/1cf3d0778e5cfc164b09d6d148117255#file-aspect-java">aspect.java</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200; if (document) {document.domain = document.domain;}function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height);var elements = document.getElementsByClassName("gist-data"); for (var i = 0; i < elements.length; i++) {elements[i].style.overflow = "visible"}resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {try {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);} catch(error) {console.log('maybeResize error: ', error)}}maybeResize();</script></body></html>

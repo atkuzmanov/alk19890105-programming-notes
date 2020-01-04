@@ -1,0 +1,114 @@
+/*
+Welcome to Custom CSS!
+
+To learn how this works, see http://wp.me/PEmnE-Bt
+*/
+/*Reduce the height of header*/
+/*hgroup {
+	margin: 0 !important;
+	display: none;
+}*/
+.io-title-description {
+	margin: 0 !important;
+}
+
+/* Older posts & new post on search page */
+.navigation {
+	display: none;
+}
+
+/*hide auth date and comment on each post */
+.below-title-meta {
+	display: none;
+}
+
+/*sticky menu navigation at top*/
+
+/*Hide comment of title meta*/
+/*
+.adt-comment {
+	display: none;
+}*/
+.entry-header .entry-title {
+	font-size: 21px;
+}
+
+/*Align caption of images*/
+p.wp-caption-text {
+	margin: 0;
+	text-align: center;
+}
+
+.archive-header {
+	display: none;
+}
+
+/*Menu text to Camel case*/
+.themonic-nav li a {
+	text-transform: none;
+}
+
+/*Title case for table header*/
+.entry-content .easy-table th {
+	text-transform: capitalize;
+}
+
+/*hide prev and next links in post*/
+#nav-below {
+	display: none;
+}
+
+/*Align pagination to center*/
+/*.wp-pagenavi {
+	text-align: center;
+	margin-bottom: 15px;
+}*/
+
+
+/* font of list category post plugin*/
+/*ol.lcp_catlist {
+font-size: 20px;
+	padding: 5px;
+}*/
+
+ol.lcp_catlist li {
+	margin-top: 5px;
+	padding-left: 5px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column-left{ margin-top: 3px;
+	float: left; width: 33%; }
+.column-right{  margin-top: 3px;float: right; width: 33%; }
+.column-center{ margin-top: 3px; display: inline-block; width: 33%; }
+
+.column-left div{ height : 50px; }
+.column-right div{ height : 50px; }
+.column-center div{ height : 50px; }
+
+@media screen and (max-width: 960px) {
+    .column-left{ float: none; width: 100%; }
+    .column-right{ float: none; width: 100%; }
+    .column-center{ display: block; width: 100%; }
+}
+
+/*
+.tablepress-id-3 tbody td,
+.tablepress-id-3 thead th {
+	text-align: center;
+} */
+/* Reduce height of header*/
+/* 
+.site-header {
+ margin-top: -60px; 
+  margin-bottom:15px;
+}
+#site-banner {
+  min-height: 50px;
+}
+#site-banner-left {
+  margin-top:10px;
+}*/
+/*
+.site-header {padding: 0.1rem;}
+.site-header img {padding: 0 0 0 40px;max-width:190%;float:left;}*/
