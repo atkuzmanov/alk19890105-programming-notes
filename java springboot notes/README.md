@@ -41,4 +41,15 @@ https://howtodoinjava.com/spring-boot2/logging/spring-boot-logging-configuration
 
 ----
 
+# java spring boot tutorials
+
+`Reference:`
+https://www.baeldung.com/spring-boot
+
+https://www.tutorialspoint.com/spring_boot/index.htm
+
+https://howtodoinjava.com/spring-boot-tutorials/
+
+----
+
 

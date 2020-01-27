@@ -100,6 +100,15 @@ https://www.freecodecamp.org/news/must-read-books-to-learn-java-programming-327a
 https://hackernoon.com/top-6-best-books-for-learning-java-programming-30b0af41c549
 
 ----
+
+|||java tutorials
+
+https://www.java67.com/2014/09/top-10-java-8-tutorials-best-of-lot.html
+
+https://www.freecodecamp.org/news/these-are-the-best-free-courses-to-help-you-learn-java-8-and-java-9-a7615c8644ab/
+
+https://winterbe.com/posts/2014/03/16/java-8-tutorial/
+
 ----
 ----
 ----
