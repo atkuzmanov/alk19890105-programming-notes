@@ -82,7 +82,7 @@ https://github.com/dropwizard/metrics
 
 - Java in a Nutshell: A Desktop Quick Reference 7th Edition
 
-`Reference:`
+`references:`
 https://www.java67.com/2018/02/3-books-to-learn-java-from-scratch-in.html
 
 https://www.journaldev.com/6162/5-best-core-java-books-for-beginners
@@ -110,9 +110,33 @@ https://www.freecodecamp.org/news/these-are-the-best-free-courses-to-help-you-le
 https://winterbe.com/posts/2014/03/16/java-8-tutorial/
 
 ----
+
+# java modules
+||| java modules
+
+`references:`
+http://tutorials.jenkov.com/java/modules.html
+
 ----
 ----
 ----
 ----
 ----
 
+----
+----
+----
+----
+----
+
+----
+----
+----
+----
+----
+
+----
+----
+----
+----
+----
