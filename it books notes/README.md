@@ -1,5 +1,30 @@
 # IT Books
 
+"Програмиране =++ Алгоритми", Преслав Наков и Панайот Добриков, Трето издание, TopTeam Co. София 2002
+"Programming =++ Algorithms", Preslav Nakov and Panayot Dobrikov, Third edition, TopTeam Co. Sofia 2002
+
+"Head First Java" 2nd Edition, Kathy Sierra, Bert Bates
+
+"Head First Design Patterns", Kathy Sierra, Eric Freeman, Elisabeth Robson
+
+"Java Concurrency in Practice", Brian Goetz
+
+"Effective Java", Joshua Bloch, Third Edition
+
+"Clean Code A Handbook of agile software craftsmanship", Robert C. Martin, First Edition, Prentice Hall
+
+"Spring in Action", Craig Walls, Second Edition, Manning, Dreamtech Press 2008
+
+"Programming in Scala", Martin Odersky, Second Edition, Artima 2014
+
+"What every programmer should know about memory",  Ulrich Drepper, 2007, <https://lwn.net/Articles/250967/>
+
+"What good is a bad pointer C++", Unknown
+
+"Core Java Volume I Fundamentals", Cay S. Horstmann, 11-th Edition
+
+"Core Java Volume II Advanced Features", Cay S. Horstmann, 11-th Edition
+
 ---
 
 |||it books
@@ -58,30 +83,28 @@ What good is a bad pointer C++, Unknown
 |||scala books
 |||akka
 
-http://mbonaci.github.io/scala/
+<http://mbonaci.github.io/scala/>
 
-https://www.manning.com/books/scala-in-depth
+<https://www.manning.com/books/scala-in-depth>
 Scala in Depth
-Authorative and understandable. 
- 
+Authorative and understandable.
 
-https://www.manning.com/books/functional-programming-in-scala
+<https://www.manning.com/books/functional-programming-in-scala>
 Functional Programming in Scala
-Leads to deep insights into the nature of computation. 
- 
+Leads to deep insights into the nature of computation.
 
 Akka, Testing in Scala
 Effective Akka
 
 Advanced Scala with Cats Free eBook
-https://underscore.io/books/advanced-scala/
+<https://underscore.io/books/advanced-scala/>
 
 ---
 
 Haskell ebook
-http://learnyouahaskell.com/chapters
+<http://learnyouahaskell.com/chapters>
 
 PureScript by example ebook
-https://leanpub.com/purescript/read
+<https://leanpub.com/purescript/read>
 
 ---
