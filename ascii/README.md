@@ -1,14 +1,8 @@
 # ascii
 
-----
-----
-----
-----
-----
+<https://en.wikipedia.org/wiki/ASCII>
 
-https://en.wikipedia.org/wiki/ASCII
-
-----
+---
 
 |||ascii
 |||ascii shapes
@@ -29,7 +23,7 @@ https://en.wikipedia.org/wiki/ASCII
        ' - , _ _ _ ,  '
 ```
 
---
+---
 
 ```ascii
         *  *              *  *
@@ -40,7 +34,7 @@ https://en.wikipedia.org/wiki/ASCII
         *  *              *  *
 ```
 
---
+---
 
 ```ascii
    .  ` .
@@ -52,7 +46,7 @@ https://en.wikipedia.org/wiki/ASCII
    	  `
 ```
 
---
+---
 
 ```ascii
     . ```` .
@@ -66,7 +60,7 @@ https://en.wikipedia.org/wiki/ASCII
    	  ````
 ```
 
---
+---
 
 ```ascii
     . ```` .
@@ -80,8 +74,4 @@ https://en.wikipedia.org/wiki/ASCII
    	  ````
 ```
 
-----
-----
-
-
-
+---
