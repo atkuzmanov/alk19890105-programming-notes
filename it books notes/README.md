@@ -1,6 +1,6 @@
 # IT Books
 
-----
+---
 
 |||it books
 |||books it
@@ -52,7 +52,7 @@ What good is a bad pointer C++, Unknown
 
 "The Lean Startup: How Constant Innovation Creates Radically Successful Businesses", Eric Ries, Portfolio Penguin 2011, ISBN-13: 978-0670921607
 
-----
+---
 
 |||scala knowladge base
 |||scala books
@@ -76,7 +76,7 @@ Effective Akka
 Advanced Scala with Cats Free eBook
 https://underscore.io/books/advanced-scala/
 
-----
+---
 
 Haskell ebook
 http://learnyouahaskell.com/chapters
@@ -84,5 +84,4 @@ http://learnyouahaskell.com/chapters
 PureScript by example ebook
 https://leanpub.com/purescript/read
 
-----
-
+---
