@@ -1,6 +1,4 @@
-# 
-
-----
+# Design Pattern notes
 
 |||singleton pattern using enum
 |||design pattern
@@ -29,4 +27,4 @@ public enum StubServerFactory {
 }
 ```
 
-----
+---
