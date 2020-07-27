@@ -1,12 +1,10 @@
 # Java notes
 
-----
-
 |||java avoid null checks in java
 |||avoid null checks in java
 |||null checks in java
 
-http://winterbe.com/posts/2015/03/15/avoid-null-checks-in-java/
+<http://winterbe.com/posts/2015/03/15/avoid-null-checks-in-java/>
 
 Found Optional in Java8 useful if you want to check if a variable will be null, but don’t want to surround it with an if else block. This way you don’t pollute the variable type with Optional, but even if it fails it won’t throw a null pointer. My use case for this is the fact that I want the variable to be put in a LOG message and in an exception and I don’t want some of the chained call to throw a null and cause a null pointer in the log or exception message:
 
@@ -15,7 +13,7 @@ Found Optional in Java8 useful if you want to check if a variable will be null, 
                 .orElse("[Something went wrong - siteCode is null.]");
 ```
 
-----
+---
 
 |||time taken
 |||java time taken
@@ -26,7 +24,7 @@ long timeTaken = System.currentTimeMillis() - start;
 log.info(">>> TIME TAKEN: " + timeTaken);
 ```
 
-----
+---
 
 |||java.net.UnknownHostException
 |||java.net.unknownHostexception
@@ -38,7 +36,7 @@ scutil --get ComputerName
 scutil --set HostName "localhost"
 ```
 
-----
+---
 
 |||jvm metrics
 |||metrics
@@ -48,9 +46,9 @@ scutil --set HostName "localhost"
 |||aws cloudwatch metrics
 |||amazon aws
 
-https://github.com/dropwizard/metrics
+<https://github.com/dropwizard/metrics>
 
-----
+---
 
 |||java books
 
@@ -82,61 +80,64 @@ https://github.com/dropwizard/metrics
 
 - Java in a Nutshell: A Desktop Quick Reference 7th Edition
 
-`references:`
-https://www.java67.com/2018/02/3-books-to-learn-java-from-scratch-in.html
+> References:
 
-https://www.journaldev.com/6162/5-best-core-java-books-for-beginners
+<https://www.java67.com/2018/02/3-books-to-learn-java-from-scratch-in.html>
 
-https://stackabuse.com/the-best-java-books-for-all-skill-levels/
+<https://www.journaldev.com/6162/5-best-core-java-books-for-beginners>
 
-https://dev.to/codegym_cc/18-best-java-books-for-beginners-in-2019-fme
+<https://stackabuse.com/the-best-java-books-for-all-skill-levels/>
 
-https://www.quora.com/What-are-the-best-books-to-learn-Java
+<https://dev.to/codegym_cc/18-best-java-books-for-beginners-in-2019-fme>
 
-https://dzone.com/articles/10-all-time-great-books-for-java-programmers-best
+<https://www.quora.com/What-are-the-best-books-to-learn-Java>
 
-https://www.freecodecamp.org/news/must-read-books-to-learn-java-programming-327a3768ea2f/
+<https://dzone.com/articles/10-all-time-great-books-for-java-programmers-best>
 
-https://hackernoon.com/top-6-best-books-for-learning-java-programming-30b0af41c549
+<https://www.freecodecamp.org/news/must-read-books-to-learn-java-programming-327a3768ea2f/>
 
-----
+<https://hackernoon.com/top-6-best-books-for-learning-java-programming-30b0af41c549>
+
+---
 
 |||java tutorials
 
-https://www.java67.com/2014/09/top-10-java-8-tutorials-best-of-lot.html
+<https://www.java67.com/2014/09/top-10-java-8-tutorials-best-of-lot.html>
 
-https://www.freecodecamp.org/news/these-are-the-best-free-courses-to-help-you-learn-java-8-and-java-9-a7615c8644ab/
+<https://www.freecodecamp.org/news/these-are-the-best-free-courses-to-help-you-learn-java-8-and-java-9-a7615c8644ab/>
 
-https://winterbe.com/posts/2014/03/16/java-8-tutorial/
+<https://winterbe.com/posts/2014/03/16/java-8-tutorial/>
 
-----
+---
 
-# java modules
+## Java modules
+
 ||| java modules
 
-`references:`
-http://tutorials.jenkov.com/java/modules.html
+> References:
 
-----
-----
-----
-----
-----
+<http://tutorials.jenkov.com/java/modules.html>
 
-----
-----
-----
-----
-----
+---
+---
+---
+---
+---
 
-----
-----
-----
-----
-----
+---
+---
+---
+---
+---
 
-----
-----
-----
-----
-----
+---
+---
+---
+---
+---
+
+---
+---
+---
+---
+---
