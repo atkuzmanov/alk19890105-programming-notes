@@ -15,3 +15,5 @@ Search app only:
 
  |rest/servicesNS/-/search/saved/searches | search alert.track=1 | fields title description search disabled triggered_alert_count actions action.script.filename alert.severity cron_schedule
 ```
+
+---
