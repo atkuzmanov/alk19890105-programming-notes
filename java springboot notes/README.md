@@ -1,55 +1,59 @@
-# java springboot notes
+# Java Springboot notes
 
-----
+---
 
-# Spring Boot
+## Spring Boot
 
-`Reference:`
-https://spring.io/projects/spring-boot#learn
+> References
 
-----
+<https://spring.io/projects/spring-boot#learn>
 
-# Create Spring Boot Project in Spring Tool Suite [STS]
+---
 
-`Reference:`
-https://www.javaguides.net/2019/04/create-spring-boot-project-in-spring-tool-suite.html
+## Create Spring Boot Project in Spring Tool Suite [STS]
 
-----
+> References
 
-# Create Spring Boot Project With Spring Initializer
+<https://www.javaguides.net/2019/04/create-spring-boot-project-in-spring-tool-suite.html>
 
-`Reference:`
-https://www.javaguides.net/2019/04/create-spring-boot-project-with-spring-initializer.html
+---
 
-https://start.spring.io/
+## Create Spring Boot Project With Spring Initializer
 
-----
+> References
 
-# Top 5 books to learn Spring Boot in 2019
+<https://www.javaguides.net/2019/04/create-spring-boot-project-with-spring-initializer.html>
 
-## Top 5 books to learn Spring Boot and Spring Cloud for Java Developers - Best of Lot
+<https://start.spring.io/>
 
-`Reference:`
-https://javarevisited.blogspot.com/2018/07/top-5-books-to-learn-spring-boot-and-spring-cloud-java.html
+---
 
-----
+## Top 5 books to learn Spring Boot in 2019
 
-# A Guide to Logging in Spring Boot
+### Top 5 books to learn Spring Boot and Spring Cloud for Java Developers - Best of Lot
 
-`Reference:`
-https://howtodoinjava.com/spring-boot2/logging/spring-boot-logging-configurations/
+> References
 
-----
+<https://javarevisited.blogspot.com/2018/07/top-5-books-to-learn-spring-boot-and-spring-cloud-java.html>
 
-# java spring boot tutorials
+---
 
-`Reference:`
-https://www.baeldung.com/spring-boot
+## A Guide to Logging in Spring Boot
 
-https://www.tutorialspoint.com/spring_boot/index.htm
+> References
 
-https://howtodoinjava.com/spring-boot-tutorials/
+<https://howtodoinjava.com/spring-boot2/logging/spring-boot-logging-configurations/>
 
-----
+---
 
+## java spring boot tutorials
 
+> References
+
+<https://www.baeldung.com/spring-boot>
+
+<https://www.tutorialspoint.com/spring_boot/index.htm>
+
+<https://howtodoinjava.com/spring-boot-tutorials/>
+
+---

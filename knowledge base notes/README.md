@@ -1,9 +1,4 @@
-# knowledge base notes
-
-----
-----
-----
-----
+# Knowledge Base notes
 
 |||programmer tools
 |||programmer knowledge
@@ -51,11 +46,34 @@
 - Performance and scalability - Akka;
 - Mobile devices integration
 - Blue/green deployments - Amazon AWS CodeDeploy;
-- Web Server/Application Server/Mobile Application/Server - Apache Tomcat (Apache Software Foundation)[Java]; Jetty (Eclipse Foundation)[Java]; Nginx (Nginx)[Java]; IIS (Internet Information Services, Microsoft)[.NET]; GWS (Google Web Server); GlassFish (Oracle Corporation); Node.js (Node.js)[JavaScript]; Tntnet(Tntnet)[c++]; CherryPy (CherryPy team)[Python]; Catalyst (Catalyst)[Perl]; LAMP software bundle (LAMP)[php];
+- Web Server/Application Server/Mobile Application/Server
+
+```text
+Apache Tomcat (Apache Software Foundation)[Java];
+
+Jetty (Eclipse Foundation)[Java];
+
+Nginx (Nginx)[Java];
+
+IIS (Internet Information Services, Microsoft)[.NET];
+
+GWS (Google Web Server); GlassFish (Oracle Corporation);
+
+Node.js (Node.js)[JavaScript];
+
+Tntnet(Tntnet)[c++];
+
+CherryPy (CherryPy team)[Python];
+
+Catalyst (Catalyst)[Perl];
+
+LAMP software bundle (LAMP)[php];
+```
+
 - Server OS - Linux; CentOS; Fedora; Ubuntu;
 - Packaging - rpm; maven;
 
-
+---
 
 |||testing
 |||automated testing
@@ -74,64 +92,72 @@ mechanize
 
 browser stack
 
-
 |||other types of testing
 
 usability testing
 
 a/b testing
 
-----
+---
 
 |||programming language categories - rough
 
 Back-end - Object Oriented Programming languages:
+
 - Java
 - C# (C Sharp)
 - C++
 
 Back-end - Functional Programming languages:
+
 - Haskell
 
 Back-end hybrid - Object Oriented Functional Programming languages:
+
 - Scala
 - Go
 
 Front-end scripting languages:
+
 - JavaScript
 - Python
 - PHP
 
 Front-end interpreted languages:
+
 - HTML
 - CSS
 
 Database languages:
+
 - SQL
 - MySQL
 
 No-SQL database technologies:
+
 - MongoDB
 
 Mathematics languages:
+
 - Matlab
 - Wolfram
 
 Other languages:
+
 - R
 
 Back-end frameworks:
+
 - Play2
 - Spring
 
 Front-end frameworks & technologies:
+
 - Express.js
 - Socket.IO
 
 JavaScript run time environments:
+
 - NodeJS
 
-----
-----
-----
-
+---
