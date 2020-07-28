@@ -1,28 +1,30 @@
-# scala notes
+# Scala notes
 
-----
 |||scala monad library |||scala monads |||monads
 |||monad library |||scalaz library |||cats library |||scala cats library |||typelevel
 |||scala functional programming library
 
-Scala World 2017 Conference – monad talk???
-https://scala.world/typelevel
+- Scala World 2017 Conference – monad talk
+
+<https://scala.world/typelevel>
 
 Scala monad library
 
 Scala functional programming library
 
 Scala Cats
-https://typelevel.org/cats/
 
+<https://typelevel.org/cats/>
 
-Scalaz
-https://github.com/scalaz/scalaz
+- Scalaz
 
-Advanced Scala with Cats Free eBook
-https://underscore.io/books/advanced-scala/
+<https://github.com/scalaz/scalaz>
 
-----
+- Advanced Scala with Cats Free eBook
+
+<https://underscore.io/books/advanced-scala/>
+
+---
 
 |||scala filter by predicate
 |||scala predicate
@@ -54,9 +56,9 @@ https://underscore.io/books/advanced-scala/
   }
 ```
 
-----
+---
 
-|||scala avoiding mutalbe state example
+|||scala avoiding mutable state example
 |||scala mutable state
 
 ```scala
@@ -100,7 +102,7 @@ object ExampleInlineElementParser {
 }
 ```
 
-----
+---
 
 |||scala options examples
 
@@ -134,7 +136,7 @@ def textAsOption(nodes: NodeSeq): Option[String] = {
 }
 ```
 
-----
+---
 
 |||scala patterns
 |||scala try vs option |||scala try vs. option
@@ -173,7 +175,7 @@ Try {
 }
 ```
 
-----
+---
 
 |||scala multiple parsing
 |||scala xml parsing
@@ -191,32 +193,33 @@ Try {
 
     exampleRepresentationsNodeSeq.foreach(representationNode =>
       exampleRepresentations.+=(ExampleUrlRepresentationParser(representationNode)))
-```      
+```
 
-----
+---
 
 |||scala xml
 |||xml scala
 |||extract data from XML nodes in Scala
 
-// http://alvinalexander.com/scala/how-to-extract-data-from-xml-nodes-in-scala
+<http://alvinalexander.com/scala/how-to-extract-data-from-xml-nodes-in-scala>
 
 ```scala
 x.text                 // Returns a concatenation of text(n) for each child n.
 
-x.toString             // Emits the XML literal as a String. 
+x.toString             // Emits the XML literal as a String.
                        Use scala.xml.PrettyPrinter to format the output, if desired.
-```                       
+```
 
-----
+---
 
 |||scala for comprehension translation
 |||for comprehension translation
 
-http://stackoverflow.com/questions/14598990/confused-with-the-for-comprehension-to-flatmap-map-transformation
-http://docs.scala-lang.org/tutorials/FAQ/yield.html
+<http://stackoverflow.com/questions/14598990/confused-with-the-for-comprehension-to-flatmap-map-transformation>
 
-----
+<http://docs.scala-lang.org/tutorials/FAQ/yield.html>
+
+---
 
 |||setting proxies pragmatically
 |||proxy
@@ -241,17 +244,17 @@ http://docs.scala-lang.org/tutorials/FAQ/yield.html
   useProxy()
 ```
 
-----
+---
 
 |||variance in scala |||variance |||covariance |||contravariance
 |||scala variance |||scala covariance |||scala contravariance
 
-https://lansalo.com/2017/10/22/variance-in-scala/
+<https://lansalo.com/2017/10/22/variance-in-scala/>
+
 by Lorenzo Ansaloni
 
-----
+---
 
 Scala Companion object pattern - object + trait pattern
 
-----
-
+---

@@ -1,10 +1,8 @@
 # shell zsh zshrc zprofile
 
-----
-
 |||iterm2 zsh |||zsh iterm2
 
-https://stackoverflow.com/questions/13476232/make-iterm2-launch-with-zsh
+<https://stackoverflow.com/questions/13476232/make-iterm2-launch-with-zsh>
 
 ```text
 Change your default shell to /bin/zsh by running the chsh -s /bin/zsh command.

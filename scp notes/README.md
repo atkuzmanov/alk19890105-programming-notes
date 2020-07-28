@@ -1,11 +1,8 @@
-# scp notes
-
-----
+# SCP notes
 
 |||scp
 
-http://www.hypexr.org/linux_scp_help.php
-
+<http://www.hypexr.org/linux_scp_help.php>
 
 Example syntax for Secure Copy (scp)
 
@@ -17,6 +14,7 @@ Examples
 
 Copy the file "foobar.txt" from a remote host to the local host
 
+```bash
 $ scp your_username@remotehost.edu:foobar.txt /some/local/directory
 Copy the file "foobar.txt" from the local host to a remote host
 
@@ -47,19 +45,20 @@ It is often suggested that the -C option for compression should also be used to 
 
 $ scp -c blowfish -C local_file your_username@remotehost.edu:~
 Contributions
+```
 
 Thanks Stewart Macleod for port example.
 
-----
+---
 
-scp aws
+|||scp aws
 
 Remote recursive copy scp ftp files from remote box
 
-scp -r 1.2.3.4,eu-west-1:/tmp/ ~/Downloads/
+`scp -r 1.2.3.4,eu-west-1:/tmp/ ~/Downloads/`
 
 Remote copy scp ftp files from remote box
 
-scp 1.2.3.4,eu-west-1:/path/to/remote/file /path/to/local/file
+`scp 1.2.3.4,eu-west-1:/path/to/remote/file /path/to/local/file`
 
-----
+---

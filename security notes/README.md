@@ -1,16 +1,12 @@
-# security notes
-
-----
-
-----
+# Security notes
 
 |||usb stick security |||usb memory stick security |||usb thumb drive security |||usb flash drive security |||usb key security |||security
 
 USB stick should conform to Standard FIPS Level II
 
-http://www.kingston.com/en/usb/encrypted_security#dt4000
+<http://www.kingston.com/en/usb/encrypted_security#dt4000>
 
-----
+---
 
 |||certificate
 |||security
@@ -20,8 +16,8 @@ http://www.kingston.com/en/usb/encrypted_security#dt4000
 |||storing a globalsign signing authority certificate's private key in a safe
 |||procedures for storing a globalsign signing authority certificate's private key in a safe
 
-
 (!) Transfer private key securely to the security team following instructions on https://example.com/instructions:
+
 - (!) If updating an existing Globalsign certificate, request the USB key from OTG, otherwise order a new secure USB key, answering to security requirements.
 – (!) Delete original encrypted keys from disk.
 – (!) Retrieve key, cert and intermediate cert from a Live instance.
@@ -30,9 +26,7 @@ http://www.kingston.com/en/usb/encrypted_security#dt4000
 - (!) Raise a SECUREKEY JIRA ticket as per instructions.
 – (!) Hand over the print out and USB key to whoever is responsible for storing it in a safe.
 
-
 Example security key form:
-
 
 Date added to safe:
 
@@ -61,8 +55,4 @@ The password for encrypted Private key is:
 
 To decrypt the USB device run the device software for relevant OS and enter device password.
 
-----
-----
-----
-----
-----
+---
