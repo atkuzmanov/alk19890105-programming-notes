@@ -1,5 +1,7 @@
-# vim notes
+# VIM notes
 
-## Vim Cheat Sheet
+## VIM Cheat Sheet
 
 https://vim.rtorr.com/
+
+---

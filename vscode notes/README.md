@@ -1,8 +1,6 @@
 # vscode notes
 
-----
-
-~/Library/Application\ Support/Code/User/settings.json
+`~/Library/Application\ Support/Code/User/settings.json`
 
 ```json
 {
@@ -16,9 +14,9 @@
 }
 ```
 
-----
+---
 
-~/Library/Application\ Support/Code/User/syncLocalSettings.json
+`~/Library/Application\ Support/Code/User/syncLocalSettings.json`
 
 ```json
 {
@@ -59,7 +57,7 @@
 }
 ```
 
-----
+---
 
 ```bash
 $ ls -la ~/.vscode/extensions/
@@ -95,9 +93,9 @@ drwxr-xr-x  15 akuzmanov  staff  480 Aug 26 11:14 vscjava.vscode-maven-0.18.2
 drwxr-xr-x  17 akuzmanov  staff  544 Aug 26 11:32 yzhang.markdown-all-in-one-2.4.2
 ```
 
-----
+---
 
-https://stackoverflow.com/questions/35368889/how-to-export-settings-of-visual-studio-code
+<https://stackoverflow.com/questions/35368889/how-to-export-settings-of-visual-studio-code>
 
 ```text
 With the current version of VSCode as of this writing (1.22.1), you can find your settings in
@@ -125,4 +123,4 @@ T.J. Crowder
 737k135135 gold badges13361336 silver badges1400
 ```
 
-----
+---
