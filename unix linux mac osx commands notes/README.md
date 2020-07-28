@@ -1,37 +1,8 @@
-# unix linux mac osx commands notes
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
+# Unix Linux Apple Mac OSX MacOS commands notes
 
-
-----
 |||symbolic links in terminal |||symlinks |||mac symlink |||linux symlink
 
-https://apple.stackexchange.com/questions/115646/how-can-i-create-a-symbolic-link-in-terminal
+<https://apple.stackexchange.com/questions/115646/how-can-i-create-a-symbolic-link-in-terminal>
 
 ```text
 ┌── ln(1) link, ln -- make links
@@ -46,8 +17,7 @@ ln -s /path/to/original /path/to/symlink
                   can use . or ~ or other relative paths
 ```
 
-
-----
+---
 
 |||mac commands
 |||system_profiler
@@ -61,7 +31,7 @@ system_profiler SPApplicationsDataType
 system_profiler
 ```
 
-----
+---
 
 ||find command
 |||unix commands
@@ -85,7 +55,8 @@ find ~/Desktop/Sample/ -type f
 
 find . -type f > ../files-all.txt
 ```
-----
+
+---
 
 |||unix commands
 |||linux commands
@@ -98,7 +69,7 @@ find . -type f > ../files-all.txt
 sudo
 ```
 
-----
+---
 
 |||unix commands
 |||linux commands
@@ -109,17 +80,13 @@ sudo
 |||networks
 |||networking
 
-lsof -i -P | grep -i "listen"
+`lsof -i -P | grep -i "listen"`
 
+`netstat -atp tcp | grep -i "listen"`
 
-netstat -atp tcp | grep -i "listen"
+`netstat -ap tcp`
 
-
-netstat -ap tcp
-
-
-whois 17.172.233.109
-
+`whois 17.172.233.109`
 
 |||network 
 |||networks
@@ -145,7 +112,7 @@ $ sudo killall -HUP mDNSResponder
 dig www.google.co.uk
 ```
 
-----
+---
 
 |||ps -ef
 |||kill
@@ -159,25 +126,25 @@ dig www.google.co.uk
 |||linux commands
 |||mac commands
  
-ps -ef|grep java
+`ps -ef|grep java`
 
-ps ax|grep -i java
+`ps ax|grep -i java`
 
-ps aux|grep java
+`ps aux|grep java`
 
-kill -kill 18237
+`kill -kill 18237`
 
-kill -9 18237
+`kill -9 18237`
 
-top
+`top`
 
-htop
+`htop`
 
-pgrep -f java
+`pgrep -f java`
 
-pkill -f java
+`pkill -f java`
 
-----
+---
 
 mac terminal count files in folder without ds_store
 
@@ -187,9 +154,7 @@ find . ! -name '.*' -type f | wc -l
 
 https://stackoverflow.com/questions/23325305/count-only-visible-files-in-directory
 
-
-----
-
+---
 
 |||unix commands
 
@@ -205,68 +170,55 @@ https://stackoverflow.com/questions/23325305/count-only-visible-files-in-directo
 
 |||list files in a directory
 
-```bash
-
 http://hints.macworld.com/article.php?story=20010508182132282
 
-$ cd directory_to_count
+```bash
+$cd directory_to_count
 
-$ ls | wc -l
+$ls | wc -l
+```
 
-###
-
-$ find / -print | wc -l
-
+```bash
+$find / -print | wc -l
+```
 
 https://askubuntu.com/questions/34099/find-number-of-files-in-folder-and-sub-folders
 
 To count files (even files without an extension) recursively from the root of the current directory, use:
 
-$ ls -lR | grep ^- | wc -l
+`$ ls -lR | grep ^- | wc -l`
 
-###
 
-$ find . -type f | wc -l
+`$ find . -type f | wc -l`
 
-###
 
-$ tree share/some/directory/ | tail -1
+`$ tree share/some/directory/ | tail -1`
 
 558 directories, 853 files
 
-$ tree -L 2 share/some/directory/ | tail -1
+`$ tree -L 2 share/some/directory/ | tail -1`
 
 120 directories, 3 files
 
+**recursively**
 
-### recursively
-
-tree -p share/some/directory/ | tail -1
-
+`tree -p share/some/directory/ | tail -1`
 
 http://hints.macworld.com/article.php?story=20020410125219343
 
-$ find "Stuff/" \! -name ".*" | wc -l
-```
-
+`$ find "Stuff/" \! -name ".*" | wc -l`
 
 |||bash count files |||mac count files |||linux count files |||count files
 
-
 https://askubuntu.com/questions/34099/find-number-of-files-in-folder-and-sub-folders
-
 
 http://hints.macworld.com/article.php?story=20010508182132282
 
-
 https://stackoverflow.com/questions/12656427/count-number-of-specific-file-type-of-a-directory-and-its-sub-dir-in-mac
-
 
 https://stackoverflow.com/questions/7058273/how-do-i-get-bash-on-os-x-lion-to-ignore-ds-store-files-during-tab-completion
 
-
 https://discussions.apple.com/thread/5309983
-
 
 ```bash
 142 files + directories + .DS_Store + .localized
@@ -329,8 +281,7 @@ find ~/Downloads/ \( ! -regex '.*/\..*' \) -type f | wc -l
 
 ```
 
-
-----
+---
 
 ||mac remove extended metadata
 |||where from metadata
@@ -341,22 +292,24 @@ find ~/Downloads/ \( ! -regex '.*/\..*' \) -type f | wc -l
 
 https://stackoverflow.com/questions/4833052/how-do-i-remove-the-extended-attributes-on-a-file-in-mac-os-x
 
+```bash
 $ xattr s.7z
 com.apple.metadata:kMDItemWhereFroms
 com.apple.quarantine
 
-and use the -d option to delete one extended attribute:
+# and use the -d option to delete one extended attribute:
 $ xattr -d com.apple.quarantine s.7z
 $ xattr s.7z
 com.apple.metadata:kMDItemWhereFroms
 
-you can also use the -c option to remove all extended attributes:
+# you can also use the -c option to remove all extended attributes:
 $ xattr -c s.7z
 $ xattr s.7z
 
-xattr -h will show you the command line options
+xattr -h will # show you the command line options
+```
 
-----
+---
 
 |||linux disk space
 |||mac disk space
@@ -507,16 +460,16 @@ Note : In case you are not familiar with pipes (which is used in the above comma
 There are a few more options that can be used with 'du' and 'df' . You could find them in the man pages.
 ```
 
-----
+---
 
 |||unix commands
 |||linux commands
 |||mac commands
 |||list linux users
 
-cat /etc/passwd
+`cat /etc/passwd`
 
-----
+---
 
 |||unix commands
 |||linux commands
@@ -528,7 +481,7 @@ chmod +w /usr/local/bin
 
 chmod 644 = -rw-r--r--
 
-chmod 600 = -rw-------
+chmod 600 = -rw------
 
 chmod 777 = xrwxrwxrw
 
@@ -537,6 +490,7 @@ chmod -R 777 = xrwxrwxrw
 
 https://www.maketecheasier.com/file-permissions-what-does-chmod-777-means/
 
+```text
 0 - no permission
 1 - execute
 2 - write
@@ -545,17 +499,18 @@ https://www.maketecheasier.com/file-permissions-what-does-chmod-777-means/
 5 - read and execute
 6 - read and write
 7 - read, write, and execute
+```
 
-----
+---
 
 |||unix commands
 |||linux commands
 |||mac commands
 |||chown
 
-sudo chown -R $(whoami):admin /usr/local
+`sudo chown -R $(whoami):admin /usr/local`
 
-----
+---
 
 |||unix commands
 |||linux commands
@@ -563,6 +518,7 @@ sudo chown -R $(whoami):admin /usr/local
 |||ls
 |||list directory
 
+```bash
 ls
 
 ls -a
@@ -572,8 +528,9 @@ ls -la
 ls -hal
 
 ls -halt
+```
 
-----
+---
 
 |||unix directory depth filename path limits
 |||linux directory depth filename path limits
@@ -635,10 +592,9 @@ edited Jan 15 '12 at 11:52
 answered Jan 13 '12 at 6:04
 
 Mat
-
 ```
 
-----
+---
 
 |||unix commands
 |||linux commands
@@ -663,7 +619,7 @@ LC_ALL="en_GB.UTF-8"
 $ export LC_ALL=en_GB.UTF-8
 ```
 
-----
+---
 
 |||unix commands
 |||linux commands
@@ -729,7 +685,7 @@ Links:
 http://curl.haxx.se/docs/mk-ca-bundle.html
 http://curl.haxx.se/docs/caextract.html
 
-----
+---
 
 |||curl bypass proxies
 
@@ -737,7 +693,7 @@ http://curl.haxx.se/docs/caextract.html
 export NO_PROXY=localhost,127.0.0.1,127.0.0.0/8,::1,192.168.59.103,sandbox.dev.example.co.uk
 ```
 
-----
+---
 
 |||curl with parameters and verb
 
@@ -760,6 +716,7 @@ curl --cert /etc/pki/tls/certs/client.crt --key /etc/pki/tls/private/exampleKey.
 ```bash
 curl -v --proxy http://www-example.proxy.com:80/ --cacert /etc/pki/tls/example-ca.pem --cert /Volumes/example/dir/example-cert.cert --key /Volumes/example/dir/example-key.key https://example.com
 ```
+
 ```bash
 curl -i -v -X GET \
   -x 'http://www-example.proxy.com:80' \
@@ -770,7 +727,7 @@ curl -i -v -X GET \
   --capath '/etc/pki/'
 ```
 
-----
+---
 |||curl loop script
 
 ```bash
@@ -816,7 +773,7 @@ do
 done
 ```
 
-----
+---
 
 |||curl watch |||watch curl
 
@@ -828,7 +785,7 @@ curl -i GET \
  'http://example.com/example/path'
 ```
 
-----
+---
 
 |||curl formatted output
 |||curl formatted time output
@@ -846,7 +803,7 @@ Create a new file, curl-format.txt, and paste in:
    time_pretransfer:  %{time_pretransfer}\n
       time_redirect:  %{time_redirect}\n
  time_starttransfer:  %{time_starttransfer}\n
-                    ----------\n
+                    --------\n
          time_total:  %{time_total}\n
 ```
 
@@ -871,7 +828,7 @@ What this does:
 "http://wordpress.com/" is the URL we are requesting. Use quotes particularly if your URL has "&" query string parameters
 ```
 
-----
+---
 
 |||wget
 |||bash http https request maker
@@ -888,7 +845,7 @@ wget -qO- "https://example.com/example/path" --ca-certificate="/etc/pki/example_
 wget -O- -v -d "https://example.com/example/path" --no-check-certificate
 ```
 
-----
+---
 
 |||bash |||bash script |||bashscript
 |||bash concurrency |||bash script concurrency |||bashscript concurrency
@@ -905,7 +862,7 @@ https://stackoverflow.com/questions/3002493/bash-how-to-simply-parallelize-tasks
 find . -iname "*png" -print0 | xargs -P 4 -n 2 pngout
 ```
 
-----
+---
 
 |||bash
 |||bash script
@@ -1009,27 +966,4 @@ Segmentation fault in bash script using find, grep, sed
 
 UPDATE #2: So apparently sed doesn't support non greedy matching, which makes part of my answer invalid. There are ways around this, but I will not include them here as it's far removed from the original question. The answer to this question is using the --disable-stack-for-recursion flag as described below.
 
-----
-
-
-
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-----
-
-
-
-
-
-
+---

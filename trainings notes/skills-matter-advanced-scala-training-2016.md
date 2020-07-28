@@ -1,12 +1,9 @@
-# skills matter advanced scala training 2016-05-23
-
-----
+# Skills Matter Advanced Scala Training 2016-05-23
 
 |||training
 |||skills matter - advanced scala - 2016-05-23
 |||skillsmatter - advanced scala - 2016-05-23
 |||advanced scala - 2016-05-23
-
 
 Look into Scala collection library.
 
@@ -14,9 +11,10 @@ Every object is a singleton.
 
 For expressions and for loops require obj to have map, flatmap and filter.
 
+```scala
 val l = List(1,2,3)
 for {j <- l} // j <- l is a generator
-
+```
 
 Can override a def with a val, but cannot override a val with a def because it's supposed to be immutable.
 
@@ -24,19 +22,15 @@ Always write out "override" when overriding, it protects from errors.
 
 Databricks code style guides standards.
 
-
 //Todo: Article trait linearisation
-
 
 Traits that come last have higher importance, mixing order is important.
 
-
+```scala
 case valueOfX @ x => 1 + valueOfX // @ captures the value in a local variable
-
-
+```
 
 ---
-
 
 partial function ?!
 
@@ -50,10 +44,9 @@ zip ?!
 
 covariance contravariance ?!
 
-
 ---
 
-
+```scala
 import scala.collection.immutable.Seq
 
 
@@ -65,10 +58,11 @@ import scala.collection.immutable.Seq
 
     true
   }
-
+```
 
 ---
 
+```scala
   import scala.collection.immutable.Seq
   def isIncreasing(times: Seq[Time]): Boolean = {
     times match {
@@ -77,10 +71,11 @@ import scala.collection.immutable.Seq
       case _ +: Nil => true // only one time
     }
   }
-
+```
 
 ---
 
+```scala
 package misc
 
 object Recurse {
@@ -107,29 +102,28 @@ object Recurse {
     }
   }
 }
-  
+```
 
 ---
 
-
+```scala
   def isIncreasingSliding(times: Seq[Time]): Boolean = {
     times.sliding(2).forall {
       case t1 +: t2 +: Nil => t1 < t2
       case _ => true
     }
   }
-
+```
 
 ---
 
-
+```scala
 val backToBackStations: Seq[(Station, Station)] = stations zip stations.tail
-
-
+```
 
 ---
 
-
+```scala
 val departureTimes: Map[Station, Time] = (schedule map { schedule => (schedule._2, schedule._1)}).toMap
 
   val departureTimes: Map[Station, Time] =
@@ -139,13 +133,11 @@ val departureTimes: Map[Station, Time] = (schedule map { schedule => (schedule._
 //    schedule.map{ _.swap}.toMap
 //    schedule.map{ _.swap}(breakOut)
     schedule.map{ _.swap}.toMap
-
-
+```
 
 ---
 
-
-
+```scala
 package misc
 
 import scala.collection.immutable.Seq
@@ -185,16 +177,11 @@ class Queue[+A] private (private val elements: Seq[A]) {
 //    s"Queue(${elements.mkString(", ")}})"
   elements.mkString("Queue: (", ", ", ")")
 }
+```
 
+---
 
-
-
-
---
-
-
-
-
+```scala
 package misc
 
 object Equals {
@@ -205,5 +192,6 @@ object Equals {
     }
   }
 }
+```
 
-----
+---
