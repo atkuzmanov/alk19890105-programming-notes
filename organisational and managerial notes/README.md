@@ -1,6 +1,4 @@
-# organisational and managerial notes
-
-----
+# Organisational and Managerial notes
 
 |||strategy structure
 |||it strategy
@@ -12,15 +10,12 @@ How-To
 Progress So Far
 Next steps
 
-
-----
+---
 
 |||rfc
 |||ietf
 |||key words for use in rfcs RFCs to indicate requirement Levels
 
-https://www.ietf.org/rfc/rfc2119.txt
+<https://www.ietf.org/rfc/rfc2119.txt>
 
-----
-
-
+---

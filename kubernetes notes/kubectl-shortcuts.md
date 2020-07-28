@@ -1,6 +1,7 @@
 # kubectl-shortcuts.md
 
-## References
+> References
+
 https://gist.github.com/tamas-molnar/32a07c0eb83e95484e3cdb4b7fada32b
 
 ```bash
@@ -151,3 +152,4 @@ function kcready() {
         done
 }
 ```
+---

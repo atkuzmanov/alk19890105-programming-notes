@@ -1,5 +1,4 @@
-
-----
+# Random notes
 
 |||descartes square decision making
 |||eisenhower matrix urgent versus important decision making
@@ -7,28 +6,30 @@
 |||decision making
 
 Descartes Square decision making:
-https://wbcuk.wordpress.com/2017/04/07/descartes-square-a-popular-decision-making-technique/
-http://www.gnezdoto.net/promeni-sebe-si-promeni-jivota-si/2578-kvadratyt-na-dekart-lesna-i-efektivna-tehnika-za-vzemane-na-reshenia
+
+<https://wbcuk.wordpress.com/2017/04/07/descartes-square-a-popular-decision-making-technique/>
+
+<http://www.gnezdoto.net/promeni-sebe-si-promeni-jivota-si/2578-kvadratyt-na-dekart-lesna-i-efektivna-tehnika-za-vzemane-na-reshenia>
 
 1. What if this happens?
 2. What if this doesn’t happen?
 3. What will happen if this happens?
 4. What won’t happen if this doesn’t happen?
 
-
 |||eisenhower matrix decision making
 |||eisenhower method
 |||decision making
 
 Eisenhower Matrix (Urgent vs. Importnat) decision making:
-https://crew.co/blog/urgent-vs-important/
+
+<https://crew.co/blog/urgent-vs-important/>
 https://en.wikipedia.org/wiki/Time_management#The_Eisenhower_Method
 
 ```text
 					Urgent 	|	Not Urgent
 Important 					|
 							|
---------------------------------------------
+----------------------------------
 							|
 Not Important 				|
 ```
@@ -47,7 +48,7 @@ Unimportant/Urgent quadrant are delegated[12] e.g. interruptions, meetings, acti
 Unimportant/Not Urgent quadrant are dropped[12] e.g. time wasters, pleasant activities, trivia.[11]
 This method is said to have been used by U.S. President Dwight D. Eisenhower.[12]
 
-----
+---
 
 |||abbreviations
 |||съкращения
@@ -62,7 +63,7 @@ WYSIWYG = what-you-see-is-what-you-get
 
 MVP = Minimum viable product
 
-----
+---
 
 |||explanations
 |||terms
@@ -71,17 +72,20 @@ MVP = Minimum viable product
 Ephemeral storage eg. a RAM disk.
 
 
-Soft launch - rolling out something to production, but it is not linked or advertised anywhere, so unless you know the link it will not be visible. The release of a new product or service to a restricted audience or market in advance of a full launch. (https://www.google.co.uk/search?q=soft+launch+meaning&oq=soft+launch+meaning&aqs=chrome..69i57j0l3.7252j0j1&sourceid=chrome&ie=UTF-8)
+Soft launch - rolling out something to production, but it is not linked or advertised anywhere, so unless you know the link it will not be visible. The release of a new product or service to a restricted audience or market in advance of a full launch. 
 
-----
+<https://www.google.co.uk/search?q=soft+launch+meaning&oq=soft+launch+meaning&aqs=chrome..69i57j0l3.7252j0j1&sourceid=chrome&ie=UTF-8>
+
+---
 
 |||quotes
 
-"One is All, and All is One." -Fullmetal Alchemist 
+"One is The All." - Cleopatra the Alchemist, The Chrysopoeia of Cleopatra, Ouroboros
 
-"K.I.S.S. = Keep It Simple Stupid" -Kelly Johnson
+"K.I.S.S. = Keep It Simple Stupid" - Kelly Johnson
 
-"If I had asked people what they wanted, they would have said faster horses." -Henry Ford, an American industrialist, the founder of the Ford Motor Company, and the sponsor of the development of the assembly line technique of mass production.
+"You need to rescue the princess with code - but sometimes your code doesn't work and the princess is a dragon and you're a fish. Welcome to programming" - <https://toggl.com/programming-princess/>
 
-----
+"If I had asked people what they wanted, they would have said faster horses." - Henry Ford, an American industrialist, the founder of the Ford Motor Company, and the sponsor of the development of the assembly line technique of mass production.
 
+---

@@ -1,21 +1,17 @@
-# presentations
+# Presentation/Presentations notes
 
-----
-
-
-----
 |||presentations
 |||presentation technologies
 
-https://slides.com/
+<https://slides.com/>
 
-----
+---
 |||presentations
 |||Hype Driven Development
 
-https://blog.daftcode.pl/hype-driven-development-3469fc2e9b22#.kl6u92o04
+<https://blog.daftcode.pl/hype-driven-development-3469fc2e9b22#.kl6u92o04>
 
-----
+---
 
 |||presentations
 |||acceptance tests infrastructure
@@ -36,5 +32,4 @@ All of the above seem to come across as signals that we are putting too much eff
 
 We should maybe assume that our external dependencies are tested by the relevant parties and maybe we should investigate if we can implement unit tests which can provide us with sufficient confidence.
 
-----
-
+---

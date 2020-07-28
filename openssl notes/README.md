@@ -1,8 +1,4 @@
-
-----
-
-
-----
+# OpenSSL notes
 
 |||openssl
 |||verify cert expiry 
@@ -12,7 +8,7 @@
 openssl x509 -enddate -noout -in file.pem
 ```
 
-----
+---
 
 |||crt to pem
 |||certificate to pem
@@ -21,14 +17,14 @@ openssl x509 -enddate -noout -in file.pem
 openssl x509 -inform DES -in yourdownloaded.crt -out outcert.pem -text
 ```
 
-----
+---
 
 |||read a certificate
 |||check a certificate
 
 openssl x509 -in certificate.crt -text -noout
 
-https://serverfault.com/questions/215606/how-do-i-view-the-details-of-a-digital-certificate-cer-file
+<https://serverfault.com/questions/215606/how-do-i-view-the-details-of-a-digital-certificate-cer-file>
 
 OpenSSL will allow you to look at it if it is installed on your system.
 
@@ -55,15 +51,13 @@ answered Dec 23 '10 at 9:38
 Helvick
 
 
+<http://stackoverflow.com/questions/15144046/converting-pkcs12-certificate-into-pem-using-openssl>
 
-http://stackoverflow.com/questions/15144046/converting-pkcs12-certificate-into-pem-using-openssl
+<http://www.preshweb.co.uk/2010/12/checkchange-key-passphrase-with-openssl/>
 
-http://www.preshweb.co.uk/2010/12/checkchange-key-passphrase-with-openssl/
+<http://serverfault.com/questions/628921/how-do-i-know-if-pem-is-password-protected-using-ssh-keygen>
 
-http://serverfault.com/questions/628921/how-do-i-know-if-pem-is-password-protected-using-ssh-keygen
-
-
-----
+---
 
 |||certificate get cname subject info etc
 |||certificate openssl
@@ -77,7 +71,7 @@ ssh $host 'openssl pkcs12 -in /etc/pki/tls/private/example-certificate.p12 -node
 #| sed 's/\//\n/g'
 ```
 
-----
+---
 
 |||certificate
 |||security
@@ -94,7 +88,7 @@ openssl x509 -inform der -in intermediate.crt -out intermediate.pem
 openssl base64 -in intermediate.pem -out intermediate-base64.txt
 ```
 
-----
+---
 
 |||keytool
 |||certificate
@@ -108,5 +102,4 @@ keytool -list -keystore /path/to/truststore/or/keystore
 keytool -list -keystore 1.p12 -storetype pkcs12 -v
 ```
 
-----
-
+---
