@@ -58,6 +58,11 @@ you can call
 git gc --aggressive --prune
 
 , which will perform garbage collection in your repository and prune old objects. do you have a lot of binary files (archives, images, executables) which change often? those usually lead to huge .git folders (remember, git stores snapshots for each revision and binary files compress badly)
+
+--
+
+Actually, git gc --aggressive is considered to be bad practice. It's better to use git repack -a -d --depth=250 --window=250.
+
 ```
 
 > References
@@ -74,6 +79,22 @@ git reflog expire --all --expire=now
 git gc --prune=now --aggressive
 
 An even more complete, and possibly dangerous, solution is [to remove unused objects from a git repository](https://stackoverflow.com/questions/3797907/how-to-remove-unused-objects-from-a-git-repository/14729486#14729486)
+
+--
+
+In my case, I pushed several big (> 100Mb) files and then proceeded to remove them. But they were still in the history of my repo, so I had to remove them from it as well.
+
+What did the trick was:
+
+bfg -b 100M  # To remove all blobs from history, whose size is superior to 100Mb
+git reflog expire --expire=now --all
+git gc --prune=now --aggressive
+Then, you need to push force on your branch:
+
+git push origin <your_branch_name> --force
+Note: bfg is a tool that can be installed on Linux and macOS using brew:
+
+brew install bfg
 ```
 
 > References
