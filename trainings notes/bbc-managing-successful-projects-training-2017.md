@@ -445,37 +445,44 @@ Develop plans to engage with them and ensure positive support, and make sure you
 
 ---
 
-Course Notes:
+## Course Notes:
 
 - MOSCOW
+
+```text
 M - must have
 O - ------------
 S - should have
 C - could have
 O - ------------
 W - won't have
+```
 
 - Iron triangle
 
+```text
    Quality
    / \
   /   \
  /_____\
 Time    Cost
+```
 
 Change on any of these can/will compromise the other ones.
 Pin these down!
 
-
 - RACI matrix
 
+```text
 R - responsible (allowed multiple)
 A - accountable (only 1)
 C - consulted
 I - informed
-
+```
 
 - Governance
+
+```text
    ______________
    | Governance |
    --------------
@@ -484,50 +491,58 @@ Why?     /PO\ Risk^; Responsible; Accountable;
 What?   / PM \
 What?  / TEAM \
        --------
+```
 
+```text
 Board
-
 
 Sponsor
 
-
 Manager
 
-
 Team
+```
 
 - PID - Project Initiation Document
 
-SMART objectives
-S.M.A.R.T. objectives
+    SMART objectives
+    S.M.A.R.T. objectives
 
-S - specific
-M - measurable
-A - achievable
-R - relevant
-T - time bound
+    ```text
+    S - specific
+    M - measurable
+    A - achievable
+    R - relevant
+    T - time bound
+    ```
 
--- PID do s:
+  - PID do s:
 
-S.M.A.R.T. objectives template 
+    S.M.A.R.T. objectives template
 
-To [improve/increase/reduce] something
+    To [improve/increase/reduce] something
 
-By/To: [amount/level]
+    By/To: [amount/level]
 
-By: dd/mm/yyyy
+    By: dd/mm/yyyy
 
+  - PID don't s:
 
--- PID don't s:
-Ongoing
-By Qtr 3
-By Autumn
-Maximise/Minimise/Optimise
-Subject to
-By Year end
+    Ongoing
+
+    By Qtr 3
+
+    By Autumn
+
+    Maximise/Minimise/Optimise
+
+    Subject to
+
+    By Year end
 
 - Project team development stages
 
+```text
 ----------------------------------------
 |---Focus---| Task     | Relationships |
 ----------------------------------------
@@ -541,93 +556,102 @@ By Year end
 ----------------------------------------
 |Adjourning |    Low   |     Low       | - Celebrations
 ----------------------------------------
+```
 
 - DSPIM
 
+```text
 D - define
 S - shape
 P - plan
 I - implement
 M - monitor
-
+```
 
 - Stakeholders
 
-Stakeholder maps. (Keep these private, don't put them anywhere public, they can be judgemental.)
+    Stakeholder maps. (Keep these private, don't put them anywhere public, they can be judgemental.)
 
-Make them your friends early.
+    Make them your friends early.
 
-Tap their brains and experience.
+    Tap their brains and experience.
 
+  - Customers & Users
 
-* Customers & Users
-Consult
-Inform
+    Consult
 
+    Inform
 
-* Key Stakeholders
-Engage - F2F 1:1 frequent.
-Email - not desirable.
+  - Key Stakeholders
 
+    Engage - F2F 1:1 frequent.
 
-* Gatekeepers & Authorisers
-Satisfy
+    Email - not desirable.
 
+  - Gatekeepers & Authorisers
 
-* Disinterested bystanders
-Buy them lunch & coffee and tap their brains and experience.
-Or ignore them.
+    Satisfy
 
+  - Disinterested bystanders
+
+    Buy them lunch & coffee and tap their brains and experience.
+
+    Or ignore them.
 
 - Meetings
 
-*Note:
-!!! Final Agenda Item - Next steps & actions
-| Action/Decision | Who | When |
+    **Note:**
+    !!! Final Agenda Item - Next steps & actions
 
--- Retrospectives
--- Check-ins
--- Catch-ups
--- Workshops
+    ```text
+    | Action/Decision | Who | When |
+    ```
 
+  - Retrospectives
+  - Check-ins
+  - Catch-ups
+  - Workshops
 
 - Benefits
 
--- Benefit categories
---- Costs avoided
---- Efficiency
---- Income generating
---- Audience
---- Risk avoidance
---- Environment and sustainability
---- Competitive advantage (maintaining position)
---- Creative divident
+    Benefit categories
+
+  - Costs avoided
+  - Efficiency
+  - Income generating
+  - Audience
+  - Risk avoidance
+  - Environment and sustainability
+  - Competitive advantage (maintaining position)
+  - Creative divident
 
 Disbenefit - "a part of the audience will be annoyed."
 
-
 - Critical success factor
 
+```text
 J.F. Kennedy: "Be the first to send a man on the moon, and bring him back safely."
                |____________________________________| |__________________________|
                              Target                      Critical success factor
-
+```
 
 - Method
 
--- Waterfall
-Move to a new building.
+  - Waterfall
 
--- Agile/Scrum/Kanban
-A 10 week project for new functionality.
+    Move to a new building.
 
--- Prince 2 - waterfall
-If there is a dependency then there is a risk.
+  - Agile/Scrum/Kanban
 
+    A 10 week project for new functionality.
+
+  - Prince 2 - waterfall
+
+    If there is a dependency then there is a risk.
 
 - Planning hierarchy and tools
 
-
+```text
       /\ Project definition - Project Initiation Document (PID);
      /  \
     /    \ Tasks and Milestones - Work Breakdown Structure; Milestone Plan;
@@ -635,22 +659,23 @@ If there is a dependency then there is a risk.
   /        \ Time-scales and Dependencies - Gantt Chart;
  /          \
 /____________\ Activities and Resources - Budget; Resource Plan;
-
+```
 
 - AOB = Any Other Business
 
-
 - People do what you inspect, not what you expect.
 
-
 - Gantt chart - get it off the chart and into people's calendars, otherwise it's just fantasy.
--- No bar longer than a week on a Gantt chart.
--- Percent plan completed
--- Percent plan started
-
+  
+  - No bar longer than a week on a Gantt chart.
+  
+  - Percent plan completed
+  
+  - Percent plan started
 
 - Buffered Plan
 
+```text
 ^
 |0					   		 100    			100
 |------------------------------------------------
@@ -659,40 +684,54 @@ If there is a dependency then there is a risk.
 |						      |			        |
 |-----------------------------|-----------------|---->
                             Soft     Buffer    Hard
+```
 
 - Agile
 
--- Scrum is time-based.
+  - Scrum is time-based.
 
--- Kandban is resource-based.
+  - Kandban is resource-based.
 
--- Simple agile board
+ - Simple agile board
+
+```text
 -------------------------
 | To do: | WIP: | Done: |
 -------------------------
 |		 |      |       |
 -------------------------
-
+```
 
 - Risk management
 
--- Risk Management Cycle
-Implement->Identify->Assess->Plan->Implement
+  - Risk Management Cycle
 
--- Risk matrix / Risk log
-Be specific
-"There is a risk that 'this happens'/'doesn't happen'..."
+    `Implement->Identify->Assess->Plan->Implement`
 
-Risk/Potential - description
-Likely-hood - 1-5
-Severity - 1-5
-Overall Risk - High
-Preventative Actions/Contingency Plans - Early testing./Schedule check-ins.
+  - Risk matrix / Risk log
 
-Pareto principle
-https://en.wikipedia.org/wiki/Pareto_principle
+    Be specific:
+    "There is a risk that 'this happens'/'doesn't happen'..."
+
+```text
+    Risk/Potential - description
+
+    Likely-hood - 1-5
+
+    Severity - 1-5
+
+    Overall Risk - High
+
+    Preventative Actions/Contingency Plans - Early testing. / Schedule check-ins.
+```    
+
+**Pareto principle**
+
+<https://en.wikipedia.org/wiki/Pareto_principle>
+
+```text
 The Pareto principle (also known as the 80/20 rule, the law of the vital few, or the principle of factor sparsity) states that, for many events, roughly 80% of the effects come from 20% of the causes.
-
+```
 
 - Communications planning
 
@@ -702,38 +741,36 @@ Define comms objectives -> Develop key msgs -> Select delivery channels -> Plan 
 
 Google: 50 ways to communicate your project.
 
-
 - Review
 
 End gate review
-
 
 - Implementation
 
 Cycle:
 Implement (do work) -> Measure progress (Q, C, T) -> Identify issues and risks -> Take corrective action (fix it) -> Implement (do work)
 
-
 - Change management
 
 - Iron triangle
 
+```text
    Quality
    / \
   /   \
  /_____\
 Time    Cost
+```
 
 A change to any one of these three dimensions will have an impact on the others.
 
 Change Control assesses the potential impacts on the project's viability.
 
-
 - RAG = Red Amber Green
-
 
 - Weekly ABCD (~30 min)
 
+```text
 A.
 Achieved... who... cost... person/days resources... RAG...
 
@@ -751,106 +788,136 @@ Do next who... cost... person/days resources... RAG...
 Send out Thursday afternoon, so they have Friday to come back to you.
 
 D. - Getting it off the Gantt chart & into people's calendars.
+```
 
 Boosts morale.
+
 Brag to line manager.
 
-
-- Communication 
+- Communication
 
 Make it really black and white:
 "If I don't hear back from you, this ... is going to happen."
 
-
 - Communication behaviours
 
--- Assertive - Good
-= Inform
-= Persuade
-= Direct
-* Tackle: 
-If I heard you correctly.; Help me better understand this.;
+  - Assertive - Good
 
--- Responsive - Good
-= Question
-= Listen
-= Summarise
+    - Inform
 
--- Aggressive - Bad
-= Attack
-= Dominate
-= Threaten
-* Tackle:
-Let them off load.
+    - Persuade
 
--- Passive - Bad
-= Withdraw
-= Silent
-= Apologise
+    - Direct
 
-* Escalate, use the system, use the process, document.
+    - Tackle:
+  
+        ```text
+        If I heard you correctly.
 
+        Help me better understand this.
+        ```
+
+  - Responsive - Good
+
+    - Question
+
+    - Listen
+
+    - Summarise
+
+  - Aggressive - Bad
+
+  - Attack
+  
+  - Dominate
+  
+  - Threaten
+
+  - Tackle:
+
+    ```text
+    Let them off load and do not let them get to you.
+    ```
+
+  - Passive - Bad
+
+    - Withdraw
+
+    - Silent
+
+    - Apologise
+
+    - Escalate, use the system, use the process, document.
 
 - Rudyard Kipling wrote a short poem outlining a powerful set of questions:
 
 |||rudyard kipling
 |||Five Ws, Five Ws and One H, 5W1H, or Six Ws
 
-I keep six honest serving men
-(They taught me all I knew);
-Their names are What and Why and When
-And How and Where and Who.
-- Rudyard Kipling
+> "I keep six honest serving men
+>
+> (They taught me all I knew);
+>
+> Their names are What and Why and When
+>
+> And How and Where and Who."
+> -- Rudyard Kipling
 
+```text
 What
 Why
 When
 How
 Where
 Who
-
+```
 
 - Project Owners/Sponsors don't like hearing problems, but solutions.
-This happened, but I have 3 solutions, my recommendation is this...
 
+> This happened, but I have 3 solutions, my recommendation is this...
 
 - Handing over and closing a Project
 
--- Archiving?!?!?! Legal and data protection!!!
-
+  - `Archiving?!?!?!`
+  - `Legal and data protection!!!`
 
 - Resources / Links:
 
-https://ianjseath.wordpress.com/2014/10/19/my-favourite-project-management-resources-on-a-trello-board/
+<https://ianjseath.wordpress.com/2014/10/19/my-favourite-project-management-resources-on-a-trello-board/>
 
-https://trello.com/
+<https://trello.com/>
 
 PMO on LinkedIn
 
 APM - Association of Project Managers Certification
-https://www.apm.org.uk/qualifications-and-training/
+<https://www.apm.org.uk/qualifications-and-training/>
 
-http://www.post-it.com/3M/en_US/post-it/ideas/plus-app/
+<http://www.post-it.com/3M/en_US/post-it/ideas/plus-app/>
 
-https://www.wunderlist.com/
+<https://www.wunderlist.com/>
 
 |||mind map
 |||chart tools
 |||diagram tools
-https://www.omnigroup.com/omnigraffle/
-https://www.mindjet.com/
-https://products.office.com/en-gb/visio/flowchart-software?tab=tabs-1
-https://itunes.apple.com/gb/app/ithoughts-mindmap/id866786833?mt=8
+
+<https://www.omnigroup.com/omnigraffle/>
+
+<https://www.mindjet.com/>
+
+<https://products.office.com/en-gb/visio/flowchart-software?tab=tabs-1>
+
+<https://itunes.apple.com/gb/app/ithoughts-mindmap/id866786833?mt=8>
 
 |||milestone tools
-Powerpoint + office timeline addon plugin
-https://www.officetimeline.com/
 
+Powerpoint + office timeline addon plugin
+<https://www.officetimeline.com/>
 
 |||quiz cloud based
 |||online quiz
-https://kahoot.it/
 
-http://changingminds.org/techniques/questioning/kipling_questions.htm
+<https://kahoot.it/>
+
+<http://changingminds.org/techniques/questioning/kipling_questions.htm>
 
 ---
