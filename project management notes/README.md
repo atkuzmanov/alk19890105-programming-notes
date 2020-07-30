@@ -4,6 +4,16 @@
 |||technical project management
 
 ---
+|||project management
+|||good practices
+|||good working environment
+
+> "re:Work is a collection of practices, research, and ideas from Google and others to help you put people first."
+>
+> References
+> <https://rework.withgoogle.com/>
+
+---
 
 |||project wash up
 |||project wash-up
@@ -47,5 +57,19 @@
 - Actions
 
 - Links
+
+---
+|||meetings
+
+- `tech feasibility meetings`
+
+- `kick off meetings`
+
+---
+|||quotes
+
+> "I found in my business that choosing the right individual for the job has made the difference between success and failure.
+>
+> I try to surround myself with people who complement my skills, or are just plain better at certain jobs." - Unknown
 
 ---
