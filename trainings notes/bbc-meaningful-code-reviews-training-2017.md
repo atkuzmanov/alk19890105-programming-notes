@@ -485,7 +485,7 @@ Checks the risk of encountering critical vulnerabilities that damage the busines
 Checks adaptability, portability and transferability between teams
 ```
 
-/*--------------------------------*/
+---
 
 |||code review
 |||security code review checklist
