@@ -15,6 +15,162 @@
 
 ---
 
+||| How do I undo the most recent local commits in Git?
+
+> References
+> <https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git>
+
+```text
+Undo a commit and redo
+
+$ git commit -m "Something terribly misguided"             # (1)
+$ git reset HEAD~                                          # (2)
+
+<< edit files as necessary >>                              # (3)
+
+$ git add ...                                              # (4)
+$ git commit -c ORIG_HEAD                                  # (5)
+
+This is what you want to undo.
+This does nothing to your working tree (the state of your files on disk), but undoes the commit and leaves the changes you committed unstaged (so they'll appear as "Changes not staged for commit" in git status, so you'll need to add them again before committing). If you only want to add more changes to the previous commit, or change the commit message1, you could use git reset --soft HEAD~ instead, which is like git reset HEAD~2 but leaves your existing changes staged.
+Make corrections to working tree files.
+git add anything that you want to include in your new commit.
+Commit the changes, reusing the old commit message. reset copied the old head to .git/ORIG_HEAD; commit with -c ORIG_HEAD will open an editor, which initially contains the log message from the old commit and allows you to edit it. If you do not need to edit the message, you could use the -C option.
+Beware, however, that if you have added any new changes to the index, using commit --amend will add them to your previous commit.
+
+If the code is already pushed to your server and you have permissions to overwrite history (rebase) then:
+
+git push origin master --force
+You can also look at this answer:
+
+How can I move HEAD back to a previous location? (Detached head) & Undo commits
+
+The above answer will show you git reflog, which is used to find out what is the SHA-1, which you wish to revert. Once you found the point to which you want to undo to use the sequence of commands as explained above.
+
+1 Note, however, that you don't need to reset to an earlier commit if you just made a mistake in your commit message. The easier option is to git reset (to unstage any changes you've made since) and then git commit --amend, which will open your default commit message editor pre-populated with the last commit message.
+
+2 HEAD~ is the same as HEAD~1. Also, see What is the HEAD in git?. It's helpful if you want to uncommit multiple commits.
+
+share  edit  follow  flag 
+edited Mar 26 at 10:33
+community wiki
+42 revs, 35 users 17%
+Mark Amery
+480
+
+And if the commit was to the wrong branch, you may git checkout theRightBranch with all the changes stages. As I just had to do. – Frank Shearar Oct 5 '10 at 15:44
+496
+
+If you're working in DOS, instead of git reset --soft HEAD^ you'll need to use git reset --soft HEAD~1. The ^ is a continuation character in DOS so it won't work properly. Also, --soft is the default, so you can omit it if you like and just say git reset HEAD~1. – Ryan Lundy Apr 13 '11 at 14:15
+124
+
+zsh users might get: zsh: no matches found: HEAD^ - you need to escape ^ i.e. git reset --soft HEAD\^ – tnajdek Feb 21 '13 at 17:47 
+9
+
+The answer is not correct if, say by accident, git commit -a was issued when the -a should have been left out. In which case, it's better no leave out the --soft (which will result in --mixed which is the default) and then you can restage the changes you meant to commit. – dmansfield Jul 2 '14 at 21:19 
+7
+
+@IcyBrk git add is a command. git add [--verbose | -v] [--dry-run | -n] [--force | -f] [--interactive | -i] [--patch | -p] 	  [--edit | -e] [--[no-]all | --[no-]ignore-removal | [--update | -u]] 	  [--intent-to-add | -N] [--refresh] [--ignore-errors] [--ignore-missing] 	  [--chmod=(+|-)x] [--] [<pathspec>…​] – Ashraf.Shk786 Feb 20 '17 at 17:34
+```
+
+===
+
+```text
+In these cases, the "reset" command is your best friend:
+
+git reset --soft HEAD~1
+Reset will rewind your current HEAD branch to the specified revision. In our example above, we'd like to return to the one before the current revision - effectively making our last commit undone.
+
+Note the --soft flag: this makes sure that the changes in undone revisions are preserved. After running the command, you'll find the changes as uncommitted local modifications in your working copy.
+
+If you don't want to keep these changes, simply use the --hard flag. Be sure to only do this when you're sure you don't need these changes anymore.
+
+git reset --hard HEAD~1
+```
+
+===
+
+```text
+Undoing a commit is a little scary if you don't know how it works. But it's actually amazingly easy if you do understand.
+
+Say you have this, where C is your HEAD and (F) is the state of your files.
+
+   (F)
+A-B-C
+    ↑
+  master
+
+You want to nuke commit C and never see it again and lose all the changes in locally modified files. You do this:
+
+git reset --hard HEAD~1
+The result is:
+
+ (F)
+A-B
+  ↑
+master
+
+Now B is the HEAD. Because you used --hard, your files are reset to their state at commit B.
+
+Ah, but suppose commit C wasn't a disaster, but just a bit off. You want to undo the commit but keep your changes for a bit of editing before you do a better commit. Starting again from here, with C as your HEAD:
+
+   (F)
+A-B-C
+    ↑
+  master
+
+You can do this, leaving off the --hard:
+
+git reset HEAD~1
+In this case the result is:
+
+   (F)
+A-B-C
+  ↑
+master
+
+In both cases, HEAD is just a pointer to the latest commit. When you do a git reset HEAD~1, you tell Git to move the HEAD pointer back one commit. But (unless you use --hard) you leave your files as they were. So now git status shows the changes you had checked into C. You haven't lost a thing!
+
+For the lightest touch, you can even undo your commit but leave your files and your index:
+
+git reset --soft HEAD~1
+This not only leaves your files alone, it even leaves your index alone. When you do git status, you'll see that the same files are in the index as before. In fact, right after this command, you could do git commit and you'd be redoing the same commit you just had.
+
+One more thing: Suppose you destroy a commit as in the first example, but then discover you needed it after all? Tough luck, right?
+
+Nope, there's still a way to get it back. Type git reflog and you'll see a list of (partial) commit shas (that is, hashes) that you've moved around in. Find the commit you destroyed, and do this:
+
+git checkout -b someNewBranchName shaYouDestroyed
+You've now resurrected that commit. Commits don't actually get destroyed in Git for some 90 days, so you can usually go back and rescue one you didn't mean to get rid of.
+
+share  edit  follow  flag 
+edited Feb 3 at 14:49
+
+Mikko Rantalainen
+8,27477 gold badges4747 silver badges7575 bronze badges
+answered Jul 28 '11 at 22:22
+
+Ryan Lundy
+180k3232 gold badges169169 silver badges203203 bronze badges
+21
+
+BEWARE! This might not do what you expect if your erroneous commit was a (fast-forward) merge! If your head is on a merge commit (ex: merged branch feature into master), git reset --hard~1 will point the master branch to the last commit inside the feature branch. In this case the specific commit ID should be used instead of the relative command. – Chris Kerekes Feb 20 '13 at 18:46 
+100
+
+Missing a crucial point: If the said commit was previously 'pushed' to the remote, any 'undo' operation, no matter how simple, will cause enormous pain and suffering to the rest of the users who have this commit in their local copy, when they do a 'git pull' in the future. So, if the commit was already 'pushed', do this instead: git revert <bad-commit-sha1-id> git push origin : – FractalSpace Nov 8 '13 at 23:43 
+15
+
+@FractalSpace, it won't cause "enormous pain and suffering." I've done a few force pushes when using Git with a team. All it takes is communication. – Ryan Lundy Nov 9 '13 at 0:00
+15
+
+@Kyralessa In my workplace, messing up entire team's workflow and then telling them how to fix sh*t is not called 'communication'. git history re-write is a destructive operation that results in trashing of parts of the repo. Insisting on its use, while clear and safe alternatives are available is simply irresponsible. – FractalSpace Nov 9 '13 at 3:02
+15
+
+I wanted to nuke a commit and never see it again. I used your example with --hard but what I didn't realise is that all my unstaged changes in my working tree also get nuked! I was going to commit these files as part of a later commit. Now it seems impossible to get these files back - I even tried the solution you posted about reflog but this didn't restore the previously-unstaged changes. – Adam Burley Oct 14 '15 at 21:39
+```
+
+---
+
 ||| Why is my git repository so big?
 
 ||| How to remove unused objects from a git repository?
