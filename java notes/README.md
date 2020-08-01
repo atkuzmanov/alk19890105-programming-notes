@@ -19,8 +19,8 @@ Found Optional in Java8 useful if you want to check if a variable will be null, 
 |||java time taken
 
 ```java
-long start = System.currentTimeMillis(); 
-long timeTaken = System.currentTimeMillis() - start; 
+long start = System.currentTimeMillis();
+long timeTaken = System.currentTimeMillis() - start;
 log.info(">>> TIME TAKEN: " + timeTaken);
 ```
 
@@ -165,13 +165,459 @@ import org.slf4j.LoggerFactory;
 ```
 
 ---
+
+|||ruby cucumber
+|||java cucumber test
+|||cucumber tests bundle
+|||bash script bundle
+|||bundle
+|||bundler
+
+<https://cucumber.io/>
+<http://www.rubydoc.info/github/cucumber/cucumber-ruby/Cucumber/Formatter/Json>
+
+`bundle exec cucumber --tags ~@wip --format json --out "cucumber-tests-output.json"`
+
+<https://stackoverflow.com/questions/3914694/bundle-command-not-found>
+
+`#!/usr/bin/env bash
+bundle exec cucumber --tags ~@wip`
+
 ---
+
+|||java cucumber test
+|||gem lock file
+|||ruby cucumber
+|||cucumber
+|||ruby gem
+|||gemfile.lock
+|||bundle
+|||bundler
+
+Bundler
+
+https://bundler.io/v1.3/rationale.html
+
+Understanding the Gemfile.lock file
+
+https://stackoverflow.com/questions/7517524/understanding-the-gemfile-lock-file
+
+```yaml
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ruby-debug (0.10.4)
+      columnize (>= 0.1)
+      ruby-debug-base (~> 0.10.4.0)
+    ruby-debug-base (0.10.4)
+      linecache (>= 0.3)
+    archive-tar-minitar (0.5.2)
+    builder (3.2.2)
+    columnize (0.9.0)
+    cucumber (1.3.19)
+      builder (>= 2.1.2)
+      diff-lcs (>= 1.1.3)
+      gherkin (~> 2.12)
+      multi_json (>= 1.7.5, < 2.0)
+      multi_test (>= 0.1.2)
+    diff-lcs (1.2.5)
+    erubis (2.7.0)
+    gherkin (2.12.2)
+      multi_json (~> 1.3)
+    json (1.8.1)
+    linecache (0.46)
+      rbx-require-relative (> 0.0.4)
+    mime-types (1.25)
+    multi_json (1.11.0)
+    multi_test (0.1.2)
+    open4 (1.3.4)
+    rake (10.1.1)
+    rbx-require-relative (0.0.9)
+    rdoc (4.2.0)
+      json (~> 1.4)
+    relish (0.7)
+      archive-tar-minitar (>= 0.5.2)
+      json (>= 1.4.6)
+      rest-client (>= 1.6.1)
+    rest-client (1.6.8)
+      mime-types (~> 1.16)
+      rdoc (>= 2.4.2)
+    rspec (3.2.0)
+      rspec-core (~> 3.2.0)
+      rspec-expectations (~> 3.2.0)
+      rspec-mocks (~> 3.2.0)
+    rspec-core (3.2.3)
+      rspec-support (~> 3.2.0)
+    rspec-expectations (3.2.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-mocks (3.2.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-support (3.2.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  cucumber (= 1.3.19)
+  erubis
+  json (= 1.8.1)
+  mime-types (= 1.25)
+  open4 (~> 1.3.0)
+  rake (= 10.1.1)
+  relish
+  rest-client (= 1.6.8)
+  rspec
+  ruby-debug
+
+BUNDLED WITH
+   1.11.2
+```
+
 ---
+
+|||java cucumber test
+|||gemfile
+
+```ruby
+source 'https://rubygems.org'
+
+gem "cucumber", "=1.3.19"
+gem "rest-client", "=1.6.8"
+gem 'json', "=1.8.1"
+gem "mime-types", "=1.25"
+gem "open4", "~> 1.3.0"
+gem "relish"
+gem "erubis"
+gem "ruby-debug"
+gem "rake", "=10.1.1"
+gem "rspec"
+```
+
+```bash
+junit: --format pretty --format junit --out /path/to/some/dir/target/cucumber-reports/ --format html --out /path/to/some/dir/target/cucumber-reports/html/report.html
+ci:    -t ~@wip
+```
+
 ---
+
+|||java cucumber test
+|||ruby cucumber steps step definition
+|||ruby example cucumber steps
+
+```ruby
+Given /^example step which takes one argument "([^"]*)"$/ do |parameter1|
+  if parameter1.end_with?'.erb'
+    exampleTemplate = ERB.new load_fixture(parameter1)
+    @xml = exampleTemplate.result(binding)
+  else
+    @xml = load_fixture(parameter1)
+  end
+end
+
+
+Given(/^default sleep step$/) do
+  #STDOUT.puts "Sleeping for #$sleep_duration"
+  sleep $sleep_duration
+end
+
+
+Given /^example step for setting up response "([^"]*)" as "([^"]*)"$/ do |default-path, content_type|
+  begin
+    @response = put(default-path, @xml, content_type)
+    sleep 0.5 #pause
+  rescue => e
+    if !e.respond_to?('response')
+      throw e
+    end
+    @response = e.response
+  end
+end
+
+
+When /^example step with request default-path "([^"]*)" and headers "([^"]*)" "([^"]*)"$/ do |default-path, accept, headers|
+  begin
+    headers += ",Cache-Control=no-cache"
+    header_map = create_default_header_map_from_string(headers)
+    @response = get_with_custom_header(default-path, accept, header_map)
+  rescue => e
+    if !e.respond_to?('response')
+      throw e
+    end
+    @response = e.response
+  end
+end
+
+
+Then /^example step for checking location header from response "([^"]*)"$/ do |default-pathToTest|
+  @response.headers[:location].should == host() + default-pathToTest
+end
+
+
+Then /^example step for checking cache_control headers "([^"]*)" of "([^"]*)"$/ do |cache_control_key, cache_control_value|
+  cache_control_headers_array = @response.headers[:cache_control].split(",")
+  default_max_age_array = cache_control_headers_array[1].split("=")
+
+  default_max_age_array[0].should == cache_control_key
+  default_max_age_array[1].should == cache_control_value
+end
+
+
+Then /^example step definition that takes two arguments and compares them to JSON http response "([^"]*)" "([^"]*)"$/ do |parameter1, parameter2|
+  jsonResult = JSON.parse(@response.body)
+  jsonResult['results'][0]['parameter1'].should == parameter1
+  jsonResult['results'][0]['parameter2'].should == parameter2
+end
+
+Then /^example comparing xml to response body$/ do
+  compare_xml_files(@xml, @response)
+end
+
+Then /^example step for comparing http response code to (\d+)$/ do |response_code_parameter|
+  @response.code.to_s.should == response_code_parameter
+end
+
+
+Then /^example step comparing vary headers "([^"]*)"$/ do |varyByHeader|
+  @response.headers[:vary].should == varyByHeader
+end
+
+
+Then /^example step checking response for containing content "([^"]*)"$/ do |content|
+  @response.should include(content)
+end
+
+
+Then /^example step to compare example JSON and a partial snippet "([^"]*)"$/ do |defaultFileName|
+  body = @response.body.gsub(/some\.[a-z]+\.escaped\.uri\.url\.default\.example\.com/, "some.example.uri.url.default.example.com")
+  body = body.gsub(/some\.example\.file\.default-path\/[a-z]+\/file/, "some.example.file.default-path/optionalChangingValue/file")
+  JSON.parse(body).should == JSON.parse(default_load_expected_result(defaultFileName))
+  default_contains_example_snippet(body, default_load_expected_result(defaultFileName)).should == true
+end
+
+
+Then /^example step to compare example XML and a partial snippet "([^"]*)"$/ do |defaultFileName|
+  body = @response.body.gsub(/some\.[a-z]+\.escaped\.uri\.url\.default\.example\.com/, "some.example.uri.url.default.example.com")
+  body = body.gsub(/some\.example\.file\.default-path\/[a-z]+\/file/, "some.example.file.default-path/optionalChangingValue/file")
+  compare_xml_files(default_load_expected_result(defaultFileName), body)
+  default_contains_example_snippet(body, default_load_expected_result(defaultFileName)).should == true
+end
+
+
+Then /^example step for comparing json structure to url from reposnse body "([^"]*)"$/ do |default_url|
+  default_response_contains_url(@response.body, default_url).should == true
+end
+
+
+Then /^example checking last modified header "([^"]*)"$/ do |lastModifiedValue|
+  @response.headers[:last_modified].should == lastModifiedValue
+end
+
+
+def default_contains_example_snippet(fullResponse, snippetResponse)
+    defaultNormalisedFullString = fullResponse.gsub(/\s+/, "")
+    defaultNormalisedSnippetString = snippetResponse.gsub(/\s+/, "")
+    defaultNormalisedFullString.include? defaultNormalisedSnippetString
+end
+
+
+def create_default_header_map_from_string(default_header_string)
+  header_statements = default_header_string.split(",")
+  keys = header_statements.map{|statement| statement.split("=")[0]}
+  values = header_statements.map{|statement| statement.split("=")[1]}
+  Hash[*keys.zip(values).flatten]
+end
+
+
+def default_response_contains_url(response_body, default_url)
+  JSON.parse(@response.body)['json_element'].each{|nested_json_element|
+  	if (nested_json_element['url'] == default_url) then
+  	  return true
+   	end
+  }
+  false
+end
+
+
+  def compare_xml_files(fileA, fileB)
+    differences = ''
+	status = Open4::popen4("diff #{fileA} #{fileB}") do |pid, stdin, stdout, stderr|
+		differences = stdout.read
+    end
+
+  	if status != 0
+		fail ("Found differences between expected (left) and actual (right) XML:\n" + differences)
+	end
+
+  end
+```
+
 ---
+
+|||java cucumber test
+|||cucumber example xml fixture
+|||cucumber fixture
+|||fixture.xml.erb
+|||cucumber erb
+|||erb
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlNode xsi:schemaLocation="http://www.some.example.namespace.com/default defaultSchema.xsd" uri="http://www.example.com/default/2ueoiwejofuaufu089wu0eu09wjior08ur08" version="0.1" xmlns="http://www.some.example.namespace.com/default" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+</xmlNode>
+```
+
+|||java cucumber test
+|||ruby rest client
+|||cucumber rest client
+|||cucumber ruby rest client api
+
+```ruby
+module NameOfExampleCucumberRestApi
+
+  def delete(default-path)
+    example_ruby_cucumber_rest_client($default_base_url + default-path).delete
+  end
+
+  # silently ignore exceptions
+  def silent_delete(example_guid)
+    begin
+      delete(example_guid)
+    rescue
+    end
+  end
+
+  def default_rest_put(default-path, data, content_type)
+    example_ruby_cucumber_rest_client($default_base_url+default-path).put(data, {:content_type => content_type})
+  end
+
+  def default_rest_get(default-path, accept)
+    example_ruby_cucumber_rest_client($default_base_url+default-path).get({:accept => accept})
+  end
+
+  def default_rest_get_with_header(default-path, accept, header_map)
+    default_header_map[:accept] = accept
+    example_ruby_cucumber_rest_client($default_base_url+default-path).get(default_header_map)
+  end
+
+  def host()
+    $default_base_url
+  end
+
+  def default_base_url=(example_url)
+    $default_base_url = example_url
+  end
+  module_function :default_base_url=
+
+  def example_ruby_cucumber_rest_client example_url
+    # Ruby's RestClient logging
+    RestClient.log = 'stdout'
+
+    if !$default_base_url.include? 'haveToUseProxy' then
+      RestClient.proxy = ENV['http_proxy']
+      RestClient::Resource.new(
+        example_url,
+        :ssl_client_cert  =>  OpenSSL::X509::Certificate.new(File.read("/etc/pki/tls/private/exampleCertificate.pem")),
+        :ssl_client_key   =>  OpenSSL::PKey::RSA.new(File.read("/etc/pki/tls/private/exampleKey.pem"))
+      )
+    else
+      RestClient::Resource.new(example_url)
+    end
+  end
+
+end
+
+World(NameOfExampleCucumberRestApi)
+```
+
 ---
+
+|||java cucumber test
+|||cucumber ruby require
+
+```ruby
+# setup Bundler to use local gems
+require "rubygems"
+require 'ruby-debug'
+
+class WebratWorld
+  include RSpec::Matchers
+end
+
+World do
+  WebratWorld.new
+end
+
+# Require modules for tests
+require 'open4'
+require 'erb'
+require 'rspec'
+require 'rest-client'
+```
+
 ---
+
+|||cucumber ruby hoooks
+|||cucumber hooks
+|||java cucumber test
+
+```ruby
+After('@exampleCucumberTag') do |s|
+	start = Time.now
+	end = Time.now
+	#STDOUT.puts "Time to finish processing @exampleCucumberTag: #{seconds_time_difference(start, end)}s"
+end
+
+
+def seconds_time_difference(start, end)
+	(end - start).round
+end
+
+# Force quit cucumber if a test fails
+After do |s|
+	if s.failed?
+		STDOUT.puts "Forcing Cucumber to quit as a test scenario failed: " + s.name
+		Cucumber.wants_to_quit = true
+	end
+end
+```
+
 ---
+
+|||cucumber ruby
+|||ruby write file
+|||ruby write xml
+|||ruby write w3c xml
+|||java cucumber test
+
+```ruby
+  def check_if_directory_exists_and_create_it_if_not(defaultFilename)
+  	FileUtils.mkdir_p(defaultFilename) unless File.exists?(defaultFilename)
+  end
+
+  def write_using_W3C_XML_Canonicalisation(xmlStringToCanonicalise, defaultFilename)
+  	errors = ''
+  	# Process using W3C XML Canonicalisation (--c14n) and then formatting (--format)
+  	defaultCommand = "xmllint --c14n - | xmllint --format - > #{defaultFilename}"
+	status = Open4::popen4(defaultCommand) do |pid, stdin, stdout, stderr|
+		stdin.write xmlStringToCanonicalise
+		stdin.close
+		errors = stderr.read
+    end
+	if status != 0
+		fail ("Failed to run xmllint (writing to #{defaultFilename}) due to:\n#{errors}")
+	end
+  end
+
+  def write_to_file(stringToWrite, defaultFilename)
+	someDirectory = "default-path/to/some/dir"
+	check_if_directory_exists_and_create_it_if_not(someDirectory)
+	filename = defaultFilename.gsub(/[^A-Za-z0-9]+/, "-")
+	File.open(someDirectory+ filename, 'w') { |actualFile| actualFile.write(stringToWrite) }
+  end
+```
+
 ---
 ---
 ---
