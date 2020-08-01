@@ -619,11 +619,643 @@ end
 ```
 
 ---
+
+|||instanceof
+|||java instanceof
+
+```java
+Object exampleObj = new Object();
+
+boolean exampleInstanceOf = exampleObj instanceof Object;
+```
+
 ---
+
+|||java load xml from file
+|||java xml
+|||xml from file
+
+```java
+import org.apache.commons.io.IOUtils;
+
+// ClassLoader classLoader = getClass().getClassLoader();
+String loadXmlFromFile = IOUtils.toString(ClassLoader.class.getResourceAsStream("/example/path/to/someXMLFile.xml"), "UTF-8");
+```
+
 ---
+
+|||java unit test assert exception is thrown
+|||java junit test
+|||junit test
+
+https://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests
+
+```java
+How can I use JUnit4 idiomatically to test that some code throws an exception?
+
+While I can certainly do something like this:
+
+@Test
+public void testFooThrowsIndexOutOfBoundsException() {
+  boolean thrown = false;
+
+  try {
+    foo.doStuff();
+  } catch (IndexOutOfBoundsException e) {
+    thrown = true;
+  }
+
+  assertTrue(thrown);
+}
+
+
+I recall that there is an annotation or an Assert.xyz or something that is far less kludgy and far more in-the-spirit of JUnit for these sorts of situations.
+
+
+java exception junit junit4 assert
+
+
+shareeditflag
+edited Nov 15 '13 at 20:28
+
+rgettman
+125k15146234
+asked Oct 1 '08 at 6:56
+
+SCdF
+```
+
+```java
+JUnit 4 has support for this:
+
+@Test(expected=IndexOutOfBoundsException.class)
+public void testIndexOutOfBoundsException() {
+    ArrayList emptyList = new ArrayList();
+    Object o = emptyList.get(0);
+}
+shareeditflag
+answered Oct 1 '08 at 7:12
+
+skaffman
+```
+
 ---
+
+|||test exception
+
+```java
+in junit, there are three ways to test exception.
+
+use the optional 'expected' attribute of Test annonation
+@Test(expected = IndexOutOfBoundsException.class)
+public void testFooThrowsIndexOutOfBoundsException() {
+    foo.doStuff();
+}
+use the ExpectedException rule
+public class XxxTest {
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
+    @Test
+    public void testFooThrowsIndexOutOfBoundsException() {
+        thrown.expect(IndexOutOfBoundsException.class)
+        //you can test the exception message like
+        thrown.expectMessage("expected messages");
+        foo.doStuff();
+    }
+}
+finally, you also can use the classic try/catch way widely used under junit 3 framework
+@Test
+public void testFooThrowsIndexOutOfBoundsException() {
+    try {
+        foo.doStuff();
+        fail("expected exception was not occured.");
+    } catch(IndexOutOfBoundsException e) {
+        //if execution reaches here, 
+        //it indicates this exception was occured.
+        //so we need not handle it.
+    }
+}
+so
+the 1st way used when you only want test the type of exception
+the 2nd and 3rd way used when you want test exception message further
+if you use junit 3, then the 3rd one is preferred.
+for more info, you can read this document for details.
+shareeditflag
+answered Aug 5 '15 at 8:05
+
+walsh
+```
+
 ---
+
+|||java junit test
+|||junit test
+|||junit spring
+|||spring junit
+
+```java
+import static org.junit.Assert.*;
+import org.junit.Test;
+import org.junit.Before;
+
+import org.apache.commons.io.IOUtils;
+
+public class ExampleJunitTestClass {
+
+    @Before
+    public void setUp() throws Exception {
+        String loadXmlFromFile = IOUtils.toString(ClassLoader.class.getResourceAsStream("/example/path/to/someXMLFile.xml"), "UTF-8");
+    }
+
+	@Test
+	public void exampleTest1() throws Exception {
+		int exampleInt1 = 1;
+		String exampleString1 = "Example 1";
+		
+		assertEquals(1, exampleInt1);
+		assertNotNull(exampleString1);
+		assertNull(null);
+	}
+}
+```
+
 ---
+
+|||assert
+
+```java
+import static org.junit.Assert.*;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+
+import org.junit.Test;
+import org.junit.Before;
+import org.junit.runner.RunWith;
+
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "/example/path/to/applicationContext-ForTests.xml" })
+public class ExampleJunitTestClass2 {
+
+	@Autowired
+	private Object someAutowiredObjInstance = new Object()
+
+	@Test
+	public void exampleTest1() throws Exception {
+		int exampleInt1 = 1;
+		String exampleString1 = "Example 1";
+		
+		assertEquals(1, exampleInt1);
+		assertNotNull(exampleString1);
+		assertNull(null);
+		assertFalse(false);
+		assertTrue(true);
+		assertSame(1,1);
+		assertEquals(someAutowiredObjInstance.getClass(), Object.class);
+	}
+}
+```
+
+---
+
+|||mockito
+|||java mockito
+|||java mock
+|||java test mock
+|||java test mockito
+
+```java
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+import org.junit.Before;
+
+public class ExampleJunitTestClass3 {
+
+	@Mock
+	private Object someMockedObj = new Object();
+}
+```
+
+---
+
+```java
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+public class ExampleTestClass {
+
+	@BeforeClass
+	public static void initialise() {
+	}
+
+	@AfterClass
+	public static void tearDown() {
+		SomeStaticClass.reset();
+	}
+}
+```
+
+---
+
+|||junit assert fail
+|||fail
+
+```java
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.junit.Test;
+
+import static org.junit.Assert.fail;
+
+public class ExampleTestClass {
+
+	private static final Logger LOG = LoggerFactory.getLogger(ExampleTestClass.class);
+
+	@Test
+	public void exampleTest1() throws Exception {
+		try {
+			// some code
+			fail("Should have thrown an IllegalArgumentException");
+		} catch (Exception e) {
+			LOG.error("Error: " + e.getMessage(), e);
+		}
+	}
+
+	@Test
+	public void exampleTest2() throws Exception {
+		try {
+			// Some processing...
+		} catch(DocumentException ex) {
+			fail("Some failure message.");
+		}
+	}
+
+	@Test
+	public void exampleTest3() throws Exception {
+	    try {
+    	// Some processing that should throw an exception...
+
+		fail("An exception was supposed to be thrown.");
+		} catch (IllegalArgumentException ex) {
+			assertTrue("Incorrect argument supplied", ex.toString().contains("Incorrect argument supplied"));
+		}  catch (Exception ex) {
+			fail("The expected exception was not thrown, or a wrong exception was thrown.");
+    	}
+    }
+}
+```
+
+---
+
+|||java junit test
+|||argumentcaptor
+|||assertThat
+|||assert
+
+```java
+import static org.mockito.Matchers.notNull;
+import static org.mockito.Matchers.isNotNull;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.ArgumentCaptor;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import static org.junit.Assert.*;
+import static org.junit.matchers.JUnitMatchers.containsString;
+
+import org.junit.runner.RunWith;
+import org.junit.Test;
+import org.junit.Before;
+
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.hamcrest.core.IsNot.not;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsInstanceOf.instanceOf;
+
+@RunWith(MockitoJUnitRunner.class)
+public class ExampleTestClass1 {
+
+	private Object someObject = new Object();
+
+	@Test
+	public void exampleTest() throws Exception {
+		
+		assertThat(1, is(1));
+
+		assertThat("some string value", is("some string value"));
+
+		assertThat(null, is(not(nullValue())));
+		
+		assertThat(someObject, instanceOf(Object.class));
+	}
+
+
+	@Test
+	public void exampleUnitTestUsingVerifyAndArgumentCaptor() throws Exception {
+		// This mock can be outside of this unit test.
+		@Mock
+		private SomeExampleContentObject someExampleContentObject;
+
+		// ArgumentCaptor for object of type Object.class
+		ArgumentCaptor<Object> argument = ArgumentCaptor.forClass(Object.class);
+
+		// Invoke some processing which is expected to call someExampleContentObject.setSomeExampleObject(Object obj) with
+		// a certain instance of Object.class with populated fields with certain values.
+		// ... some processing.
+
+		// setSomeExampleObject(Object obj) takes an object of type Object.class
+		// Verify that setSomeExampleObject() has been called as a method of an instance of SomeExampleContentObject.class
+		// and capture the parameter it has been called with, in this case an instance of Object.class, with populated fields with certain values.
+		verify(someExampleContentObject).setSomeExampleObject(argument.capture());
+
+		// If setSomeExampleObject() was taking two arguments, the first being the one we are interested in
+		// and the second, one which we want to be of specific value, we can use eq()
+		// verify(someExampleContentObject).setSomeExampleObject(argument.capture(), eq("specific value"));
+
+		// getValue() returns the instance of type Object.class which has been captured when setSomeExampleObject() has been called during processing above.
+		Object someObject2 = argument.getValue();
+
+		// Assert and verify that the parameter (argument), in our case instance of Object.class, has it's fields populated with the expected values.
+		assertEquals("Value of some example object field.", someObject2.getSomeExampleObjectFieldValue());
+	}
+}
+```
+
+---
+
+|||java junit test injectmocks
+|||injectmocks
+|||initmocks
+|||spring junit test
+
+```java
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import org.mockito.MockitoAnnotations;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import static org.junit.Assert.assertTrue;
+
+// import org.mockito.runners.MockitoJUnitRunner;
+// @RunWith(MockitoJUnitRunner.class)
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration
+public class ExampleUnitTestClass2 {
+	
+	@InjectMocks
+	Object someExampleMockObject1;
+
+	@Autowired
+	@InjectMocks
+	Object someExampleMockObject2;
+
+	@Mock
+	Object someExampleMockObject3;
+	
+	@Before
+	public void setUp() throws Exception {
+		MockitoAnnotations.initMocks(this);
+	}
+
+	@Test
+    public void some_featureflag_should_be_on_after_initialisation() {
+    	when(someExampleMockObject3.isItTrue()).thenReturn(true);
+        assertTrue(someExampleMockObject3.isItTrue());
+    }
+}
+```
+
+---
+
+|||java junit test
+|||unit test verify
+|||mockito
+|||verify
+
+```java
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import static org.junit.Assert.*;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import static org.mockito.atLeast;
+
+public class ExampleUnitTestClass3 {
+
+	@Mock
+	private SomeObject1 someObject1;
+
+	@Test
+	public void testAssetParserHelperIsCalledToParseItemMeta() throws Exception {
+		Object expectedObject = new Object();
+
+		// Do some processing that will call someObject1.someMethod1() with some object instance, which we expect to be of the type of Object.class.
+
+		verify(someObject1).someMethod1(any(Object.class), eq(expectedObject));
+
+
+		verify(someObject1, atLeast(3)).someMethod2(any(String.class));
+	}
+
+	// Another way of using mock:
+	Object someMockObject2 = mock(Object.class);
+}
+
+public class SomeObject1 {
+	public void someMethod1(Object obj){
+		System.out.println(obj.toString());
+	}
+}
+```
+
+---
+
+|||mockito matchers isA
+|||isA
+|||isa
+
+```java
+import static org.mockito.Mockito.*;
+
+public class ExampleUnitTestClass4 {
+
+	@Mock
+	private SomeObject2 someObject2;
+
+	@Test
+	public void testAssetParserHelperIsCalledToParseItemMeta() throws Exception {
+		Object exampleObject = new Object();
+
+		when(someObject2.someMethod2(isA(Object.class), eq("String value a"), eq("String value b"))).thenReturn(true);
+
+		assertTrue(someObject2.someMethod2(exampleObject, "String value a", "String value b"));
+	}
+}
+
+public class SomeObject2 {
+	public void someMethod2(Object obj, String a, String b){
+		System.out.println(obj.toString() + a + b);
+	}
+}
+```
+
+---
+
+|||mockito inorder
+|||mockito verifyNoMoreInteractions
+|||verify
+
+```java
+import static org.junit.Assert.*;
+
+// import static org.mockito.Matchers.*;
+// import static org.mockito.Mockito.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Matchers.isA;
+import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import org.mockito.InOrder;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+public class ExampleUnitTestClass5 {
+
+	@Mock
+	private ObjectProcessor objectProcessorMock;
+
+	@Mock
+	private Object someObjectMockForZeroInteractions;
+
+	@Before
+	public void initialiseMocks() throws Exception {
+		MockitoAnnotations.initMocks(this);
+		// Some other mock set up using when().thenReturn(); etc...
+	}
+
+	@Test
+	public void someTestUsingMockitoInOrder() throws Exception {
+		Object someObjectMock = mock(Object.class);
+		when(objectProcessorMock.processObject(any(SomeClass.class), eq("Some string"), eq(1))).thenReturn(someObjectMock);
+
+		// Start some processing which will invoke objectProcessorMock.processObject(...); at some point.
+
+		// I think inOrder will verify the order in which the expected methods are called, to see if it's the same as the expected order we have written the verifys below.
+		InOrder objectProcessorInOrder = inOrder(objectProcessorMock);
+		
+		//  times(...) is used to specify the number of times it is expected the method to be called.
+		objectProcessorInOrder.verify(objectProcessorMock, times(5)).someObjectProcessingMethod1(any(SomeClass2.class));
+		objectProcessorInOrder.verify(objectProcessorMock).someObjectProcessingMethod2(eq(2));
+		objectProcessorInOrder.verify(objectProcessorMock).someObjectProcessingMethod3(any(SomeClass.class), eq("Some string 2."));
+
+		verifyNoMoreInteractions(objectProcessorMock);
+		verifyNoMoreInteractions(someObjectMock);
+
+		verifyZeroInteractions(someObjectMockForZeroInteractions);
+	}
+}
+
+
+//---
+
+
+|||collections of certain type unit test assert empty list java
+|||java collections test
+
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
+
+public class ExampleUnitTestClass6 {
+
+	List<Object> emptyListOfTypeObject = new ArrayList<Object>();
+
+	@Test
+	public void someUnitTest1() throws Exception {
+		assertEquals(Collections.<Object>emptyList(), emptyListOfTypeObject);
+	}
+
+	Object object1 = new Object();
+	Object object2 = new Object();
+	List<Object> nonEmptyListOfTypeObject = new ArrayList<Object>();
+}
+```
+
+---
+
+|||easymock
+
+```java
+PublishableAsset referencedAsset = createMock(PublishableAsset.class);
+expect(referencedAsset.assetId()).andReturn(1).anyTimes();
+replay(referencedAsset);
+assertTrue(circularTestValidator.isValid(referencedAsset, context));
+```
+
+---
+
+|||java xml string escaping example
+
+```java
+    String javaXMLStringEscaping1xmlAsStringJava =
+    	"<foo uri=\"http://www.example.com/path\" xmlns=\"http://www.example.com/namespace\" >\n" +
+    	        "  <bar>\n" +
+    	        "   <xmlTagElementNode1 pathParameter=\"/foo/bar\"/>\n" +
+    	        "   <xmlTagElementNode2>Some value.</xmlTagElementNode2>" +
+    	        "  </bar>" +
+    	        "</foo>";
+```
+
+---
+
+
+
 ---
 ---
 ---

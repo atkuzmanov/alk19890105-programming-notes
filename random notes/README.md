@@ -95,3 +95,4 @@ Soft launch - rolling out something to production, but it is not linked or adver
 > "As a contractor, start the project, work with the team for one or two weeks, preferably two, to get into it, then take one or two weeks off, understanding and playing around with it yourself, really get into it and understand it, and then go back to work and you will be able to better understand, develop, complete tasks and solve problems." - Andrei Lissovski (<https://www.linkedin.com/in/lissovski/>)
 
 ---
+$$
