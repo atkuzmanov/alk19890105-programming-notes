@@ -23,15 +23,15 @@ Descartes Square decision making:
 Eisenhower Matrix (Urgent vs. Importnat) decision making:
 
 <https://crew.co/blog/urgent-vs-important/>
-https://en.wikipedia.org/wiki/Time_management#The_Eisenhower_Method
+<https://en.wikipedia.org/wiki/Time_management#The_Eisenhower_Method>
 
 ```text
-					Urgent 	|	Not Urgent
-Important 					|
-							|
+     Urgent  | Not Urgent
+Important      |
+       |
 ----------------------------------
-							|
-Not Important 				|
+       |
+Not Important     |
 ```
 
 The Eisenhower Method
@@ -71,8 +71,7 @@ MVP = Minimum viable product
 
 Ephemeral storage eg. a RAM disk.
 
-
-Soft launch - rolling out something to production, but it is not linked or advertised anywhere, so unless you know the link it will not be visible. The release of a new product or service to a restricted audience or market in advance of a full launch. 
+Soft launch - rolling out something to production, but it is not linked or advertised anywhere, so unless you know the link it will not be visible. The release of a new product or service to a restricted audience or market in advance of a full launch.
 
 <https://www.google.co.uk/search?q=soft+launch+meaning&oq=soft+launch+meaning&aqs=chrome..69i57j0l3.7252j0j1&sourceid=chrome&ie=UTF-8>
 
@@ -87,5 +86,12 @@ Soft launch - rolling out something to production, but it is not linked or adver
 "You need to rescue the princess with code - but sometimes your code doesn't work and the princess is a dragon and you're a fish. Welcome to programming" - <https://toggl.com/programming-princess/>
 
 "If I had asked people what they wanted, they would have said faster horses." - Henry Ford, an American industrialist, the founder of the Ford Motor Company, and the sponsor of the development of the assembly line technique of mass production.
+
+---
+
+|||advice
+|||useful
+
+> "As a contractor, start the project, work with the team for one or two weeks, preferably two, to get into it, then take one or two weeks off, understanding and playing around with it yourself, really get into it and understand it, and then go back to work and you will be able to better understand, develop, complete tasks and solve problems." - Andrei Lissovski (<https://www.linkedin.com/in/lissovski/>)
 
 ---
