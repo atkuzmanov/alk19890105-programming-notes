@@ -115,27 +115,69 @@ scutil --set HostName "localhost"
 ||| java modules
 
 > References:
-
-<http://tutorials.jenkov.com/java/modules.html>
-
----
----
----
----
----
+>
+> <http://tutorials.jenkov.com/java/modules.html>
 
 ---
----
----
----
----
+
+|||java log and throw
+|||java logandthrow
+|||log and throw
+|||logandthrow
+
+```java
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * Example use:
+ * logAndThrow(ExampleCurrentClassThrowingException.class, "error", "Example exception message.", exampleOriginaException);
+ */
+    public static void logAndThrow(Class<?> classThrowingException, String logLevel, String errorMessageOverride, Exception exceptionOverride) throws Exception {
+        if(classThrowingException == null) {
+            throw new InvalidArgumentException("Error, could not throw exception." +
+                    " Class<?> classThrowingException is required for Utilities.logAndThrow(...) method.");
+        }
+
+        Logger localLogger = LoggerFactory.getLogger(classThrowingException);
+
+        String errorMessage = "Error: Default error message.";
+        if (!StringUtils.isBlank(errorMessageOverride)) errorMessage = errorMessageOverride;
+
+        if (exceptionOverride != null) {
+            switch (logLevel) {
+                case "error": localLogger.error(errorMessage, exceptionOverride); break;
+                case "warn": localLogger.warn(errorMessage, exceptionOverride); break;
+                case "debug": localLogger.debug(errorMessage, exceptionOverride); break;
+                default: localLogger.info(errorMessage, exceptionOverride);
+            }
+            throw exceptionOverride;
+        } else {
+            switch (logLevel) {
+                case "error": localLogger.error(errorMessage); break;
+                case "warn": localLogger.warn(errorMessage); break;
+                case "debug": localLogger.debug(errorMessage); break;
+                default: localLogger.info(errorMessage);
+            }
+            throw new RuntimeException(errorMessage);
+        }
+    }
+```
 
 ---
 ---
 ---
 ---
 ---
-
+---
+---
+---
+---
+---
+---
+---
+---
+---
 ---
 ---
 ---
