@@ -1,6 +1,6 @@
-# github notes
+# github notes 1
 
-[work guide 1](work-guide-1.md)
+[github work guide 1](github-work-guide-1.md)
 
 > References
 > <https://github.com/Financial-Times/upp-docs/blob/master/guides/git-guide/README.md>
