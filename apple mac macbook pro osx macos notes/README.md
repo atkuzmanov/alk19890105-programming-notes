@@ -2,7 +2,7 @@
 
 |||how to change your mac username
 
-https://www.macworld.co.uk/how-to/mac-software/how-change-mac-username-3689410/
+<https://www.macworld.co.uk/how-to/mac-software/how-change-mac-username-3689410/>
 
 ---
 
@@ -32,25 +32,25 @@ defaults write -g CGFontRenderingFontSmoothingDisabled -bool YES
 
 links:
 
-https://forums.macrumors.com/threads/macbook-pro-external-monitor-blurry-text.2032453/
+<https://forums.macrumors.com/threads/macbook-pro-external-monitor-blurry-text.2032453/>
 
-https://apple.stackexchange.com/questions/269811/external-monitor-has-blurry-font-on-a-mbp-retina
+<https://apple.stackexchange.com/questions/269811/external-monitor-has-blurry-font-on-a-mbp-retina>
 
-https://discussions.apple.com/thread/4316156
+<https://discussions.apple.com/thread/4316156>
 
-https://www.mathewinkson.com/2013/03/force-rgb-mode-in-mac-os-x-to-fix-the-picture-quality-of-an-external-monitor
+<https://www.mathewinkson.com/2013/03/force-rgb-mode-in-mac-os-x-to-fix-the-picture-quality-of-an-external-monitor>
 
-https://www.quora.com/How-do-I-fix-blurry-text-on-an-external-display-connected-to-a-MacBook-Pro
+<https://www.quora.com/How-do-I-fix-blurry-text-on-an-external-display-connected-to-a-MacBook-Pro>
 
-http://osxdaily.com/2018/09/26/fix-blurry-thin-fonts-text-macos-mojave/
+<http://osxdaily.com/2018/09/26/fix-blurry-thin-fonts-text-macos-mojave/>
 
-http://osxdaily.com/2010/02/18/change-font-smoothing-settings/
+<http://osxdaily.com/2010/02/18/change-font-smoothing-settings/>
 
-https://www.macworld.com/article/2986118/security/how-to-modify-system-integrity-protection-in-el-capitan.html
+<https://www.macworld.com/article/2986118/security/how-to-modify-system-integrity-protection-in-el-capitan.html>
 
-https://gist.github.com/adaugherity/7435890
+<https://gist.github.com/adaugherity/7435890>
 
-https://spin.atomicobject.com/2018/08/24/macbook-pro-external-monitor-display-problem/
+<https://spin.atomicobject.com/2018/08/24/macbook-pro-external-monitor-display-problem/>
 
 ---
 
@@ -64,7 +64,7 @@ https://spin.atomicobject.com/2018/08/24/macbook-pro-external-monitor-display-pr
 
 Short answer - No.
 
-https://apple.stackexchange.com/questions/209049/disable-the-guest-user-completely-in-el-capitan-without-having-to-disable-find
+<https://apple.stackexchange.com/questions/209049/disable-the-guest-user-completely-in-el-capitan-without-having-to-disable-find>
 
 ```text
 @alan-shutko pointed out very important info about this in his comment:
@@ -122,7 +122,7 @@ killall Finder
 |||symbolic link
 |||symlink macosx
 
-http://osxdaily.com/2015/08/06/make-symbolic-links-command-line-mac-os-x/
+<http://osxdaily.com/2015/08/06/make-symbolic-links-command-line-mac-os-x/>
 
 How to make symbolic  link
 
@@ -170,4 +170,3 @@ create symlink
 `ln -s [source] [target]`
 
 ---
-
