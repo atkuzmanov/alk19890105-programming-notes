@@ -103,3 +103,41 @@ keytool -list -keystore 1.p12 -storetype pkcs12 -v
 ```
 
 ---
+
+|||openssl generate csr key
+
+```bash
+## On some environments, like Cygwin on Windows, this will not work because of the use of /dev/stdin. In this case save the config to a file (all but the first and last lines) and specify that file as the -config parameter.
+
+openssl req -new -newkey rsa:2048 -nodes -sha256 -config /dev/stdin -keyout [HOST-NAME].key -out [HOST-NAME].csr <<CONF
+[ req ]
+x509_extensions = v3_req
+distinguished_name = req_distinguished_name
+req_extensions = v3_req
+prompt = no
+ 
+[ req_distinguished_name ]
+countryName = [COUNTRY-CODE-HERE]
+stateOrProvinceName = [CITY-NAME-HERE]
+localityName = [CITY-NAME-HERE]
+0.organizationName = [COMPANY-NAME-HERE]
+organizationalUnitName = [DIVISION-DEPARTMENT-TEAM-HERE]
+commonName = [HOST-NAME]
+emailAddress = [CA-EMAIL-ADDRESS]
+ 
+[ v3_req ]
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+ 
+# uncomment the following lines if you require SANs
+#subjectAltName = @alt_names
+#
+#[ alt_names ]
+#DNS.1 = host.name
+#DNS.2 = another.host.name
+#...
+ 
+CONF
+```
+
+---
