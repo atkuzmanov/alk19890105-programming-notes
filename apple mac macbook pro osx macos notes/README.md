@@ -170,3 +170,25 @@ create symlink
 `ln -s [source] [target]`
 
 ---
+
+|||mac software installation deletion locations
+|||mac uninstall software
+|||mac setup
+
+```bash
+/Volumes/HD/Applications/[name-of-software]
+
+/Volumes/HD/Users/[username]/Library/Logs/[name-of-software]/[name-of-software]/
+
+/Volumes/HD/Users/[username]/[name-of-software]/
+
+/Volumes/HD/Users/[username]/Library/Application Support/[name-of-software]/[name-of-software]/
+
+/Volumes/HD/Users/[username]/Library/Caches/com.[name-of-software]
+
+/Volumes/HD/Users/[username]/Library/Preferences/[name-of-software].plist
+
+/Volumes/HD/Users/[username]/Library/Preferences/[name-of-software].lockfile
+```
+
+---

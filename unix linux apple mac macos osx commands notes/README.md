@@ -1,4 +1,4 @@
-# Unix Linux Apple Mac OSX MacOS commands notes
+# unix linux apple mac macos osx commands notes
 
 |||symbolic links in terminal |||symlinks |||mac symlink |||linux symlink
 

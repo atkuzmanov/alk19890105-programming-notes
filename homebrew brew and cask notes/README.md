@@ -21,8 +21,8 @@
 to keep not only installed brews but also casks and taps i recommend to
 
 ```bash
-$ brew bundle dump --describe --global
-$ brew bundle install --global
+brew bundle dump --describe --global
+brew bundle install --global
 ```
 
 the first command will write ~/.Brewfile which will be read again in the second call. it looks like this:
@@ -82,7 +82,7 @@ for l in $(brew list) ; do
         fi
     fi
     echo "Remove $l"
-    brew uninstall --ignore-dependencies $l 
+    brew uninstall --ignore-dependencies $l
     echo "Re-add $l"
     brew install $l
 done
@@ -94,9 +94,9 @@ done
 
 |||homebrew fix
 
-https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/El_Capitan_and_Homebrew.md#if-usrlocal-exists-already
+<https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/El_Capitan_and_Homebrew.md#if-usrlocal-exists-already>
 
-https://community.sophos.com/products/free-antivirus-tools-for-desktops/f/17/t/10029
+<https://community.sophos.com/products/free-antivirus-tools-for-desktops/f/17/t/10029>
 
 ```bash
 sudo chown -R $(whoami):admin /usr/local
@@ -108,7 +108,7 @@ chmod +w /usr/local/bin
 
 |||homebrew fix 2
 
-https://github.com/caskroom/homebrew-cask/issues/15930
+<https://github.com/caskroom/homebrew-cask/issues/15930>
 
 ```text
 adidalal commented on Dec 18, 2015
@@ -129,7 +129,7 @@ If you are still having problems, open an issue with the appropriate template
 
 |||brew update
 
-http://stackoverflow.com/questions/6024671/how-do-i-update-homebrew
+<http://stackoverflow.com/questions/6024671/how-do-i-update-homebrew>
 
 ```bash
 cd /usr/local
@@ -143,13 +143,13 @@ git status til it's clean
 brew update
 ```
 
-http://www.commandlinefu.com/commands/view/4831/update-all-packages-installed-via-homebrew
+<http://www.commandlinefu.com/commands/view/4831/update-all-packages-installed-via-homebrew>
 
 ---
 
 |||tap untap
 
-https://github.com/caskroom/homebrew-cask/issues/6177
+<https://github.com/caskroom/homebrew-cask/issues/6177>
 
 ```text
 Welcome. I’ve updated your comment for readability. You can use backticks to differentiate single lines of code (or code blocks) from the rest of the text.
@@ -165,7 +165,7 @@ If that does not solve it, what is the output of brew doctor?
 |||brew cask
 |||homebrew cask
 
-https://github.com/caskroom/homebrew-cask/issues/21913
+<https://github.com/caskroom/homebrew-cask/issues/21913>
 
 How to migrate to the new location?
 
