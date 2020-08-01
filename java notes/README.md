@@ -196,11 +196,11 @@ bundle exec cucumber --tags ~@wip`
 
 Bundler
 
-https://bundler.io/v1.3/rationale.html
+<https://bundler.io/v1.3/rationale.html>
 
 Understanding the Gemfile.lock file
 
-https://stackoverflow.com/questions/7517524/understanding-the-gemfile-lock-file
+<https://stackoverflow.com/questions/7517524/understanding-the-gemfile-lock-file>
 
 ```yaml
 GEM
@@ -432,9 +432,9 @@ end
 
 def default_response_contains_url(response_body, default_url)
   JSON.parse(@response.body)['json_element'].each{|nested_json_element|
-  	if (nested_json_element['url'] == default_url) then
-  	  return true
-   	end
+   if (nested_json_element['url'] == default_url) then
+     return true
+    end
   }
   false
 end
@@ -442,13 +442,13 @@ end
 
   def compare_xml_files(fileA, fileB)
     differences = ''
-	status = Open4::popen4("diff #{fileA} #{fileB}") do |pid, stdin, stdout, stderr|
-		differences = stdout.read
+ status = Open4::popen4("diff #{fileA} #{fileB}") do |pid, stdin, stdout, stderr|
+  differences = stdout.read
     end
 
-  	if status != 0
-		fail ("Found differences between expected (left) and actual (right) XML:\n" + differences)
-	end
+   if status != 0
+  fail ("Found differences between expected (left) and actual (right) XML:\n" + differences)
+ end
 
   end
 ```
@@ -564,22 +564,22 @@ require 'rest-client'
 
 ```ruby
 After('@exampleCucumberTag') do |s|
-	start = Time.now
-	end = Time.now
-	#STDOUT.puts "Time to finish processing @exampleCucumberTag: #{seconds_time_difference(start, end)}s"
+ start = Time.now
+ end = Time.now
+ #STDOUT.puts "Time to finish processing @exampleCucumberTag: #{seconds_time_difference(start, end)}s"
 end
 
 
 def seconds_time_difference(start, end)
-	(end - start).round
+ (end - start).round
 end
 
 # Force quit cucumber if a test fails
 After do |s|
-	if s.failed?
-		STDOUT.puts "Forcing Cucumber to quit as a test scenario failed: " + s.name
-		Cucumber.wants_to_quit = true
-	end
+ if s.failed?
+  STDOUT.puts "Forcing Cucumber to quit as a test scenario failed: " + s.name
+  Cucumber.wants_to_quit = true
+ end
 end
 ```
 
@@ -593,28 +593,28 @@ end
 
 ```ruby
   def check_if_directory_exists_and_create_it_if_not(defaultFilename)
-  	FileUtils.mkdir_p(defaultFilename) unless File.exists?(defaultFilename)
+   FileUtils.mkdir_p(defaultFilename) unless File.exists?(defaultFilename)
   end
 
   def write_using_W3C_XML_Canonicalisation(xmlStringToCanonicalise, defaultFilename)
-  	errors = ''
-  	# Process using W3C XML Canonicalisation (--c14n) and then formatting (--format)
-  	defaultCommand = "xmllint --c14n - | xmllint --format - > #{defaultFilename}"
-	status = Open4::popen4(defaultCommand) do |pid, stdin, stdout, stderr|
-		stdin.write xmlStringToCanonicalise
-		stdin.close
-		errors = stderr.read
+   errors = ''
+   # Process using W3C XML Canonicalisation (--c14n) and then formatting (--format)
+   defaultCommand = "xmllint --c14n - | xmllint --format - > #{defaultFilename}"
+ status = Open4::popen4(defaultCommand) do |pid, stdin, stdout, stderr|
+  stdin.write xmlStringToCanonicalise
+  stdin.close
+  errors = stderr.read
     end
-	if status != 0
-		fail ("Failed to run xmllint (writing to #{defaultFilename}) due to:\n#{errors}")
-	end
+ if status != 0
+  fail ("Failed to run xmllint (writing to #{defaultFilename}) due to:\n#{errors}")
+ end
   end
 
   def write_to_file(stringToWrite, defaultFilename)
-	someDirectory = "default-path/to/some/dir"
-	check_if_directory_exists_and_create_it_if_not(someDirectory)
-	filename = defaultFilename.gsub(/[^A-Za-z0-9]+/, "-")
-	File.open(someDirectory+ filename, 'w') { |actualFile| actualFile.write(stringToWrite) }
+ someDirectory = "default-path/to/some/dir"
+ check_if_directory_exists_and_create_it_if_not(someDirectory)
+ filename = defaultFilename.gsub(/[^A-Za-z0-9]+/, "-")
+ File.open(someDirectory+ filename, 'w') { |actualFile| actualFile.write(stringToWrite) }
   end
 ```
 
@@ -648,7 +648,7 @@ String loadXmlFromFile = IOUtils.toString(ClassLoader.class.getResourceAsStream(
 |||java junit test
 |||junit test
 
-https://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests
+<https://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests>
 
 ```java
 How can I use JUnit4 idiomatically to test that some code throws an exception?
@@ -731,7 +731,7 @@ public void testFooThrowsIndexOutOfBoundsException() {
         foo.doStuff();
         fail("expected exception was not occured.");
     } catch(IndexOutOfBoundsException e) {
-        //if execution reaches here, 
+        //if execution reaches here,
         //it indicates this exception was occured.
         //so we need not handle it.
     }
@@ -768,15 +768,15 @@ public class ExampleJunitTestClass {
         String loadXmlFromFile = IOUtils.toString(ClassLoader.class.getResourceAsStream("/example/path/to/someXMLFile.xml"), "UTF-8");
     }
 
-	@Test
-	public void exampleTest1() throws Exception {
-		int exampleInt1 = 1;
-		String exampleString1 = "Example 1";
-		
-		assertEquals(1, exampleInt1);
-		assertNotNull(exampleString1);
-		assertNull(null);
-	}
+ @Test
+ public void exampleTest1() throws Exception {
+  int exampleInt1 = 1;
+  String exampleString1 = "Example 1";
+  
+  assertEquals(1, exampleInt1);
+  assertNotNull(exampleString1);
+  assertNull(null);
+ }
 }
 ```
 
@@ -802,22 +802,22 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(locations = { "/example/path/to/applicationContext-ForTests.xml" })
 public class ExampleJunitTestClass2 {
 
-	@Autowired
-	private Object someAutowiredObjInstance = new Object()
+ @Autowired
+ private Object someAutowiredObjInstance = new Object()
 
-	@Test
-	public void exampleTest1() throws Exception {
-		int exampleInt1 = 1;
-		String exampleString1 = "Example 1";
-		
-		assertEquals(1, exampleInt1);
-		assertNotNull(exampleString1);
-		assertNull(null);
-		assertFalse(false);
-		assertTrue(true);
-		assertSame(1,1);
-		assertEquals(someAutowiredObjInstance.getClass(), Object.class);
-	}
+ @Test
+ public void exampleTest1() throws Exception {
+  int exampleInt1 = 1;
+  String exampleString1 = "Example 1";
+  
+  assertEquals(1, exampleInt1);
+  assertNotNull(exampleString1);
+  assertNull(null);
+  assertFalse(false);
+  assertTrue(true);
+  assertSame(1,1);
+  assertEquals(someAutowiredObjInstance.getClass(), Object.class);
+ }
 }
 ```
 
@@ -839,8 +839,8 @@ import org.junit.Before;
 
 public class ExampleJunitTestClass3 {
 
-	@Mock
-	private Object someMockedObj = new Object();
+ @Mock
+ private Object someMockedObj = new Object();
 }
 ```
 
@@ -853,14 +853,14 @@ import org.junit.Test;
 
 public class ExampleTestClass {
 
-	@BeforeClass
-	public static void initialise() {
-	}
+ @BeforeClass
+ public static void initialise() {
+ }
 
-	@AfterClass
-	public static void tearDown() {
-		SomeStaticClass.reset();
-	}
+ @AfterClass
+ public static void tearDown() {
+  SomeStaticClass.reset();
+ }
 }
 ```
 
@@ -878,38 +878,38 @@ import static org.junit.Assert.fail;
 
 public class ExampleTestClass {
 
-	private static final Logger LOG = LoggerFactory.getLogger(ExampleTestClass.class);
+ private static final Logger LOG = LoggerFactory.getLogger(ExampleTestClass.class);
 
-	@Test
-	public void exampleTest1() throws Exception {
-		try {
-			// some code
-			fail("Should have thrown an IllegalArgumentException");
-		} catch (Exception e) {
-			LOG.error("Error: " + e.getMessage(), e);
-		}
-	}
+ @Test
+ public void exampleTest1() throws Exception {
+  try {
+   // some code
+   fail("Should have thrown an IllegalArgumentException");
+  } catch (Exception e) {
+   LOG.error("Error: " + e.getMessage(), e);
+  }
+ }
 
-	@Test
-	public void exampleTest2() throws Exception {
-		try {
-			// Some processing...
-		} catch(DocumentException ex) {
-			fail("Some failure message.");
-		}
-	}
+ @Test
+ public void exampleTest2() throws Exception {
+  try {
+   // Some processing...
+  } catch(DocumentException ex) {
+   fail("Some failure message.");
+  }
+ }
 
-	@Test
-	public void exampleTest3() throws Exception {
-	    try {
-    	// Some processing that should throw an exception...
+ @Test
+ public void exampleTest3() throws Exception {
+     try {
+     // Some processing that should throw an exception...
 
-		fail("An exception was supposed to be thrown.");
-		} catch (IllegalArgumentException ex) {
-			assertTrue("Incorrect argument supplied", ex.toString().contains("Incorrect argument supplied"));
-		}  catch (Exception ex) {
-			fail("The expected exception was not thrown, or a wrong exception was thrown.");
-    	}
+  fail("An exception was supposed to be thrown.");
+  } catch (IllegalArgumentException ex) {
+   assertTrue("Incorrect argument supplied", ex.toString().contains("Incorrect argument supplied"));
+  }  catch (Exception ex) {
+   fail("The expected exception was not thrown, or a wrong exception was thrown.");
+     }
     }
 }
 ```
@@ -949,49 +949,49 @@ import static org.hamcrest.core.IsInstanceOf.instanceOf;
 @RunWith(MockitoJUnitRunner.class)
 public class ExampleTestClass1 {
 
-	private Object someObject = new Object();
+ private Object someObject = new Object();
 
-	@Test
-	public void exampleTest() throws Exception {
-		
-		assertThat(1, is(1));
+ @Test
+ public void exampleTest() throws Exception {
+  
+  assertThat(1, is(1));
 
-		assertThat("some string value", is("some string value"));
+  assertThat("some string value", is("some string value"));
 
-		assertThat(null, is(not(nullValue())));
-		
-		assertThat(someObject, instanceOf(Object.class));
-	}
+  assertThat(null, is(not(nullValue())));
+  
+  assertThat(someObject, instanceOf(Object.class));
+ }
 
 
-	@Test
-	public void exampleUnitTestUsingVerifyAndArgumentCaptor() throws Exception {
-		// This mock can be outside of this unit test.
-		@Mock
-		private SomeExampleContentObject someExampleContentObject;
+ @Test
+ public void exampleUnitTestUsingVerifyAndArgumentCaptor() throws Exception {
+  // This mock can be outside of this unit test.
+  @Mock
+  private SomeExampleContentObject someExampleContentObject;
 
-		// ArgumentCaptor for object of type Object.class
-		ArgumentCaptor<Object> argument = ArgumentCaptor.forClass(Object.class);
+  // ArgumentCaptor for object of type Object.class
+  ArgumentCaptor<Object> argument = ArgumentCaptor.forClass(Object.class);
 
-		// Invoke some processing which is expected to call someExampleContentObject.setSomeExampleObject(Object obj) with
-		// a certain instance of Object.class with populated fields with certain values.
-		// ... some processing.
+  // Invoke some processing which is expected to call someExampleContentObject.setSomeExampleObject(Object obj) with
+  // a certain instance of Object.class with populated fields with certain values.
+  // ... some processing.
 
-		// setSomeExampleObject(Object obj) takes an object of type Object.class
-		// Verify that setSomeExampleObject() has been called as a method of an instance of SomeExampleContentObject.class
-		// and capture the parameter it has been called with, in this case an instance of Object.class, with populated fields with certain values.
-		verify(someExampleContentObject).setSomeExampleObject(argument.capture());
+  // setSomeExampleObject(Object obj) takes an object of type Object.class
+  // Verify that setSomeExampleObject() has been called as a method of an instance of SomeExampleContentObject.class
+  // and capture the parameter it has been called with, in this case an instance of Object.class, with populated fields with certain values.
+  verify(someExampleContentObject).setSomeExampleObject(argument.capture());
 
-		// If setSomeExampleObject() was taking two arguments, the first being the one we are interested in
-		// and the second, one which we want to be of specific value, we can use eq()
-		// verify(someExampleContentObject).setSomeExampleObject(argument.capture(), eq("specific value"));
+  // If setSomeExampleObject() was taking two arguments, the first being the one we are interested in
+  // and the second, one which we want to be of specific value, we can use eq()
+  // verify(someExampleContentObject).setSomeExampleObject(argument.capture(), eq("specific value"));
 
-		// getValue() returns the instance of type Object.class which has been captured when setSomeExampleObject() has been called during processing above.
-		Object someObject2 = argument.getValue();
+  // getValue() returns the instance of type Object.class which has been captured when setSomeExampleObject() has been called during processing above.
+  Object someObject2 = argument.getValue();
 
-		// Assert and verify that the parameter (argument), in our case instance of Object.class, has it's fields populated with the expected values.
-		assertEquals("Value of some example object field.", someObject2.getSomeExampleObjectFieldValue());
-	}
+  // Assert and verify that the parameter (argument), in our case instance of Object.class, has it's fields populated with the expected values.
+  assertEquals("Value of some example object field.", someObject2.getSomeExampleObjectFieldValue());
+ }
 }
 ```
 
@@ -1027,25 +1027,25 @@ import static org.junit.Assert.assertTrue;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
 public class ExampleUnitTestClass2 {
-	
-	@InjectMocks
-	Object someExampleMockObject1;
+ 
+ @InjectMocks
+ Object someExampleMockObject1;
 
-	@Autowired
-	@InjectMocks
-	Object someExampleMockObject2;
+ @Autowired
+ @InjectMocks
+ Object someExampleMockObject2;
 
-	@Mock
-	Object someExampleMockObject3;
-	
-	@Before
-	public void setUp() throws Exception {
-		MockitoAnnotations.initMocks(this);
-	}
+ @Mock
+ Object someExampleMockObject3;
+ 
+ @Before
+ public void setUp() throws Exception {
+  MockitoAnnotations.initMocks(this);
+ }
 
-	@Test
+ @Test
     public void some_featureflag_should_be_on_after_initialisation() {
-    	when(someExampleMockObject3.isItTrue()).thenReturn(true);
+     when(someExampleMockObject3.isItTrue()).thenReturn(true);
         assertTrue(someExampleMockObject3.isItTrue());
     }
 }
@@ -1076,29 +1076,29 @@ import static org.mockito.atLeast;
 
 public class ExampleUnitTestClass3 {
 
-	@Mock
-	private SomeObject1 someObject1;
+ @Mock
+ private SomeObject1 someObject1;
 
-	@Test
-	public void testAssetParserHelperIsCalledToParseItemMeta() throws Exception {
-		Object expectedObject = new Object();
+ @Test
+ public void testAssetParserHelperIsCalledToParseItemMeta() throws Exception {
+  Object expectedObject = new Object();
 
-		// Do some processing that will call someObject1.someMethod1() with some object instance, which we expect to be of the type of Object.class.
+  // Do some processing that will call someObject1.someMethod1() with some object instance, which we expect to be of the type of Object.class.
 
-		verify(someObject1).someMethod1(any(Object.class), eq(expectedObject));
+  verify(someObject1).someMethod1(any(Object.class), eq(expectedObject));
 
 
-		verify(someObject1, atLeast(3)).someMethod2(any(String.class));
-	}
+  verify(someObject1, atLeast(3)).someMethod2(any(String.class));
+ }
 
-	// Another way of using mock:
-	Object someMockObject2 = mock(Object.class);
+ // Another way of using mock:
+ Object someMockObject2 = mock(Object.class);
 }
 
 public class SomeObject1 {
-	public void someMethod1(Object obj){
-		System.out.println(obj.toString());
-	}
+ public void someMethod1(Object obj){
+  System.out.println(obj.toString());
+ }
 }
 ```
 
@@ -1113,23 +1113,23 @@ import static org.mockito.Mockito.*;
 
 public class ExampleUnitTestClass4 {
 
-	@Mock
-	private SomeObject2 someObject2;
+ @Mock
+ private SomeObject2 someObject2;
 
-	@Test
-	public void testAssetParserHelperIsCalledToParseItemMeta() throws Exception {
-		Object exampleObject = new Object();
+ @Test
+ public void testAssetParserHelperIsCalledToParseItemMeta() throws Exception {
+  Object exampleObject = new Object();
 
-		when(someObject2.someMethod2(isA(Object.class), eq("String value a"), eq("String value b"))).thenReturn(true);
+  when(someObject2.someMethod2(isA(Object.class), eq("String value a"), eq("String value b"))).thenReturn(true);
 
-		assertTrue(someObject2.someMethod2(exampleObject, "String value a", "String value b"));
-	}
+  assertTrue(someObject2.someMethod2(exampleObject, "String value a", "String value b"));
+ }
 }
 
 public class SomeObject2 {
-	public void someMethod2(Object obj, String a, String b){
-		System.out.println(obj.toString() + a + b);
-	}
+ public void someMethod2(Object obj, String a, String b){
+  System.out.println(obj.toString() + a + b);
+ }
 }
 ```
 
@@ -1167,38 +1167,38 @@ import org.mockito.MockitoAnnotations;
 
 public class ExampleUnitTestClass5 {
 
-	@Mock
-	private ObjectProcessor objectProcessorMock;
+ @Mock
+ private ObjectProcessor objectProcessorMock;
 
-	@Mock
-	private Object someObjectMockForZeroInteractions;
+ @Mock
+ private Object someObjectMockForZeroInteractions;
 
-	@Before
-	public void initialiseMocks() throws Exception {
-		MockitoAnnotations.initMocks(this);
-		// Some other mock set up using when().thenReturn(); etc...
-	}
+ @Before
+ public void initialiseMocks() throws Exception {
+  MockitoAnnotations.initMocks(this);
+  // Some other mock set up using when().thenReturn(); etc...
+ }
 
-	@Test
-	public void someTestUsingMockitoInOrder() throws Exception {
-		Object someObjectMock = mock(Object.class);
-		when(objectProcessorMock.processObject(any(SomeClass.class), eq("Some string"), eq(1))).thenReturn(someObjectMock);
+ @Test
+ public void someTestUsingMockitoInOrder() throws Exception {
+  Object someObjectMock = mock(Object.class);
+  when(objectProcessorMock.processObject(any(SomeClass.class), eq("Some string"), eq(1))).thenReturn(someObjectMock);
 
-		// Start some processing which will invoke objectProcessorMock.processObject(...); at some point.
+  // Start some processing which will invoke objectProcessorMock.processObject(...); at some point.
 
-		// I think inOrder will verify the order in which the expected methods are called, to see if it's the same as the expected order we have written the verifys below.
-		InOrder objectProcessorInOrder = inOrder(objectProcessorMock);
-		
-		//  times(...) is used to specify the number of times it is expected the method to be called.
-		objectProcessorInOrder.verify(objectProcessorMock, times(5)).someObjectProcessingMethod1(any(SomeClass2.class));
-		objectProcessorInOrder.verify(objectProcessorMock).someObjectProcessingMethod2(eq(2));
-		objectProcessorInOrder.verify(objectProcessorMock).someObjectProcessingMethod3(any(SomeClass.class), eq("Some string 2."));
+  // I think inOrder will verify the order in which the expected methods are called, to see if it's the same as the expected order we have written the verifys below.
+  InOrder objectProcessorInOrder = inOrder(objectProcessorMock);
+  
+  //  times(...) is used to specify the number of times it is expected the method to be called.
+  objectProcessorInOrder.verify(objectProcessorMock, times(5)).someObjectProcessingMethod1(any(SomeClass2.class));
+  objectProcessorInOrder.verify(objectProcessorMock).someObjectProcessingMethod2(eq(2));
+  objectProcessorInOrder.verify(objectProcessorMock).someObjectProcessingMethod3(any(SomeClass.class), eq("Some string 2."));
 
-		verifyNoMoreInteractions(objectProcessorMock);
-		verifyNoMoreInteractions(someObjectMock);
+  verifyNoMoreInteractions(objectProcessorMock);
+  verifyNoMoreInteractions(someObjectMock);
 
-		verifyZeroInteractions(someObjectMockForZeroInteractions);
-	}
+  verifyZeroInteractions(someObjectMockForZeroInteractions);
+ }
 }
 
 
@@ -1214,16 +1214,16 @@ import java.util.ArrayList;
 
 public class ExampleUnitTestClass6 {
 
-	List<Object> emptyListOfTypeObject = new ArrayList<Object>();
+ List<Object> emptyListOfTypeObject = new ArrayList<Object>();
 
-	@Test
-	public void someUnitTest1() throws Exception {
-		assertEquals(Collections.<Object>emptyList(), emptyListOfTypeObject);
-	}
+ @Test
+ public void someUnitTest1() throws Exception {
+  assertEquals(Collections.<Object>emptyList(), emptyListOfTypeObject);
+ }
 
-	Object object1 = new Object();
-	Object object2 = new Object();
-	List<Object> nonEmptyListOfTypeObject = new ArrayList<Object>();
+ Object object1 = new Object();
+ Object object2 = new Object();
+ List<Object> nonEmptyListOfTypeObject = new ArrayList<Object>();
 }
 ```
 
@@ -1244,17 +1244,15 @@ assertTrue(circularTestValidator.isValid(referencedAsset, context));
 
 ```java
     String javaXMLStringEscaping1xmlAsStringJava =
-    	"<foo uri=\"http://www.example.com/path\" xmlns=\"http://www.example.com/namespace\" >\n" +
-    	        "  <bar>\n" +
-    	        "   <xmlTagElementNode1 pathParameter=\"/foo/bar\"/>\n" +
-    	        "   <xmlTagElementNode2>Some value.</xmlTagElementNode2>" +
-    	        "  </bar>" +
-    	        "</foo>";
+     "<foo uri=\"http://www.example.com/path\" xmlns=\"http://www.example.com/namespace\" >\n" +
+             "  <bar>\n" +
+             "   <xmlTagElementNode1 pathParameter=\"/foo/bar\"/>\n" +
+             "   <xmlTagElementNode2>Some value.</xmlTagElementNode2>" +
+             "  </bar>" +
+             "</foo>";
 ```
 
 ---
-
-
 
 ---
 ---
