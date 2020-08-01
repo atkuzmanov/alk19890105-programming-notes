@@ -278,3 +278,34 @@ trait ExampleLogging {
 ```
 
 ---
+
+|||scalatra
+|||continuous compilation running
+|||automatic code reloading
+|||hot code
+
+```bash
+$sbt
+> container:start
+> ~ ;copy-resources;aux-compile
+> container:stop
+```
+
+---
+
+|||scala cucumber tests |||cucumber tests scala
+|||cucumber step parameter |||cucumber step parameterisation
+
+```scala
+Given ("""^ Blah blah ([^"]*) blah blah$""") { (stepParameterValue: String) =>
+	println(">>>" + stepParameterValue)
+}
+
+
+
+Given ("""^ Blah blah (.*?) blah blah$""") { (stepParameterValue: String) =>
+	println(">>>" + stepParameterValue)
+}
+```
+
+---
