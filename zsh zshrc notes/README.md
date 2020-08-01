@@ -1,4 +1,4 @@
-# shell zsh zshrc zprofile
+# zsh zshrc notes
 
 |||iterm2 zsh |||zsh iterm2
 
