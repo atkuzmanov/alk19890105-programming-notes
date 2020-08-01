@@ -258,3 +258,23 @@ by Lorenzo Ansaloni
 Scala Companion object pattern - object + trait pattern
 
 ---
+
+|||scala logging |||logging scala
+|||scala logger |||logger scala
+
+|||slf4j scala logging |||slf4j logging scala |||scala slf4j logging
+
+|||logging slf4j
+|||log slf4j scala
+
+```scala
+import org.slf4j.LoggerFactory
+
+trait ExampleLogging {
+  protected[this] val log = LoggerFactory.getLogger(this.getClass)
+
+  def exampleWriteInOneLine(value: Any): String = value.toString.replaceAll("\n"," ")
+}
+```
+
+---
