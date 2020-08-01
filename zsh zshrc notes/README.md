@@ -12,7 +12,7 @@ edited May 6 at 8:49
 
 Nishant
 2,35222 gold badges1515 silver badges3434 bronze badges
-answered Nov 20 '12 at 
+answered Nov 20 '12 at
 ```
 
 ```text
@@ -30,10 +30,9 @@ Thomas Fankhauser
 4,14611 gold badge2525 silver badges30
 ```
 
-----
+---
 
 ```zsh
-
 ### zsh-autosuggestions
 ## To activate the autosuggestions, add the following at the end of your .zshrc:
 ## source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -73,5 +72,6 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ## You will also need to force reload of your .zshrc:
 ##   source ~/.zshrc
 source /usr/local/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
-
 ```
+
+---

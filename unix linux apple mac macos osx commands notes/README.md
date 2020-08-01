@@ -76,7 +76,7 @@ sudo
 |||mac commands
 |||list ports
 |||netstat
-|||network 
+|||network
 |||networks
 |||networking
 
@@ -88,7 +88,7 @@ sudo
 
 `whois 17.172.233.109`
 
-|||network 
+|||network
 |||networks
 |||networking
 |||nslookup
@@ -125,7 +125,7 @@ dig www.google.co.uk
 |||unix commands
 |||linux commands
 |||mac commands
- 
+
 `ps -ef|grep java`
 
 `ps ax|grep -i java`
@@ -152,7 +152,7 @@ mac terminal count files in folder without ds_store
 find . ! -name '.*' -type f | wc -l
 ```
 
-https://stackoverflow.com/questions/23325305/count-only-visible-files-in-directory
+<https://stackoverflow.com/questions/23325305/count-only-visible-files-in-directory>
 
 ---
 
@@ -170,7 +170,7 @@ https://stackoverflow.com/questions/23325305/count-only-visible-files-in-directo
 
 |||list files in a directory
 
-http://hints.macworld.com/article.php?story=20010508182132282
+<http://hints.macworld.com/article.php?story=20010508182132282>
 
 ```bash
 $cd directory_to_count
@@ -182,15 +182,13 @@ $ls | wc -l
 $find / -print | wc -l
 ```
 
-https://askubuntu.com/questions/34099/find-number-of-files-in-folder-and-sub-folders
+<https://askubuntu.com/questions/34099/find-number-of-files-in-folder-and-sub-folders>
 
 To count files (even files without an extension) recursively from the root of the current directory, use:
 
 `$ ls -lR | grep ^- | wc -l`
 
-
 `$ find . -type f | wc -l`
-
 
 `$ tree share/some/directory/ | tail -1`
 
@@ -204,21 +202,21 @@ To count files (even files without an extension) recursively from the root of th
 
 `tree -p share/some/directory/ | tail -1`
 
-http://hints.macworld.com/article.php?story=20020410125219343
+<http://hints.macworld.com/article.php?story=20020410125219343>
 
 `$ find "Stuff/" \! -name ".*" | wc -l`
 
 |||bash count files |||mac count files |||linux count files |||count files
 
-https://askubuntu.com/questions/34099/find-number-of-files-in-folder-and-sub-folders
+<https://askubuntu.com/questions/34099/find-number-of-files-in-folder-and-sub-folders>
 
-http://hints.macworld.com/article.php?story=20010508182132282
+<http://hints.macworld.com/article.php?story=20010508182132282>
 
-https://stackoverflow.com/questions/12656427/count-number-of-specific-file-type-of-a-directory-and-its-sub-dir-in-mac
+<https://stackoverflow.com/questions/12656427/count-number-of-specific-file-type-of-a-directory-and-its-sub-dir-in-mac>
 
-https://stackoverflow.com/questions/7058273/how-do-i-get-bash-on-os-x-lion-to-ignore-ds-store-files-during-tab-completion
+<https://stackoverflow.com/questions/7058273/how-do-i-get-bash-on-os-x-lion-to-ignore-ds-store-files-during-tab-completion>
 
-https://discussions.apple.com/thread/5309983
+<https://discussions.apple.com/thread/5309983>
 
 ```bash
 142 files + directories + .DS_Store + .localized
@@ -290,7 +288,7 @@ find ~/Downloads/ \( ! -regex '.*/\..*' \) -type f | wc -l
 |||linux commands
 |||mac commands
 
-https://stackoverflow.com/questions/4833052/how-do-i-remove-the-extended-attributes-on-a-file-in-mac-os-x
+<https://stackoverflow.com/questions/4833052/how-do-i-remove-the-extended-attributes-on-a-file-in-mac-os-x>
 
 ```bash
 $ xattr s.7z
@@ -488,7 +486,7 @@ chmod 777 = xrwxrwxrw
 chmod -R 777 = xrwxrwxrw
 ```
 
-https://www.maketecheasier.com/file-permissions-what-does-chmod-777-means/
+<https://www.maketecheasier.com/file-permissions-what-does-chmod-777-means/>
 
 ```text
 0 - no permission
@@ -538,7 +536,7 @@ ls -halt
 |||windows directory depth filename path limits
 |||file system limits
 
-https://unix.stackexchange.com/questions/28997/on-deep-created-directories
+<https://unix.stackexchange.com/questions/28997/on-deep-created-directories>
 
 ```bash
 The actual limits can depend both on the filesystem you're using, and the kernel.
@@ -682,8 +680,8 @@ curl [URL-YOU-WANT-TO-CURL]
 ```
 
 Links:
-http://curl.haxx.se/docs/mk-ca-bundle.html
-http://curl.haxx.se/docs/caextract.html
+<http://curl.haxx.se/docs/mk-ca-bundle.html>
+<http://curl.haxx.se/docs/caextract.html>
 
 ---
 
@@ -791,8 +789,8 @@ curl -i GET \
 |||curl formatted time output
 |||curl time output |||curl time formatted
 
-https://blog.josephscott.org/2011/10/14/timing-details-with-curl/
-https://stackoverflow.com/questions/18215389/how-do-i-measure-request-and-response-times-at-once-using-curl
+<https://blog.josephscott.org/2011/10/14/timing-details-with-curl/>
+<https://stackoverflow.com/questions/18215389/how-do-i-measure-request-and-response-times-at-once-using-curl>
 
 Create a new file, curl-format.txt, and paste in:
 
@@ -852,7 +850,7 @@ wget -O- -v -d "https://example.com/example/path" --no-check-certificate
 |||concurrent bash |||concurrent bash script |||concurrent bashscript
 |||xargs |||xargs concurrency
 
-https://stackoverflow.com/questions/3002493/bash-how-to-simply-parallelize-tasks
+<https://stackoverflow.com/questions/3002493/bash-how-to-simply-parallelize-tasks>
 
 ```bash
 # find . -iname "*png" -print0 | xargs -0 --max-procs=4 -n 1 pngout
@@ -877,7 +875,7 @@ pcregrep -M  'ERROR(\n|.)*?TimeoutException'
 cat /var/log/example-app/application.log | pcregrep -M  'ERROR(\n|.)*?TimeoutException'
 ```
 
-https://stackoverflow.com/questions/2686147/how-to-find-patterns-across-multiple-lines-using-grep
+<https://stackoverflow.com/questions/2686147/how-to-find-patterns-across-multiple-lines-using-grep>
 
 How to find patterns across multiple lines using grep?
 
@@ -910,14 +908,14 @@ instead of !d you can simply use p to print:
 sed -n '/abc/,/efg/p' file
 ```
 
-https://stackoverflow.com/questions/3717772/regex-grep-for-multi-line-search-needed/7167115#7167115
+<https://stackoverflow.com/questions/3717772/regex-grep-for-multi-line-search-needed/7167115#7167115>
 
 Regex (grep) for multi-line search needed `[duplicate]`
 
 Without the need to install the grep variant pcregrep, you can do multiline search with grep.
 
 ```bash
-$ grep -Pzo "(?s)^(\s*)\N*main.*?{.*?^\1}" *.c
+grep -Pzo "(?s)^(\s*)\N*main.*?{.*?^\1}" *.c
 ```
 
 Explanation:
@@ -946,22 +944,21 @@ As you can imagine, this search prints the main method in a C (*.c) source file.
 awk '/select/,/from/' *.sql
 ```
 
-https://stackoverflow.com/questions/152708/how-can-i-search-for-a-multiline-pattern-in-a-file
+<https://stackoverflow.com/questions/152708/how-can-i-search-for-a-multiline-pattern-in-a-file>
 How can I search for a multiline pattern in a file?
 
 ```bash
 find . -iname '*.py' | xargs pcregrep -M '_name.*\n.*_description'
 ```
 
-https://serverfault.com/questions/408265/what-are-pcre-limits/408272
+<https://serverfault.com/questions/408265/what-are-pcre-limits/408272>
 What are PCRE limits?
 
 These appear to be settings internal to the PCRE engine in order to limit the maximum amount of memory/time spent on trying to match some text to a pattern.
 
-https://linux.die.net/man/3/pcreapi
+<https://linux.die.net/man/3/pcreapi>
 
-
-https://stackoverflow.com/questions/16856308/segmentation-fault-in-bash-script-using-find-grep-sed
+<https://stackoverflow.com/questions/16856308/segmentation-fault-in-bash-script-using-find-grep-sed>
 Segmentation fault in bash script using find, grep, sed
 
 UPDATE #2: So apparently sed doesn't support non greedy matching, which makes part of my answer invalid. There are ways around this, but I will not include them here as it's far removed from the original question. The answer to this question is using the --disable-stack-for-recursion flag as described below.

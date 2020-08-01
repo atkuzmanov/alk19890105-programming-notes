@@ -192,3 +192,25 @@ create symlink
 ```
 
 ---
+
+|||mac missing tray bar menu icons
+
+Run in terminal:
+
+`killall SystemUIServer`
+
+---
+|||mac system information command
+|||system profiler
+
+`system_profiler SPApplicationsDataType`
+
+---
+
+|||mac list programms
+|||mac list software
+|||find command
+
+`find / -iname *.app > ~/applications.txt`
+
+---
