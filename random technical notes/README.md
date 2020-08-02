@@ -84,3 +84,28 @@ Double click to open dialog command:
 `query %s`
 
 ---
+
+|||groovy
+|||grails
+
+`grails run-app`
+
+---
+
+|||m2crypto.ssl.sslerror
+|||M2Crypto.SSL.SSLError
+
+`M2Crypto.SSL.SSLError`
+
+```bash
+$ rm /etc/ca/ca.pem
+$ ln -s /etc/ca.pem /etc/ca/ca.pem
+$ yum clean all -y
+$ yum update --disablerepo=* --enablerepo=base,updates
+$ sed -i.tmp \
+      -e 's?sslcacert = /etc/ca/ca.pem?sslcacert = /etc/pki/tls/cert.pem?g' \
+     /etc/yum.repos.d/*.repo \
+  && rm -f /etc/yum.repos.d/*.tmp
+```
+
+---

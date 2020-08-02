@@ -214,3 +214,27 @@ Run in terminal:
 `find / -iname *.app > ~/applications.txt`
 
 ---
+
+|||process for changing exchange password on a mac
+
+```text
+1. ALWAYS CHANGE PASSWORD ON NETWORK CABLE!!!
+
+2. Go to "System Preferences" --> Users & Groups --> Change Password
+
+3. Delete password from KeyChain Access.
+
+4. Restart computer.
+
+5. When prompted select to create new keychain.
+
+6. Restart and Outlook. Go into File --> Account and change password. Or it should prompt you for a new password. Tick "remember password in keychain".
+
+7. Print something and change password.
+
+8. NOTE: This step is deprecated, so will be kept for info just in case.
+Go to "Keychain Access" --> Edit --> 'Change password for keychain "login"...'
+NOTE: If it doesn't accept the old password try the new one in all three fields.
+```
+
+---

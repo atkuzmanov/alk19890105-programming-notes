@@ -114,3 +114,24 @@ Soft launch - rolling out something to production, but it is not linked or adver
 <http://www.professionalindemnity.co.uk/>
 
 ---
+
+|||favourite programming comment encountered
+|||favourite comment
+
+```java
+/*
+ * Anybody reading this who thinks this code is better, maintainable and
+ * more easy to work with than what it was "refactored" from by P. and his
+ * W. / T. cronies is a Bad Developer.
+ *
+ * This is a tangled mess of nonsense with an *actual circular dependency*
+ * (service names in an enum on the superclass to all services! That is such
+ * a basically stupid thing to do I wouldn't expect it of a 16 year old on
+ * work experience). This is objectively bad code. It is hurting our ability
+ * to develop.
+ *
+ * JK
+ */
+ ```
+
+ ---
