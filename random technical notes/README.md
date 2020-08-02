@@ -71,6 +71,7 @@ xchat timestamp:
 ```
 
 xchat Deleting chat history and scrollback and logs
+
 ```bash
 rm -rf ~/Library/Containers/org.3rddev.xchatazure/Data/Library/Application\ Support/XChat\ Azure/xchatlogs/*.log
 ls -la ~/Library/Containers/org.3rddev.xchatazure/Data/Library/Application\ Support/XChat\ Azure/xchatlogs/
@@ -107,5 +108,35 @@ $ sed -i.tmp \
      /etc/yum.repos.d/*.repo \
   && rm -f /etc/yum.repos.d/*.tmp
 ```
+
+---
+
+|||nle
+|||natural language engineering
+|||wordsmith
+
+wordsmith - nle
+
+---
+
+|||statsd
+|||graphite
+|||graphana
+|||stats
+
+<http://docs.grafana.org/>
+
+<https://graphite.readthedocs.io/en/latest/>
+
+<https://graphiteapp.org/>
+
+<https://github.com/etsy/statsd>
+
+|||delete data from graphite
+|||graphite delete metrics data
+
+<http://geek.michaelgrace.org/2011/09/delete-data-from-graphite/>
+
+`/data/carbon/whisper/`
 
 ---
