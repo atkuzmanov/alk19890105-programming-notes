@@ -1,4 +1,4 @@
-# apple mac macbook pro osx macos notes
+# apple mac osx macos notes
 
 |||how to change your mac username
 
@@ -189,6 +189,16 @@ create symlink
 /Volumes/HD/Users/[username]/Library/Preferences/[name-of-software].plist
 
 /Volumes/HD/Users/[username]/Library/Preferences/[name-of-software].lockfile
+```
+
+```bash
+~/Applications
+~/Library/Application\ Support
+~/Library/Preferences/
+
+/Volumes/Macintosh\ HD/Applications
+/Volumes/Macintosh\ HD/Library/Application\ Support
+/Volumes/Macintosh\ HD/Library/Preferences
 ```
 
 ---

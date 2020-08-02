@@ -1,10 +1,49 @@
 # Homebrew brew and cask notes
 
+**undefined method `undent' error**
+
+<https://github.com/Homebrew/homebrew-cask/issues/49716>
+
+<http://flummox-engineering.blogspot.com/2018/12/homebrew-cask-cannot-reinstall-is-unreadable-undefined-method-undent.html>
+
+<https://github.com/Homebrew/homebrew-bundle/issues/338>
+
+<https://awesomeopensource.com/project/Homebrew/homebrew-bundle>
+
+`brew cask list`
+
+<https://github.com/Homebrew/homebrew-cask/issues/58046>
+
+```bash
+/usr/bin/find "$(brew --prefix)/Caskroom/"*'/.metadata' -type f -name '*.rb' -print0 | /usr/bin/xargs -0 /usr/bin/perl -i -pe 's/depends_on macos: \[.*?\]//gsm;s/depends_on macos: .*//g'
+```
+
+<https://wilsonmar.github.io/macos-homebrew/>
+
+---
+
+Homebrew brew cask directories
+
+```bash
+~/Library/Caches/Homebrew
+~/Library/Caches/Homebrew/Cask
+
+/usr/local/Cellar/
+
+/usr/local/opt/
+
+~/Applications/
+
+/Volumes/Macintosh\ HD/Applications
+```
+
+---
+
 ## Command to generate Brewfile with descriptions
 
 `brew bundle dump --describe`
 
----
+===
 
 <https://github.com/Homebrew/homebrew-bundle>
 
@@ -12,7 +51,7 @@
 
 <https://medium.com/@satorusasozaki/automate-mac-os-x-configuration-by-using-brewfile-58a78ce5cc53>
 
----
+===
 
 <https://superuser.com/questions/1137780/how-do-i-reinstall-all-packages-installed-with-homebrew>
 
