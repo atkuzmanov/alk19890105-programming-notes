@@ -238,3 +238,167 @@ NOTE: If it doesn't accept the old password try the new one in all three fields.
 ```
 
 ---
+
+|||mac nrg to iso |||nrg to iso |||convert nrg to iso
+
+Extract ISO9660 data from Nero nrg files
+
+<http://gregory.kokanosky.free.fr/v4/linux/nrg2iso.en.html>
+nrg2iso
+
+<http://osxdaily.com/2009/09/25/convert-a-nero-image-file-to-iso/>
+
+`dd bs=1k if=image.nrg of=image.iso skip=300`
+
+"Essentially what this command is saying is that using 1k block sizes, from the input file of image.nrg (our Nero image that needs converting), create an output of image.iso (the desired ISO image file), after skipping the first 300k of the input file (aka the Nero 300k header)."
+
+---
+
+|||pdfwriter for mac |||print to pdf |||print pdf |||pdf print
+
+<https://sourceforge.net/projects/pdfwriterformac/>
+
+"Printed PDF isn't readable by Adobe"
+
+<https://sourceforge.net/p/pdfwriterformac/discussion/1246009/thread/a41f8c97/>
+
+"M.G. - 2017-01-04
+you need to choose the driver-file manually during the adding process of the printer. You can find it at following path: /Library/Printers/Lisanet/PDFwriter/pdfwriter.ppd
+Delete the printer and add it with the correct printer - works for me on El Capitan"
+
+"can't find my printed pdf files on my mac"
+
+<https://sourceforge.net/p/pdfwriterformac/discussion/1246009/thread/d66abec3/>
+
+"Richard - 2012-07-14
+Hi Dennis,
+  Go to Macintosh HD, then click on "Users" then click on "Shared" then click on "PDFwriter." Your printed files will be in the next folder which is named after the user of the computer.
+           Richard"
+
+"n2nguyen - 2014-01-19
+You don't need to repath, you can create a shortcut. Here's the command I used to put it in Dropbox in Dropbpx/Documents/PDFs folder
+
+$ sudo ln -s /var/spool/pdfwriter/[user] ~/Dropbox/Documents/PDFs"
+
+"trickyt57 - 2014-08-15
+Here is a much simpler solution:
+
+Locate the file located at Macintosh HD/private/var/spool/pdfwriter/your_name
+(note the folder called "private" may be hidden or greyed out. Use the usual method for displaying such hidden folders)
+Right click on the folder.
+Choose "Make Alias"
+You will now see a new folder with the same name followed by "alias".
+Drag and drop the alias file into any folder you like on your hard drive. In my case, I dropped it in my_name/pdf_documents.
+Now anytime you create a printed pdfwriter doc you can find it in the new alias file located in the directory of your choice."
+
+---
+
+|||format exfat mac os |||erase efi |||erase exefi |||diskutil |||partition disk mac os x
+
+<https://superuser.com/questions/1001369/how-do-i-remove-the-efi-partition-on-my-usb-using-mac-os-x-10-11>
+
+How do I remove the EFI Partition on my USB using Mac OS X 10.11?
+
+`diskutil list`
+
+to identify the partition (shown as partition s1 on disk 2), and
+
+`diskutil eraseVolume "Free Space" ExEFI disk2s1`
+
+---
+
+<http://osxdaily.com/2016/08/30/erase-disk-command-line-mac/>
+
+`diskutil eraseDisk ExFAT DiskName /dev/nodename`
+
+`diskutil eraseDisk JHFS+ DiskName /dev/DiskNodeID`
+
+---
+
+<http://www.theinstructional.com/guides/disk-management-from-the-command-line-part-2>
+
+"Partitioning a Disk
+To partition a disk, we use:
+
+diskutil partitionDisk /dev/disk2 GPT JHFS+ New 0b
+
+The first three parts of the command are self explanatory, there's the actual diskutil command followed by the option partitionDisk and the disk's identifier /dev/disk(n). You'll also recognise JHFS+ as the filesystem, followed by the label to give the newly-created volume.
+
+Partition Scheme
+GPT is an option for the Partition Scheme. There are three you can use:
+
+GPT: GUID Partition Table
+APM: Apple Partition Map
+MBR: Master Boot Records
+Unless you intend to boot a PowerPC-based Mac or Windows PC with your hard disk, there's no reason to select anything other than GPT. Intel Macs can only boot from GUID partitions."
+
+---
+
+|||formatting guid vs mrb |||guid partition |||master boot record partition |||mrb partition
+
+<https://www.howtogeek.com/193669/whats-the-difference-between-gpt-and-mbr-when-partitioning-a-drive/>
+
+"GPT’s Advantages
+GPT stands for GUID Partition Table. It’s a new standard that’s gradually replacing MBR. It’s associated with UEFI, which replaces the clunky old BIOS with something more modern. GPT, in turn, replaces the clunky old MBR partitioning system with something more modern. It’s called GUID Partition Table because every partition on your drive has a “globally unique identifier,” or GUID—a random string so long that every GPT partition on earth likely has its own unique identifier.
+
+GPT doesn’t suffer from MBR’s limits. GPT-based drives can be much larger, with size limits dependent on the operating system and its file systems. GPT also allows for a nearly unlimited number of partitions. Again, the limit here will be your operating system—Windows allows up to 128 partitions on a GPT drive, and you don’t have to create an extended partition to make them work.
+
+On an MBR disk, the partitioning and boot data is stored in one place. If this data is overwritten or corrupted, you’re in trouble. In contrast, GPT stores multiple copies of this data across the disk, so it’s much more robust and can recover if the data is corrupted.
+
+GPT also stores cyclic redundancy check (CRC) values to check that its data is intact. If the data is corrupted, GPT can notice the problem and attempt to recover the damaged data from another location on the disk. MBR had no way of knowing if its data was corrupted—you’d only see there was a problem when the boot process failed or your drive’s partitions vanished."
+
+<https://superuser.com/questions/324525/what-are-the-differences-between-mbr-vs-gpt-vs-any-other-partition-scheme>
+
+"Differences between MS-DOS style Master Boot Record (MBR), the Apple Partition Map (APM), and the UEFI-style GUID Partition Table (GPT) are such:
+
+Disk size
+MBR and APM limit the usable disk size to 2 TiB (a partition can neither start nor end beyond the 2 TiB limit). With GPT, the disk can be up to 8 ZiB.
+
+Partition count
+MBR is limited to four partitions.
+
+To get around the limit, one of the partitions is usually created as an "extended partition" which nestedly contains a series of "logical partitions". The most common scheme for this is an Extended Boot Record, though BSD systems often nest a BSD disklabel instead.
+
+APM can grow up to 62 partitions; GPT can have at least 128.
+
+Partition metadata
+MBR partitions have a 1-byte "type" code, which is too small to be useful (most operating systems use very generic type codes and just guess the rest). Windows NT also introduced a 4-byte "disk ID" for distinguishing between multiple disks of the same model.
+
+APM uses textual "type identifiers" (32 ASCII bytes), e.g. Apple_UFS. It also reserves 32 bytes for a descriptive partition name.
+
+GPT, as its name tells, uses a 16-byte GUID for partition type, another GUID for identifying a specific partition (the partuuid), and yet another GUID for identifying the whole disk (similar in purpose to the MBR "disk ID"). It also reserves 72 bytes (UTF-16) for a partition label.
+
+System architectures
+Intel-based Macs can only boot from GPT drives, while PowerPC-based Macs only support APM.
+
+"Regular" IBM-compatible PCs can boot any disk as long as the 0th sector contains a valid BIOS bootloader and the AA55h boot signature. This usually means MBR, but all GPT-partitioned disks have a "protective MBR" that satisfies this requirement.
+
+PCs using UEFI are required support both GPT and MBR – again, as long as an UEFI-compatible bootloader is present. (UEFI keeps bootloaders in a FAT32 partition with specific type code.)
+
+(Exceptions: Some specific BIOS versions reject the GPT "protective MBR" as invalid, due to bugs or misfeatures. Also, Windows will refuse to boot from a GPT disk on BIOS systems, or from a MBR disk on UEFI systems, due to reasons unknown.)
+
+Boot loaders
+In BIOS systems, the initial boot loader is part of the MBR. There can only be one bootloader in the MBR, resulting in conflicts when installing dual-boot systems. Due to the x86 DOS origins of the MBR bootloader, code is specific to the x86 architecture.
+
+On the other hand, UEFI uses a dedicated FAT32 partition for bootloaders (potentially multiple) and other EFI tools. The partition contents can be easily managed from any OS.
+
+Technical bits and pieces
+There is only one MBR or APM per disk, both starting at sector 0. GPT keeps a backup copy near the end of the disk.
+A more detailed info related to MBR and GPT: Windows and GPT FAQ
+
+shareedit
+edited Jan 29 '15 at 19:50
+answered Aug 17 '11 at 22:16
+
+grawity
+204k28408481
+
+1
+Given the Question's context of Macs, your original first bullet point was in error. I took the liberty of editing rather than downvoting. I hope you don't mind. – Spiff Aug 17 '11 at 22:56
+Most Intel-based Macs can boot from Apple Partition Map (APM)-formatted drives, but it's a secret so don't tell anyone. – Gordon Davisson Aug 18 '11 at 2:35
+2
+Since earlier this year, one can bootstrap in the old PC98 way with an EFI partitioned disc. – JdeBP Aug 20 '11 at 4:14
+1
+Well done for being the first to spot an almost 15-year-old error, by the way. 16EiB is of course the maximum file size with 64-bit file pointers, not volume or disc size with 64-bit sector numbers. 8ZiB is correct for the latter, according to the trusty log tables. – JdeBP Aug 20 '11 at 4:22"
+
+---

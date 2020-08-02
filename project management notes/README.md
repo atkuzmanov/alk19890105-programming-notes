@@ -125,3 +125,38 @@ From Idea to Customer to User Life-cycle
 The lean startup - Eric Ries - Google Talk
 
 ---
+
+|||refactoring steps process
+Refactoring process to minimise bugs
+
+```text
+Steps:
+
+Update to latest version from repo
+Clean project
+Build project
+Clean project in environment to sync code and resolve dependencies
+Refresh project in environment
+Search for occurrences of the class name in the code base with a regular expression such as: \bNameofClass\b to see if it's occurring in non-java files, which need to be changed
+Refactor
+Clean project
+Build project
+Clean project in environment to sync code and resolve dependencies
+Refresh project in environment
+Run project in environment
+Run with some test data
+Look at logs, to see if everything is ok
+Use Team Synchronizing to see changes
+Commit to trunk
+Build project on Int
+Run with some test data
+Look at logs, to see if everything is ok
+```
+
+---
+
+|||stress at work and resilience |||resilience at work
+
+<http://www.robertsoncooper.com/>
+
+---
