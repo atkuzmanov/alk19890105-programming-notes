@@ -217,6 +217,20 @@ Run in terminal:
 
 ---
 
+|||mac commands
+|||system_profiler
+|||system profiler
+
+```bash
+### Mac OS list all software applications.
+system_profiler SPApplicationsDataType
+
+### Mac OS list system information.
+system_profiler
+```
+
+---
+
 |||mac list programms
 |||mac list software
 |||find command

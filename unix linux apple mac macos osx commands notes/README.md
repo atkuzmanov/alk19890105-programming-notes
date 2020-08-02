@@ -19,16 +19,11 @@ ln -s /path/to/original /path/to/symlink
 
 ---
 
-|||mac commands
-|||system_profiler
-|||system profiler
-
 ```bash
-### Mac OS list all software applications.
-system_profiler SPApplicationsDataType
-
-### Mac OS list system information.
-system_profiler
+ls -R /Users/[user]/Downloads/untitled\ folder/ | awk '
+/:$/&&f{s=$0;f=0}
+/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}
+NF&&f{ print s"/"$0 }'
 ```
 
 ---
