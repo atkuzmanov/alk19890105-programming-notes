@@ -19,19 +19,20 @@ ls -la ~/Library/Application\ Support/Sublime\ Text\ 2/
 
 ---
 
-|||sublime text 2 settings user preferences
+|||sublime text settings user preferences
 
 ```json
 {
- "color_scheme": "Packages/Color Scheme - Default/Cobalt.tmTheme",
- "dictionary": "Packages/Language - English/en_GB.dic",
- "font_size": 15.0,
- "ignored_packages":
- [
-  "Vintage"
- ],
- "open_files_in_new_window": false,
- "spell_check": true
+	"color_scheme": "Packages/Color Scheme - Default/Cobalt.tmTheme",
+	"dictionary": "Packages/Language - English/en_GB.dic",
+	"font_size": 16.0,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"open_files_in_new_window": false,
+	"spell_check": true,
+	"theme": "Adaptive.sublime-theme"
 }
 ```
 
