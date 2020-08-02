@@ -180,3 +180,61 @@ OOOtag
 ```
 
 ---
+
+|||opscops |||support |||ops
+|||email signature
+
+```text
+Hello,
+
+Thank you for your email.
+
+We will look into it and get back to you as soon as possible.
+
+Kind regards,
+Ops Support
+
+Please do not forget to "Reply to all" when dealing with Ops Support emails, otherwise your query might get accidentally lost.
+```
+
+---
+
+```text
+PLEASE DO NOT FORGET TO "REPLY TO ALL" WHEN DEALING WITH OPSCOPS EMAILS, OTHERWISE YOUR QUERY MIGHT GET ACCIDENTALLY LOST.
+```
+
+---
+
+```text
+Please do not forget to "Reply to all" when dealing with OpsCops emails, otherwise your query might get accidentally lost.
+```
+
+---
+
+```text
+might accidentally fall trough the cracks.
+
+might accidentally slip trough the cracks.
+```
+
+---
+
+|||out of office reply
+|||email reply
+
+```text
+Hello,
+
+I am currently Out of Office.
+
+For any emergencies, please contact my line manager.
+
+I will get back to you as soon as possible upon my return.
+
+Thank you for your understanding!
+
+Kind regards,
+Atanas
+```
+
+---
