@@ -1383,7 +1383,72 @@ StringReader(noSSIsCopy.trim()); BufferedReader bufferedReader = new BufferedRea
 
 ---
 
+`|||TODO`
 
+**List Interface in Java with Examples**
 
----
+`Reference:`
+https://www.geeksforgeeks.org/list-interface-java-examples/
+
+The Java.util.List is a child interface of Collection. It is an ordered collection of objects in which duplicate values can be stored. Since List preserves the insertion order, it allows positional access and insertion of elements. List Interface is implemented by the classes of ArrayList, LinkedList, Vector and Stack.
+
+===
+
+**ArrayList in Java**
+
+`Reference:`
+https://www.geeksforgeeks.org/arraylist-in-java/
+
+ArrayList in Java
+
+ArrayList is a part of collection framework and is present in java.util package. It provides us dynamic arrays in Java. Though, it may be slower than standard arrays but can be helpful in programs where lots of manipulation in the array is needed.
+
+- ArrayList inherits `AbstractList class` and implements `List interface`.
+
+- ArrayList is initialized by a size, however the size can increase if collection grows or shrunk if objects are removed from the collection.
+
+- Java ArrayList allows us to `randomly access` the list.
+
+- ArrayList can not be used for `primitive types`, like `int`, `char`, etc. We need a wrapper class for such cases (see [this](https://www.geeksforgeeks.org/array-vs-arraylist-in-java/) for details).
+
+- ArrayList in Java can be seen as similar to vector in C++.
+
+- Allows `null`.
+
+===
+
+**Set in Java**
+
+`Reference:`
+https://www.geeksforgeeks.org/set-in-java/
+
+- Set is an interface which extends Collection. It is an unordered collection of objects in which duplicate values cannot be stored.
+
+- Basically, Set is implemented by HashSet, LinkedHashSet or TreeSet (sorted representation).
+
+- Set has various methods to add, remove clear, size, etc to enhance the usage of this interface
+
+===
+
+**HashSet in Java**
+
+`Reference:`
+https://www.geeksforgeeks.org/hashset-in-java/
+
+The HashSet class implements the Set interface, backed by a hash table which is actually a HashMap instance. No guarantee is made as to the iteration order of the set which means that the class does not guarantee the constant order of elements over time. This class permits the null element. The class also offers constant time performance for the basic operations like add, remove, contains and size assuming the hash function disperses the elements properly among the buckets, which we shall see further in the article.
+Few important features of HashSet are:
+
+- Implements Set Interface.
+
+- Underlying data structure for HashSet is hashtable.
+
+- As it implements the Set Interface, duplicate values are not allowed.
+
+- Objects that you insert in HashSet are not guaranteed to be inserted in same order. 
+- Objects are inserted based on their hash code.
+
+- `NULL` elements are allowed in HashSet.
+
+- HashSet also implements Searlizable and Cloneable interfaces.
+
 ---

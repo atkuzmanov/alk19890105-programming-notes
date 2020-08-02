@@ -135,3 +135,12 @@ ranpengcoder
 ```
 
 ---
+
+```bash
+mvn archetype:generate -DgroupId=com.howtodoinjava \
+                       -DartifactId=AutoConfiguration \
+                       -DarchetypeArtifactId=maven-archetype-quickstart \
+                       -DinteractiveMode=false
+```
+
+---
