@@ -232,11 +232,19 @@ run -b '~/.tmux/plugins/tpm/tpm'
 
 ```json  
 {
-	"asi" : true,
-	"esversion": 6,
-	"ignore": "line",
-	"node": true
+ "asi" : true,
+ "esversion": 6,
+ "ignore": "line",
+ "node": true
 }
 ```
+
+---
+
+rsync prints “skipping non-regular file” for what appears to be a regular directory
+
+<https://stackoverflow.com/questions/7180420/rsync-prints-skipping-non-regular-file-for-what-appears-to-be-a-regular-direct>
+
+rsync -rtvpl
 
 ---
