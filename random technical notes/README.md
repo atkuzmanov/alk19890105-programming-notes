@@ -140,3 +140,24 @@ wordsmith - nle
 `/data/carbon/whisper/`
 
 ---
+
+|||generating ids
+|||ids
+|||minting ids
+|||ids specifications |||id specifications
+
+Requirements:
+- the id must start with 'blah' and end with 'blah'
+- must be human readable (as short as possible, preferably case insensitive)
+- must be unique cross env
+- must be unique cross product
+- must be regexable
+- an algorithm rather than a service that generates ids
+Would be nice to have, if possible:
+- length max 64 including domain, so as short as possible
+- case insensitive
+- difficult to accidentally make rude words (PIPs drops vowels to ensure this)
+- can grow in length to accommodate future expansion without breaking the regex
+- someone in the know can identify the minting tool (if you don't have this OR a central service, you'll end up having to check every service to see if the ID belongs to it)
+
+---
