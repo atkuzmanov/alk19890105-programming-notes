@@ -1254,8 +1254,102 @@ assertTrue(circularTestValidator.isValid(referencedAsset, context));
 
 ---
 
+|||jenv
+|||java environment
+|||java version
+|||mac
+|||macosx
+|||mac java
+|||mac jvm
+|||mac java bash_profile
+
+```java
+jenv versions --bare | xargs -I {} jenv remove {}
+
+    find /System/Library/Java/JavaVirtualMachines/** -depth 0 -print0 \
+        | xargs -0 -I {} jenv add "{}/Contents/Home"
+    find /Library/Java/JavaVirtualMachines/** -depth 0 -print0 \
+        | xargs -0 -I {} jenv add "{}/Contents/Home"
+
+    jenv rehash
+
+
+|||andy stanton bash script jenv
+
+https://andy.stanton.is/
+
+### the old_jdks bit is because jdk 1.6 goes in a different folder to 1.7 and 1.8
+old_jdks=$('ls' -d -1 /System/Library/Java/JavaVirtualMachines/**)
+    new_jdks=$('ls' -d -1 /Library/Java/JavaVirtualMachines/**)
+
+    jdks=(${old_jdks[@]} ${new_jdks[@]})
+
+    jenv versions --bare | xargs -I {} jenv remove {}
+
+    for jdk in ${jdks[@]}; do
+      jdk_home_path=${jdk}/Contents/Home
+      jenv add ${jdk_home_path}
+    done
+
+    jenv rehash
+```
+
 ---
+
+|||logback.xml
+|||src/main/resources/logback.xml
+
+```xml
+<configuration>
+    <!-- !!!DO NOT UNCOMMENT AND COMMIT!!!
+    If you need console output, you can uncomment this while running the app on your local machine for dev and debug.
+    This will make logs synchronous which impacts performance. We want logs to be asynchronous.
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %message%n%xException</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+    -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>[PATH-TO-LOGS]/output.log</file>
+        <encoder>
+            <pattern>%date - [%level] - from %logger in %thread %n%message%n%xException%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>[PATH-TO-LOGS]/output.%i.log</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>3</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>5MB</maxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>1000</queueSize>
+        <appender-ref ref="FILE"/>
+    </appender>
+
+    <root level="WARN">
+        <appender-ref ref="ASYNC"/>
+    </root>
+
+    <!-- Logger 'logger' below not tested. -->
+    <logger level="DEBUG" name="default example logger name" additivity="false">
+        <appender-ref ref="ASYNC"/>
+    </logger>
+</configuration>
+```
+
 ---
+
+
+
 ---
 ---
 ---

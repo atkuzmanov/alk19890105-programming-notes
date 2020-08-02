@@ -309,3 +309,427 @@ Given ("""^ Blah blah (.*?) blah blah$""") { (stepParameterValue: String) =>
 ```
 
 ---
+
+|||sbt
+
+```bash
+sbt
+gen-idea
+gen-idea no-classifiers
+
+clean
+update
+compile
+run
+~run
+test
+~test
+cucumber
+
+styleCheck
+
+# reload, if it doesn't pick up the correct version for publishLocal or publish-loca
+publishLocal //publish to local ivy repo
+publish-local  //publish to local ivy repo
+publishLocal
+
+console
+
+clean
+gen-idea no-classifiers
+reload
+compile
+test
+cucumber
+it:test
+
+
+# sbt version
+sbt 'inspect sbtVersion'
+sbt about
+sbt sbt-version
+```
+
+---
+
+|||sbt
+|||sbt test
+|||sbt testOnly
+
+<https://stackoverflow.com/questions/11159953/scalatest-in-sbt-is-there-a-way-to-run-a-single-test-without-tags>
+http://sgeb.io/posts/2016/11/til-sbt-testonly/
+
+```text
+"This is now supported (since ScalaTest 2.1.3) with:
+
+testOnly *MySuite -- -z foo
+to run only the tests whose name includes the substring "foo". For exact match rather than substring, use -t instead of -z.
+
+shareeditflag
+edited Sep 8 '16 at 17:19
+answered Mar 18 '14 at 20:59
+
+Seth Tisue"
+
+
+sbt testOnly *ExampleSuiteSpec* -- -z "name of unit test"
+```
+
+---
+
+```bash
+sbt run -Dcom.ning.http.client.AsyncHttpClientConfig.useProxyProperties=true
+```
+
+---
+
+http://stackoverflow.com/questions/14507688/sbt-debug-port-per-project
+
+```text
+SBT Debug port per project
+
+up vote
+4
+down vote
+favorite
+2
+How do I change the SBT debug port on a per project basis?
+
+I can add the debug JVM options to the environment variable SBT_OPTS
+
+-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005
+But this will apply to all SBT instances and if I want to run SBT in debug for two separate projects simultaneously, I get this error because the port is already in use:
+
+ERROR: transport error 202: bind failed: Address already in use
+debugging scala sbt
+shareimprove this question
+edited Dec 20 '15 at 21:54
+asked Jan 24 '13 at 17:57
+
+theon
+6,74522559
+add a comment
+1 Answer
+active oldest votes
+up vote
+5
+down vote
+accepted
+Modifying the sbt script that came with sbt via homebrew, I made this script that lets you start sbt and specify the debug port like so:
+
+sbt-debug 5005
+
+
+https://gist.github.com/4625742
+
+
+#!/bin/sh
+test -f ~/.sbtconfig && . ~/.sbtconfig
+
+SBT_LAUNCH=/usr/local/Cellar/sbt/0.12.1/libexec/sbt-launch.jar
+# Take leading integer as debug port and not sbt args
+DEBUG_PORT=$1
+SBT_ARGS=`echo "$@" | grep -oE "[^0-9].*"`
+
+exec java -Xmx512M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=${DEBUG_PORT} ${SBT_OPTS} -jar $SBT_LAUNCH $SBT_ARGS
+shareimprove this answer
+answered Jan 24 '13 at 17:57
+
+theon
+6,74522559
+  	 	
+Nice. This isn't a big deal, but I made it a little more generic by not hard-coding the path to sbt-launch.jar. I replaced the SBT_LAUNCH= line with this: SBT_LAUNCH=$(grep -oE '/[^ ]+sbt-launch.jar' $(which sbt)) – Mike Morearty Jul 10 '14 at 7:23
+```
+
+---
+
+<http://www.coderanch.com/t/87270/Tomcat/ERROR-transport-error-connect-failed>
+
+```text
+Jaikiran Pai
+Marshal
+Pie
+Posts: 10444
+227  
+I like...
+IntelliJ IDE  Ubuntu
+  posted 8 years ago Mark post as helpful  send pies  Quote  Report post to moderator
+I have been watching another thread where the user has a similar problem on JBoss. The user came back with a reply saying that he got it working by swapping the position of address=8787 (in your case the port is 8011) and server=y
+
+Like this:
+
+?
+1
+-Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8011,suspend=n
+
+
+The server=y comes before the "address". It might just be a coincidence that it started working after this change. I am still trying to understand how the positioning works. You might want to give this a try.
+[My Blog] [JavaRanch Journal]
+
+Jaikiran Pai
+Marshal
+Pie
+Posts: 10444
+227  
+I like...
+IntelliJ IDE  Ubuntu
+  posted 8 years ago Mark post as helpful  send pies  Quote  Report post to moderator
+I am going through this article and it says that 
+
+
+Sun's VM implementations require command line options to load the JDWP agent for debugging. From 5.0 onwards the -agentlib:jdwp option is used to load and specify options to the JDWP agent. For releases prior to 5.0, the -Xdebug and -Xrunjdwp options are used (the 5.0 implementation also supports the -Xdebug and -Xrunjdwp options but the newer -agentlib:jdwp option is preferable as the JDWP agent in 5.0 uses the JVMTI interface to the VM rather than the older JVMDI interface).
+
+
+So if none of the suggested options, in my earlier posts, work for you then you might want to try using
+
+?
+1
+-agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n
+[My Blog] [JavaRanch Journal]
+
+Meir Yan
+Ranch Hand
+Posts: 599
+  posted 8 years ago Mark post as helpful  send pies  Quote  Report post to moderator
+bingo!!
+its working thanks allot
+Jaikiran Pai
+Marshal
+Pie
+Posts: 10444
+227  
+I like...
+IntelliJ IDE  Ubuntu
+  posted 8 years ago Mark post as helpful  send pies  Quote  Report post to moderator
+Originally posted by Meir Yan:
+bingo!!
+its working thanks allot
+
+
+Great!!   
+
+Which option worked for you? Using -agentlib:jdwp or was it by swapping the position of "server" and "address"?
+[ November 07, 2007: Message edited by: Jaikiran Pai ]
+[My Blog] [JavaRanch Journal]
+
+Meir Yan
+Ranch Hand
+Posts: 599
+  posted 8 years ago Mark post as helpful  send pies  Quote  Report post to moderator
+the last option
+```
+
+---
+
+|||sbt debug
+
+```bash
+export SBT_OPTS="$SBT_OPTS -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=9999"
+echo $SBT_OPTS
+```
+
+---
+
+|||sbt global.sbt |||global.sbt
+
+```scala
+resolvers += "Example Repo Artifactory" at "https://repo.example.com/repo"
+
+resolvers += "Example Repo Releases" at "https://repo.example.com/releases/"
+
+resolvers += "Example Repo Snapshots" at "https://repo.example.co.uk/snapshots"
+
+externalResolvers <<= resolvers map { rs =>
+  Resolver.withDefaultResolvers(rs, false)
+}
+```
+
+---
+
+
+
+|||scala
+|||scalatra
+|||json4s dateFormatter
+|||json4s dateFormatter thread safe
+|||json4s thread safe
+|||scala json4s dateFormatter
+|||dateFormatter
+
+/*
+Each thread must have its own instance for it to be thread safe, since SimpleDateFormat instances maintain variable state.
+Json4s makes it thread safe by using Java’s ThreadLocal, which guarantees each thread will have its own local instance of whatever you’re working with.
+We were negating that by overriding the dateFormatter to a "val", meaning all threads shared that one val, and you’re back to the thread issue.
+*/
+
+import org.json4s.ext.JodaTimeSerializers
+import org.json4s.DefaultFormats
+
+import java.util.TimeZone
+import java.text.SimpleDateFormat
+
+// This was not thread safe as it was overriding dateFormatter as a val.
+trait JsonSupport {
+	implicit def jsonFormats = new DefaultFormats {
+  		// ISO 8601 date format with millisecond precision.
+  		// Examples: 2014-08-07T09:19:07.123+00:00, 2014-08-07T09:19:07.123Z
+  		override val dateFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+  		dateFormatter.setTimeZone(TimeZone.getTimeZone("UTC"))
+  	}
+} ++ JodaTimeSerializers.all
+
+
+// This makes it thread safe as it overrides dateFormatter as def.
+
+import org.json4s.ext.JodaTimeSerializers
+import org.json4s.DefaultFormats
+
+import java.util.TimeZone
+import java.text.SimpleDateFormat
+
+trait JsonSupport {
+
+  implicit def jsonFormats = new DefaultFormats {
+    /* ISO 8601 date format with millisecond precision
+     * Examples: 2014-08-07T09:19:07.123Z
+     * Note this must be a def - SimpleDateFormat is not thread
+     * safe so we must make sure each thread gets its own instance
+     */
+    override def dateFormatter = {
+      val df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+      df.setTimeZone(TimeZone.getTimeZone("UTC"))
+      df
+    }
+  } ++ JodaTimeSerializers.all
+
+
+
+/*--------------------------------*/
+
+|||scala futures
+|||scala notes
+
+Interesting point about Scala Futures - They’re great, obviously, but they’re probably best avoided in test code if possible since asynchronous tests can be flaky if not handled right. Often they’ll pass locally but fail on Jenkins as its generally slower. If using a library that returns Futures in test code you can just use Await.result the to block until the result is ready.
+
+Some of our tests have to be asynchronous because the input to the system is a queue rather than a HTTP request - that’s where it gets tricky.
+
+
+//---
+
+A:
+How to write tests asserting a method returns a failed future: http://stackoverflow.com/questions/20925352/scalatest-assert-exceptions-in-failed-futures-non-blocking
+
+ScalaTest: Assert exceptions in failed futures (non-blocking)
+import org.scalatest.{ FlatSpec, Matchers, ParallelTestExecution } import org.scalatest.concurrent.ScalaFutures import org.apache.thrift.TApplicationException class Test extends FlatSpec with Matc...
+
+
+My personal preference is to use ScalaTest's `ScalaFutures.whenReady` method: http://stackoverflow.com/a/25572204
+
+ScalaTest: Assert exceptions in failed futures (non-blocking)
+import org.scalatest.{ FlatSpec, Matchers, ParallelTestExecution } import org.scalatest.concurrent.ScalaFutures import org.apache.thrift.TApplicationException class Test extends FlatSpec with Matc...
+
+
+warning: using `Await.result` and `intercept` to capture exceptions is not the same. Like this its not possible to distinguish between a thrown exception and one returned inside of a failed future.
+
+
+B:
+I specifically used the fact that Await.ready blocks to check that an operation inside the future was not blocking.  I'm sure there is a better way
+
+
+https://github.com/example/pub-time-mon/blob/master/src/test/scala/com/ /monitoring/QueueProcessorSpec.scala
+
+
+it should "not block thread when checking messages" in
+
+
+
+C:
+To test for failed futures, I'm doing this:
+
+   val result = intercept[SomeException] {
+     complete { foo }
+   }.getMessage
+
+result mustBe("whatever")
+
+
+where complete is:
+
+def complete[T](awaitable: => Awaitable[T]): T = Await.result(awaitable, 5.seconds)
+
+
+But I take A's point that you can't differentiate between exceptions that are wrapped within a failed future and those that are thrown explicitly.
+
+
+A:
+yes, Await.result will unpack any failed futures and actually throw the exception they contain, so it ends up looking the same
+
+
+you could say that if you're intercepting a specific exception type with a specific message that you can be pretty certain that's the one you returned in a failed future, which is fair enough
+
+
+but in most projects we're using Scalatest anyway and its as trivial to be even more explicit:
+
+
+val f: Future[Something] = someObject.giveMeAFuture
+ ScalaFutures.whenReady(f.failed) { e =>
+   e shouldBe a [SomeExceptionType]
+ }
+
+
+/*--------------------------------*/
+
+|||scala future
+|||scalatra future
+
+```scala
+import dispatch.{Future, Http}
+import org.scalatra.FutureSupport
+
+with FutureSupport
+
+  protected implicit def executor: ExecutionContext = ExecutionContext.global
+
+  before() {
+    contentType = "application/json"
+  }
+
+  get("/status") {
+    val futureResponse: dispatch.Future[Response] = Http(dispatch.url(http://www.example.com).GET)
+    (for {
+      resp <- futureResponse
+    } yield resp) map { response =>
+      s"""{
+          |"status": "${response.getStatusCode}"
+          |}
+          |""".stripMargin
+    }
+    futureResponse map { response =>
+      s"""{
+          |"status": "${response.getStatusCode}"
+          |}
+          |""".stripMargin
+    }
+  }
+
+  get("/status") {
+    val futureResponse: dispatch.Future[Response] = Http(dispatch.url(http://www.example.com).GET)
+    futureResponse map { response =>
+      response.getStatusCode match {
+        case 200 => Ok {
+          s"""{
+              |"status": "${response.getStatusCode}"
+              |}
+              |""".stripMargin
+        }
+        case _ =>
+          halt(response.getStatusCode,
+            s"""{
+                |"status": "non-200 status: [${response.getStatusCode}]"
+                |}
+                |""".stripMargin)
+      }
+    }
+  }
+```
+---

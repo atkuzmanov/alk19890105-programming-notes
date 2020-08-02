@@ -95,4 +95,22 @@ Soft launch - rolling out something to production, but it is not linked or adver
 > "As a contractor, start the project, work with the team for one or two weeks, preferably two, to get into it, then take one or two weeks off, understanding and playing around with it yourself, really get into it and understand it, and then go back to work and you will be able to better understand, develop, complete tasks and solve problems." - Andrei Lissovski (<https://www.linkedin.com/in/lissovski/>)
 
 ---
-$$
+
+|||contracting
+|||professional indemnity insurance
+
+<https://www.gov.uk/government/publications/information-about-professional-indemnity-insurance>
+
+<https://www.gov.uk/expenses-and-benefits-indemnity-insurance>
+
+<https://www.hiscox.co.uk/business-insurance/pi-insurance/?traffic=PPC_NonBrand_Professional_Indemnity_Insurance&gclid=CjwKEAiA3NTFBRDKheuO6IG43VQSJAA74F77Ijbuy-uKGsGv636svht6RoDPWssl5pKEaWOlfjZ3SBoCOU_w_wcB&gclsrc=aw.ds&dclid=CPuH-qr3stICFW-IUQodVz0Dog>
+
+<http://www.axa.co.uk/insurance/business/professional-indemnity/pi/?gclid=CjwKEAiA3NTFBRDKheuO6IG43VQSJAA74F77UqnhIvCUnuv-WEdFSXCJnMvNjTngnyflkYF5TVHWDBoCoxPw_wcB&gclsrc=aw.ds&dclid=CLSbgaz3stICFeEi0wod5EcGbQ>
+
+<https://www.moneysupermarket.com/business-insurance/professional-indemnity/>
+
+<http://www.gocompare.com/business-insurance/professional-indemnity-insurance/#WTSB20vovvKhcSPJ.97>
+
+<http://www.professionalindemnity.co.uk/>
+
+---

@@ -2,22 +2,22 @@
 
 |||mongodb
 
-https://mongodb.github.io/mongo-java-driver/3.4/javadoc/
+<https://mongodb.github.io/mongo-java-driver/3.4/javadoc/>
 
-https://mongodb.github.io/mongo-java-driver/3.4/driver/getting-started/quick-start/
+<https://mongodb.github.io/mongo-java-driver/3.4/driver/getting-started/quick-start/>
 
-https://www.tutorialspoint.com/mongodb/mongodb_create_database.htm
+<https://www.tutorialspoint.com/mongodb/mongodb_create_database.htm>
 
-https://www.mkyong.com/mongodb/java-mongodb-query-document/
+<https://www.mkyong.com/mongodb/java-mongodb-query-document/>
 
 ---
 
 |||mongodb shell
 |||mongo shell
 
-https://docs.mongodb.com/manual/reference/mongo-shell/
+<https://docs.mongodb.com/manual/reference/mongo-shell/>
 
-https://docs.mongodb.com/manual/tutorial/query-documents/
+<https://docs.mongodb.com/manual/tutorial/query-documents/>
 
 ---
 
@@ -46,10 +46,10 @@ Document mongoDocument = exampleCollection.find(mongoFilter).first();
 MongoCursor<Document> mongoCursor = exampleCollection.find(mongoFilter).iterator();
 
 try {
-	while (mongoCursor.hasNext()) {
-		//Do some processing with next cursor...
-    	mongoCursor.next();
-	}
+ while (mongoCursor.hasNext()) {
+  //Do some processing with next cursor...
+     mongoCursor.next();
+ }
 } finally {
     cursor.close();
 }
@@ -124,7 +124,7 @@ Thoughts?"
 |||idempotence
 |||idempotent
 
-https://en.wikipedia.org/wiki/Idempotence
+<https://en.wikipedia.org/wiki/Idempotence>
 
 Idempotence is the property of certain operations in mathematics and computer science, that can be applied multiple times without changing the result beyond the initial application.
 
@@ -228,6 +228,31 @@ MongoDB Workshop 2017-08-02
 |||mongodb world presentations
 |||mongodb presentations
 
-https://www.mongodb.com/presentations
+<https://www.mongodb.com/presentations>
+
+---
+
+|||mongo cookbook
+|||mongo db cookbook
+|||mongodb cookbook
+
+|||default-example-mongo-db-metadata.rb
+
+```text
+name        "default-example-mongo-cookbook"
+description 'Basic cookbook for MongoDB Berkshelf installation.'
+license     "Apache 2.0"
+maintainer  "default-example-name"
+version     "1.0.0"
+
+depends 'mongodb'
+```
+
+|||default-example-mongo-db-recipe.rb
+
+```text
+include_recipe "mongodb::default"
+include_recipe "mongodb::10gen_repo"
+```
 
 ---
