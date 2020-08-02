@@ -126,6 +126,22 @@ hacker news
 
 ---
 
-http://glyphicons.com/
+<http://glyphicons.com/>
+
+---
+
+|||event sourcing ||| kafka
+
+Kafka - event sourcing - hot topic - 2018-01-26
+
+<http://kafka.apache.org/>
+
+<http://microservices.io/patterns/data/event-sourcing.html>
+
+<https://martinfowler.com/eaaDev/EventSourcing.html>
+
+<https://github.com/eventstore/eventstore/wiki/Event-Sourcing-Basics>
+
+<https://en.wikipedia.org/wiki/Domain-driven_design>
 
 ---

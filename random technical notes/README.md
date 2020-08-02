@@ -147,6 +147,7 @@ wordsmith - nle
 |||ids specifications |||id specifications
 
 Requirements:
+
 - the id must start with 'blah' and end with 'blah'
 - must be human readable (as short as possible, preferably case insensitive)
 - must be unique cross env
@@ -161,3 +162,26 @@ Would be nice to have, if possible:
 - someone in the know can identify the minting tool (if you don't have this OR a central service, you'll end up having to check every service to see if the ID belongs to it)
 
 ---
+
+|||mozilla thunderbird |||thunderbird google calendar prompt discard my changes and reload
+
+"Every time I sync my calendar on Lightning, I get a message to "accept changes and update anyway" repeatedly even though the event is deleted from the server"
+
+<https://support.mozilla.org/en-US/questions/1095088>
+
+<https://support.mozilla.org/en-US/questions/1094700>
+
+<http://kb.mozillazine.org/Profile_folder_-_Thunderbird>
+
+<https://groups.google.com/forum/#!topic/provider-for-google-calendar/gMTvveaOGLA>
+
+"Steve Phelps
+
+22/09/2015
+
+Resolved: deleting the 'calendar-data/' directory in my profile and unsubscribing and then resubscribing to the offending google calendar fixed the problem.
+
+- show quoted text -"
+
+---
+
