@@ -134,4 +134,49 @@ Soft launch - rolling out something to production, but it is not linked or adver
  */
  ```
 
- ---
+---
+
+tags
+
+```bash
+|||tags
+---[tags]
+
+---[]
+
+---[]---
+
+[<:>]
+
+[<::>]
+
+[tag:> ]
+
+[tag:< ]
+
+[{{{tag }}}]
+
+[|||tag |||]
+
+|||tag: |||
+
+|||tag 
+
+oootag
+
+|o|o|o|tag
+
+OOOtag
+
+|O|O|O|tag
+
+000tag
+
+|0|0|0|tag
+
+>>>tag
+
+<<<tag
+```
+
+---
