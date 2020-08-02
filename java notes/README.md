@@ -1348,8 +1348,42 @@ old_jdks=$('ls' -d -1 /System/Library/Java/JavaVirtualMachines/**)
 
 ---
 
+|||cool join sublist iterator use
+|||sublist
 
+Cool join sublist iterator use
+
+```java
+public String postProcess(String output) throws Exception { try { StringReader stringReader = new
+StringReader(noSSIsCopy.trim()); BufferedReader bufferedReader = new BufferedReader(stringReader);
+
+			List<String> lines = new ArrayList<String>(); String line = null; while ((line =
+			bufferedReader.readLine()) != null) { lines.add(line);
+			}
+			}
+			int numLines = lines.size(); if (numLines < 3) { log.warn("Unable to parse JSONP for reformatting
+			- leaving in current format. (It doesn't appear to have a JSONP header/footer on separate
+			lines)"); return output;
+			}
+			}
+			String jsonBody = StringUtils.join(lines.subList(1, numLines - 1).iterator(), '\n'); StringBuilder
+			formattedJsonp = new StringBuilder(); formattedJsonp.append(lines.get(0)).append('\n'); //appends
+			first ssi formattedJsonp.append(jsonFormatterPostProcessor.postProcess(jsonBody)).append('\n');
+			formattedJsonp.append(lines.get(numLines - 1)).append('\n'); //appends last ssi
+
+			return formattedJsonp.toString();
+		} catch (Exception e) {
+			log.warn("Unable to parse JSONP for reformatting - leaving in current format", e); return output;
+		}
+		}}
+		}}
+		}}
+		}}
+```
 
 ---
+
+
+
 ---
 ---

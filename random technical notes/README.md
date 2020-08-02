@@ -59,3 +59,28 @@ private static String htmlCommentToStrip = "<!\\-\\-[^#<]*\\-\\->"; strip html c
 ```
 
 ---
+
+|||xchat
+|||irc
+
+```bash
+xchat timestamp:
+[%Y-%b-%d--%H:%M:%S]
+[%y-%b-%d-%H:%M:%S]
+[%d-%b-%y-%H:%M:%S]
+```
+
+xchat Deleting chat history and scrollback and logs
+```bash
+rm -rf ~/Library/Containers/org.3rddev.xchatazure/Data/Library/Application\ Support/XChat\ Azure/xchatlogs/*.log
+ls -la ~/Library/Containers/org.3rddev.xchatazure/Data/Library/Application\ Support/XChat\ Azure/xchatlogs/
+
+rm -rf ~/Library/Containers/org.3rddev.xchatazure/Data/Library/Application\ Support/XChat\ Azure/scrollback/forge/*.txt
+ls -la ~/Library/Containers/org.3rddev.xchatazure/Data/Library/Application\ Support/XChat\ Azure/scrollback/forge/
+```
+
+Double click to open dialog command:
+
+`query %s`
+
+---
