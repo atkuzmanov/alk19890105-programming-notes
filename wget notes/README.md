@@ -14,6 +14,7 @@ wget \
  --user-agent=Mozilla \
  --continue \
  --no-clobber \
+ --directory-prefix=folder/subfolder programiz.com \
  --domains programiz.com \
  https://www.programiz.com/java-programming/multidimensional-array
 
@@ -48,7 +49,7 @@ wget \
  --user-agent=Mozilla \
  --continue \
  --no-clobber \
- --directory-prefix=folder/subfolder example.com
+ --directory-prefix=folder/subfolder example.com \
  --domains ${WEBSITE-DOMAIN} \
   https://www.journaldev.com/747/two-dimensional-array-java
 ```

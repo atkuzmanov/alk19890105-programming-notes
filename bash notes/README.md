@@ -104,4 +104,27 @@ I would like to crop www from domain. In this case, how should I change the comm
 >
 > <https://stackoverflow.com/questions/2497215/how-to-extract-domain-name-from-url>
 
+===
+
+```bash
+A fast solution to get the domain part without "http://" would be by setting browser.urlbar.trimURLs to false in Firefox's about:config, so you can more easily copy only the domain part of a URL.
+
+But you can add a function pingd like this to your ~/.bashrc:
+
+function pingd {
+      ping $(echo "$1" | sed -e "s/[^/]*\/\/\([^@]*@\)\?\([^:/]*\).*/\2/" | sed "s/^www\.//")
+}
+works with:
+
+pingd "http://user:pw@www.example.com:80/some/path/url?data&and#hash"
+PING example.com
+...
+
+If the url doesn't contain & nor ! it also works without quotes
+```
+
+> References
+>
+> <https://unix.stackexchange.com/questions/428989/allow-full-urls-starting-with-http-https-or-www-in-ping/428990#428990>
+
 ---
