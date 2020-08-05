@@ -128,3 +128,36 @@ If the url doesn't contain & nor ! it also works without quotes
 > <https://unix.stackexchange.com/questions/428989/allow-full-urls-starting-with-http-https-or-www-in-ping/428990#428990>
 
 ---
+
+Extract domain name from URL using bash shell parameter substitution
+
+> References
+>
+> <https://www.cyberciti.biz/faq/get-extract-domain-name-from-url-in-linux-unix-bash/>
+
+Another option is to use bash shell parameter substitution:
+
+```bash
+# My shell variable 
+f="https://www.cyberciti.biz/faq/copy-command/"
+ 
+## Remove protocol part of url  ##
+f="${f#http://}"
+f="${f#https://}"
+f="${f#ftp://}"
+f="${f#scp://}"
+f="${f#scp://}"
+f="${f#sftp://}"
+ 
+## Remove username and/or username:password part of URL  ##
+f="${f#*:*@}"
+f="${f#*@}"
+ 
+## Remove rest of urls ##
+f=${f%%/*}
+ 
+## Show domain name only ##
+echo "$f"
+```
+
+---
