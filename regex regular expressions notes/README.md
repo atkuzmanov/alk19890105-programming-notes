@@ -35,3 +35,11 @@ Simple one, whicn doesn't always work:
 <https://regex101.com/r/rG8gB9/1#javascript>
 
 ---
+
+|||zero-length regex matches |||regex empty character
+
+## Zero-Length Regex Matches
+
+<https://www.regular-expressions.info/zerolength.html>
+
+---
