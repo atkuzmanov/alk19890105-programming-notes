@@ -315,3 +315,14 @@ You can choose:
 ---
 ---
 ---
+
+7.3. Other Comparison Operators
+
+A binary comparison operator compares two variables or quantities. Note that integer and string comparison use a different set of operators.
+
+> References
+> <http://tldp.org/LDP/abs/html/comparison-ops.html>
+
+---
+---
+---
