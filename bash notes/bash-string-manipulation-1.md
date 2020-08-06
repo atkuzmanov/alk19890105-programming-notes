@@ -399,3 +399,73 @@ Format Specifier Syntax
 ---
 ---
 ---
+
+How to check if a string contains a substring in Bash
+
+> References
+>
+> <https://stackoverflow.com/questions/229551/how-to-check-if-a-string-contains-a-substring-in-bash>
+
+You can use <a href="https://stackoverflow.com/a/229585/3755692">Marcus's answer (* wildcards)</a> outside a case statement, too, if you use double brackets:
+
+    string='My long string'
+    if [[ $string == *"My long"* ]]; then
+      echo "It's there!"
+    fi
+
+Note that spaces in the needle string need to be placed between double quotes, and the `*` wildcards should be outside. Also note that a simple comparison operator is used (i.e. `==`), not the regex operator `=~`.
+
+===
+
+```sh
+case $string in (*foo*)
+  # Do stuff
+esac
+```
+
+This is the same answer as https://stackoverflow.com/a/229585/11267590. But simple style and also POSIX Compliant.
+
+===
+
+Extension of the question answered here *https://stackoverflow.com/questions/2829613/how-do-you-tell-if-a-string-contains-another-string-in-posix-sh/8811800#8811800*:
+
+This solution works with special characters:
+
+    # contains(string, substring)
+    #
+    # Returns 0 if the specified string contains the specified substring,
+    # otherwise returns 1.
+    contains() {
+        string="$1"
+        substring="$2"
+    
+        if echo "$string" | $(type -p ggrep grep | head -1) -F -- "$substring" >/dev/null; then
+            return 0    # $substring is in $string
+        else
+            return 1    # $substring is not in $string
+        fi
+    }
+    
+    contains "abcd" "e" || echo "abcd does not contain e"
+    contains "abcd" "ab" && echo "abcd contains ab"
+    contains "abcd" "bc" && echo "abcd contains bc"
+    contains "abcd" "cd" && echo "abcd contains cd"
+    contains "abcd" "abcd" && echo "abcd contains abcd"
+    contains "" "" && echo "empty string contains empty string"
+    contains "a" "" && echo "a contains empty string"
+    contains "" "a" || echo "empty string does not contain a"
+    contains "abcd efgh" "cd ef" && echo "abcd efgh contains cd ef"
+    contains "abcd efgh" " " && echo "abcd efgh contains a space"
+    
+    contains "abcd [efg] hij" "[efg]" && echo "abcd [efg] hij contains [efg]"
+    contains "abcd [efg] hij" "[effg]" || echo "abcd [efg] hij does not contain [effg]"
+    
+    contains "abcd *efg* hij" "*efg*" && echo "abcd *efg* hij contains *efg*"
+    contains "abcd *efg* hij" "d *efg* h" && echo "abcd *efg* hij contains d *efg* h"
+    contains "abcd *efg* hij" "*effg*" || echo "abcd *efg* hij does not contain *effg*"
+
+The test contains "-n" "n" doesn't work here, because echo -n will swallow the -n as an option! A popular fix for that is to use printf "%s\n" "$string" instead. – joeytwiddle Dec 12 '19 at 10:34
+
+---
+---
+---
