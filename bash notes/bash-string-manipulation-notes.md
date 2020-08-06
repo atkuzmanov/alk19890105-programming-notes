@@ -466,6 +466,158 @@ This solution works with special characters:
 
 The test contains "-n" "n" doesn't work here, because echo -n will swallow the -n as an option! A popular fix for that is to use printf "%s\n" "$string" instead. – joeytwiddle Dec 12 '19 at 10:34
 
+===
+
+# `stringContain` variants (compatible or case independent)
+
+As these Stack Overflow answers tell mostly about [Bash][1], I've posted a ***case independent*** Bash function at the very bottom of this post...
+
+Anyway, there is my
+
+## Compatible answer
+
+As there are already a lot of answers using Bash-specific features, there is a way working under poorer-featured shells, like [BusyBox][2]:
+
+    [ -z "${string##*$reqsubstr*}" ]
+
+In practice, this could give:
+
+    string='echo "My string"'
+    for reqsubstr in 'o "M' 'alt' 'str';do
+      if [ -z "${string##*$reqsubstr*}" ] ;then
+          echo "String '$string' contain substring: '$reqsubstr'."
+        else
+          echo "String '$string' don't contain substring: '$reqsubstr'."
+        fi
+      done
+
+This was tested under Bash, [Dash][3], [KornShell][4] (`ksh`) and [ash][5] (BusyBox), and the result is always:
+
+<!-- language: none -->
+
+    String 'echo "My string"' contain substring: 'o "M'.
+    String 'echo "My string"' don't contain substring: 'alt'.
+    String 'echo "My string"' contain substring: 'str'.
+
+### Into one function
+
+As asked by @EeroAaltonen here is a version of the same demo, tested under the same shells:
+
+<!-- language: shell -->
+
+    myfunc() {
+        reqsubstr="$1"
+        shift
+        string="$@"
+        if [ -z "${string##*$reqsubstr*}" ] ;then
+            echo "String '$string' contain substring: '$reqsubstr'.";
+          else
+            echo "String '$string' don't contain substring: '$reqsubstr'."
+        fi
+    }
+
+Then:
+
+<!-- language: none -->
+
+    $ myfunc 'o "M' 'echo "My String"'
+    String 'echo "My String"' contain substring 'o "M'.
+
+    $ myfunc 'alt' 'echo "My String"'
+    String 'echo "My String"' don't contain substring 'alt'.
+
+**Notice:** you have to escape or double enclose quotes and/or double quotes:
+
+<!-- language: none -->
+
+    $ myfunc 'o "M' echo "My String"
+    String 'echo My String' don't contain substring: 'o "M'.
+
+    $ myfunc 'o "M' echo \"My String\"
+    String 'echo "My String"' contain substring: 'o "M'.
+
+
+## Simple function
+
+This was tested under BusyBox, Dash, and, of course Bash:
+
+<!-- language: shell -->
+
+    stringContain() { [ -z "${2##*$1*}" ]; }
+
+Then now:
+
+<!-- language: none -->
+
+    $ if stringContain 'o "M3' 'echo "My String"';then echo yes;else echo no;fi
+    no
+    $ if stringContain 'o "M' 'echo "My String"';then echo yes;else echo no;fi
+    yes
+
+... Or if the submitted string could be empty, as pointed out by @Sjlver, the function would become:
+
+    stringContain() { [ -z "${2##*$1*}" ] && [ -z "$1" -o -n "$2" ]; }
+
+or as suggested by [Adrian Günter's comment][6], avoiding `-o` switches:
+
+<s>
+
+    stringContain() { [ -z "${2##*$1*}" ] && { [ -z "$1" ] || [ -n "$2" ];};}
+
+</s>
+
+### Final (simple) function:
+
+And inverting the tests to make them potentially quicker:
+
+    stringContain() { [ -z "$1" ] || { [ -z "${2##*$1*}" ] && [ -n "$2" ];};}
+
+
+With empty strings:
+
+    $ if stringContain '' ''; then echo yes; else echo no; fi
+    yes
+    $ if stringContain 'o "M' ''; then echo yes; else echo no; fi
+    no
+
+## Case independent (Bash only!)
+
+For testing strings without care of case, simply convert each string to lower case:
+
+    stringContain() {
+        local _lc=${2,,}
+        [ -z "$1" ] || { [ -z "${_lc##*${1,,}*}" ] && [ -n "$2" ] ;} ;}
+
+Check:
+
+    stringContain 'o "M3' 'echo "my string"' && echo yes || echo no
+    no
+    stringContain 'o "My' 'echo "my string"' && echo yes || echo no
+    yes
+    if stringContain '' ''; then echo yes; else echo no; fi
+    yes
+    if stringContain 'o "M' ''; then echo yes; else echo no; fi
+    no
+
+  [1]: https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29
+  [2]: https://en.wikipedia.org/wiki/BusyBox
+  [3]: https://en.wikipedia.org/wiki/Almquist_shell#dash:_Ubuntu,_Debian_and_POSIX_compliance_of_Linux_distributions
+  [4]: https://en.wikipedia.org/wiki/KornShell
+  [5]: https://en.wikipedia.org/wiki/Almquist_shell
+  [6]: https://stackoverflow.com/posts/comments/86532588
+
+...
+
+This would be even better, if you can figure out some way to put that to a function. – Eero Aaltonen Dec 10 '13 at 8:35
+
+@EeroAaltonen How do you find my (new added) function? – F. Hauri May 6 '14 at 18:23
+
+I know! find . -name "*" | xargs grep "myfunc" 2> /dev/null – eggmatters Jul 15 '14 at 20:20
+
+This is wonderful because it's so compatible. One bug, though: It does not work if the haystack string is empty. The correct version would be string_contains() { [ -z "${2##*$1*}" ] && [ -n "$2" -o -z "$1" ]; } A final thought: does the empty string contain the empty string? The version above things yes (because of the -o -z "$1" part). – Sjlver Oct 24 '14 at 12:14 
+
++1. Very good! For me I changed order stringContain() { [ -z "${1##*$2*}" ] && [ -z "$2" -o -n "$1" ]; }; "Search where" "Find what". Work in busybox. Accepted answer above don't work in busybox. – user3439968 Nov 14 '14 at 19:11
+
 ---
 ---
 ---
