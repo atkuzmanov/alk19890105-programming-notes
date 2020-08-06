@@ -42,6 +42,8 @@ So many ways, here are a few:
 ```
 
 ---
+---
+---
 
 Replacing some characters in a string with another character
 
@@ -90,6 +92,8 @@ EDIT:
 Note that this applies to a variable named $string.
 ```
 
+---
+---
 ---
 
 Remove a character from the end of a variable
@@ -176,6 +180,8 @@ Really? At a bash prompt, run set -- one///// two// three four/; shopt -s extglo
 ```
 
 ---
+---
+---
 
 Removing first forward slash from string
 
@@ -191,4 +197,205 @@ Something like will do the work:
 without `g` at the end in `sed` the program will change only first occurrence
 ```
 
+---
+---
+---
+
+remove particular characters from a variable using bash
+
+> References
+>
+> <https://unix.stackexchange.com/questions/104881/remove-particular-characters-from-a-variable-using-bash>
+
+By chronological order:
+
+### tr/sed
+
+    echo "$VERSION" | tr -d .
+    echo "$VERSION" | sed 's/\.//g'
+
+### csh/tcsh
+
+    echo $VERSION:as/.//
+
+### POSIX shells:
+
+    set -f
+    IFS=.
+    set -- $VERSION
+    IFS=
+    echo "$*"
+
+### ksh93/zsh/mksh/bash/yash (and busybox `ash` when built with `ASH_BASH_COMPAT`)
+
+    echo "${VERSION//.}"
+
+### zsh
+
+    echo $VERSION:gs/./
+
+===
+
+There is no need to execute an external program. `bash`'s [string manipulation][1] can handle it (also available in `ksh93` (where it comes from), `zsh` and recent versions of `mksh`, `yash` and busybox `sh` (at least)):
+
+    $ VERSION='2.3.3'
+    $ echo "${VERSION//.}"
+    233
+
+(In those shells' manuals you can generally find this in the *parameter expansion* section.)
+
+  [1]: http://tldp.org/LDP/abs/html/string-manipulation.html
+
+---
+---
+---
+
+Bash printf Command
+
+> References
+>
+> <https://linuxize.com/post/bash-printf-command/>
+
+```bash
+Typically, when writing bash scripts, we use echo to print to the standard output. echo is a simple command but is limited in its capabilities.
+To have more control over the formatting of the output, use the printf command.
+
+The printf command formats and prints its arguments, similar to the C printf() function.
+
+printf Command
+printf is a shell builtin in Bash and in other popular shells like Zsh and Ksh. There is also a standalone /usr/bin/printf binary, but the shell built-in version takes precedence. We will cover the Bash builtin version of printf.
+
+The syntax for the printf command is as follows:
+
+printf [-v var] format [arguments]
+Copy
+The -v option tells printf not to print the output but to assign it to the variable.
+The format is a string which may contain three different types of objects:
+
+Normal characters that are simply printed to the output as-is.
+Backslash-escaped characters which are interpreted and then printed.
+Conversion specifications that describe the format and are replaced by the values of respective arguments that follow the format string.
+The command accepts any number of arguments. If more arguments than format specifiers are provided, the format string is reused to consume all of the arguments. If fewer arguments than format specifiers are supplied, the extra numeric-format specifiers are set to zero value while string-format specifiers are set to null string.
+Below are a few points to consider when passing arguments the printf command:
+
+The shell will substitute all variables, wildcard matching, and special characters before passing the arguments to the printf command.
+When using single quotes '' the literal value of each character enclosed within the quotes will be preserved. Variables and commands will not be expanded.
+A typical example of using printf looks like:
+
+printf "Open issues: %s\nClosed issues: %s\n" "34" "65"
+Open issues: 34
+Closed issues: 65
+The string Open issues: %s\nClosed issues: %s\n is the format while “34” and “65” are arguments. The format string contains two newline characters (\n) and two format specifiers (%s) that are replaced with the arguments.
+
+The printf command doesn’t add a newline character (\n) at the end of the line.
+
+Backslash-escaped Characters
+The backslash-escaped characters are interpreted when used in the format string or in an argument corresponding to a %b conversion specifier. Here is a list of the most common escape characters:
+\\ - Displays a backslash character.
+\b - Displays a backspace character.
+\n - Displays a new line.
+\r - Displays a carriage return.
+\t - Displays a horizontal tab.
+\v - Displays a vertical tab.
+Conversion specifications
+A conversion specification takes the following form:
+
+%[flags][width][.precision]specifier
+Copy
+Each conversion specification stars with the percent sign (%), includes optional modifiers and ends with one of the following letters that represent the data type (specifier) of the corresponding argument: aAbcdeEfgGioqsuxX.
+
+Type conversion specifier
+The type conversion specifier is a character that specifies how to interpret the corresponding argument. This character is required, and it is placed after the optional fields.
+
+Below is a list showing all type conversions and what they do:
+%b - Print the argument while expanding backslash escape sequences.
+%q - Print the argument shell-quoted, reusable as input.
+%d, %i - Print the argument as a signed decimal integer.
+%u - Print the argument as an unsigned decimal integer.
+%o - Print the argument as an unsigned octal integer.
+%x, %X - Print the argument as an unsigned hexadecimal integer. %x prints lower-case letters and %X prints upper-case.
+%e, %E - Print the argument as a floating-point number in exponential notation. %e prints lower-case letters and %E prints upper-case.
+%a, %A - Print the argument as a floating-point number in hexadecimal fractional notation. %a prints lower-case letters and %A prints upper-case.
+%g, %G - Print the argument as a floating-point number in normal or exponential notation, whichever is more appropriate for the given value and precision. %g prints lower-case letters and %G prints upper-case.
+%c - Print the argument as a single character.
+%f - Print the argument as a floating-point number.
+%s - Print the argument as a string.
+%% - Print a literal % symbol.
+An unsigned number represents zero and positive numbers, while a signed number represents negative, zero, and positive numbers.
+
+The following command prints the number 100 in three different number systems:
+
+printf "Decimal: %d\nHex: %x\nOctal: %o\n" 100 100 100
+Decimal: 100
+Hex: 64
+Octal: 144
+Flags directive
+Flags are the first optional modifiers and are used to set the justification, leading zeros, prefixes, etc.
+
+Here are the most common ones:
+
+- - Left align the printed text within the field. By default, the text is right-aligned.
++ - Prefix the numbers with a + or - signs. By default, only negative numbers are prefixed with a negative sign.
+0 - Pads numbers with leading zeros rather than space.
+blank - Prefix the positive numbers with a blank space and negative numbers with a minus (-).
+# - An alternative format for numbers.
+Width directive
+The width directive filed is placed after any flag characters and specifies the minimum number of characters the conversion should result in.
+If the outputted text width is less than the specified width, it’s padded with spaces. The width can be specified as a non-negative decimal integer or an asterisk (*).
+Here is an example:
+
+printf "%20s %d\n" Mark 305
+%20s means set the field at least 20 characters long. Blanks are added before the text because, by default, the output is right-justified. To align the text to left, use the - flag (%-20s).
+
+      Mark 305
+When an asterisk (*) is used as a width directive, then the width of the conversion field is set by a width argument that precede the argument that’s being formatted.
+
+In the example below we’re setting the width to 10:
+printf "%0*d" 10 5
+0 is a flag that pads the number with leading zeros instead of blanks. The output text will have at least 10 characters:
+
+0000000005
+Precision directive
+The .precision modifier consists of a dot (.) followed by a positive integer or asterisk (*) that depending on the specifier type, sets the number of string or digit characters or the number of decimal places to be printed.
+
+The precision has the following effect:
+
+If the conversion type is an integer, the precision specifies the minimum number of digits to be printed. If the number of digits in the argument is less than precision, leading zeros are printed.
+If the conversion type is a floating-point, the precision specifies the number of digits that follow the decimal-point character. The default precision is 6.
+If the conversion type is a string, the precision specifies the maximum number of characters to be printed. If the number of characters in the argument is greater than precision, the excess characters are truncated.
+Here is an example showing how to round a floating-point number to 3 decimals:
+
+printf "%.3f" 1.61803398
+1.618
+When precision is set to an asterisk (*), its value is set by the precision argument that precede the argument that’s being formatted.
+printf "%.*f" 3 1.61803398
+1.618
+Conclusion
+The printf command takes a format and arguments and prints a formatted text.
+
+If you have any questions or feedback, feel free to leave a comment.
+```
+
+---
+---
+---
+
+String Format Specifiers
+
+> References
+>
+> <https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html>
+
+---
+---
+---
+
+Format Specifier Syntax
+
+> References
+>
+> <https://zone.ni.com/reference/en-XX/help/371361R-01/lvconcepts/format_specifier_syntax/>
+
+---
+---
 ---
