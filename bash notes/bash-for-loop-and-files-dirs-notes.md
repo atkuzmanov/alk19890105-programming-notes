@@ -234,6 +234,17 @@ This makes it possible to use standard input within the loop, and it works with 
 
 Because I had to look it up: "read ... If no names are supplied, the line read is assigned to the variable REPLY." So do echo "Filename is '$REPLY'"  – Andrew Oct 7 '19 at 17:45
 
+===
+
+It's a bit difficult to do your read loop portably, but for bash in particular you can try something like this.
+
+Relevant portion:
+
+while IFS= read -d $'\0' -r file ; do
+        printf 'File found: %s\n' "$file"
+done < <(find . -iname 'foo*' -print0)
+That instructs find to print its output delimited by NUL characters (0x00), and read to fetch NUL-delimited lines (-d $'\0') without handling backslashes as escapes for other characters (-r) and not do any word splitting on the lines (IFS=). Since 0x00 is a byte that can't occur in filenames or paths in Unix, this should handle all of your weird filename problems.
+
 ---
 ---
 ---
@@ -371,6 +382,121 @@ That's whole lot of work, but does look good. Good job ! – Sergiy Kolodyazhnyy
 What process are you using to make those gifs @pa4080 ? – pbhj Nov 9 '17 at 21:43
 
 @pbhj, under Ubuntu I'm using Peek it is simple and nice, but sometimes crashes and doesn't have editing abilities. The most of my GIFs are created under Windows, where I'm recording the the window of the VNC connection. I have a separate desktop machine that mainly I'm using for MS Office and GIF creation :) The tool that I'm using there is ScreenToGif. It is opensource, free, and has powerful editor and processing mechanisum. Unfortunately I can't find tool like ScreenToGif for Ubuntu. – pa4080 Nov 9 '17 at 22:08
+
+---
+---
+---
+
+Bash function to process all dotfiles in a directory excluding directories
+
+> References
+<https://stackoverflow.com/questions/31497323/bash-function-to-process-all-dotfiles-in-a-directory-excluding-directories>
+
+If you want only dot-files:
+
+    find . -maxdepth 1 -type f -name '.*' -printf '%f\0'
+
+The test `-name '.*'` selects dot files.  Since `-name` accepts globs, `.` means a literal period and `*` means any number of any character.
+
+The action `-printf '%f\0'` will print NUL-separated filenames without the path.
+
+If your name selection criteria becomes more complex, find also offers `-regex` which selects files based on regular expressions.  GNU find understands several different dialects of regular expression.  These can be selected with `-regextype`.  Supported dialects include `emacs` (default), `posix-awk`, `posix-basic`, `posix-egrep`, and `posix-extended`.
+
+### Mac OSX or other BSD System
+
+BSD `find` does not offer `-printf`.  In its place, try this:
+
+    find . -maxdepth 1 -type f -name '.*' -exec basename {} \;
+
+Note that this will be safe all file names, even those containing difficult characters such as blanks, tabs or newlines.
+
+### Putting the dot files into a bash array
+
+If you want to get all dot files and directories into an array, it is simple:
+
+    all=(.*).
+
+That is safe for all file names.
+
+If you want to get only regular files, not directories, then use bash:
+
+    a=(); while IFS= read -r -d ''; do a+=("$(basename "$REPLY")"); done < <( find $HOME -maxdepth 1 -type f -name '.*' -print0 )
+
+This is also safe for all file names.
+
+The OP mentioned only needing the file name, not the full path. You could achieve that by using -printf '%f\0' instead of -print0. – cyfur01 Jul 19 '15 at 2:27
+
+I tried your -printf solution and looks like find command doesn't know -printf: find: -printf: unknown primary or operator – Jeanmichel Cote Jul 19 '15 at 2:33
+
+@JeanmichelCote OK. What OS are you using? – John1024 Jul 19 '15 at 2:34
+
+@JeanmichelCote Answer updated with something that should be OSX (BSD) compatible. Also, ignore the part about -regextype as the OSX find does not support it. – John1024 Jul 19 '15 at 2:43
+
+@John1024 Works fine! – Jeanmichel Cote Jul 19 '15 at 2:58
+
+---
+---
+---
+
+How to exclude/ignore hidden files and directories in a wildcard-embedded “find” search?
+
+> References <https://askubuntu.com/questions/266179/how-to-exclude-ignore-hidden-files-and-directories-in-a-wildcard-embedded-find>
+
+This prints all files that are descendants of your directory, skipping hidden files and directories:
+
+    find . -not -path '*/\.*'
+
+So if you're looking for a file with `some text` in its name, and you want to skip hidden files and directories, run:
+
+    find . -not -path '*/\.*' -type f -name '*some text*'
+
+## Explanation:
+
+The `-path` option runs checks a pattern against the entire path string. `*` is a wildcard, `/` is a directory separator, `\.` is a dot (it has to be escaped to avoid special meaning), and `*` is another wildcard. `-not` means don't select files that match this test.
+
+I don't think that `find` is smart enough to avoid recursively searching hidden directories in the previous command, so if you need speed, use `-prune` instead, like this:
+
+     find . -type d -path '*/\.*' -prune -o -not -name '.*' -type f -name '*some text*' -print
+
+...
+
+Note with the last one that you need that -print at the end! Also, not sure if -name '\.*' would be more efficient instead of -path` (because the path is searching subpaths, but these will be pruned out) – artfulrobot Apr 29 '14 at 11:18
+
+What's the special meaning of . in this context? – frostschutz Jan 15 '15 at 15:40
+
+@frostschutz The dot after find means the current directory: find will look at all files and directories under the current directory. The argument after path is a regular expression, where a dot would normally means "any character", to make it mean a literal dot we have to escape it with a backslash. The argument after -name isn't a regular expression, but it expands wildcards like ? and * like a shell does. – Flimm Jan 15 '15 at 17:23
+
+@frostschutz Actually, come to think of it, I may be wrong about . having special meaning. – Flimm Aug 5 '16 at 13:00
+
+@Flimm yup, no need to escape .. As far as I'm aware, only these need to be escaped: *, ?, and []. – thdoan Feb 15 '17 at 9:16
+
+===
+
+This is one of the few means of excludes dot-files that also works correctly on BSD, Mac and Linux:
+
+    find "$PWD" -name ".*" -prune -o -print
+
+ - `$PWD` print the full path to the current directory so that the path does not start with `./`
+ - `-name ".*" -prune` matches any files or directories that start with a dot and then don't descend
+ - `-o -print` means print the file name if the previous expression did not match anything. Using `-print` or `-print0` causes all other expressions to not print by default.
+
+...
+
+Please explain / elaborate on "alarmingly complicated"; the answers already given and your answer seem to give evidence to the contrary...? – nutty about natty Mar 24 '16 at 22:13
+
+"alarmingly complicated" is probably excessive. I reworded the answer to get to the point. I think the answer I posted is difficult to understand and is hard to see without a very careful reading of the man page. If you are only using GNU find then there are more possible solutions. – eradman Mar 28 '16 at 14:50
+
+-o ... -print is helpful. For my use, I now have find ... '!' -name . -name '.*' -prune -o ... -print, which was more convenient than including $PWD. – Roger Pate Aug 24 '16 at 19:28
+
+===
+
+<sup> The **answer** I originally posted as an "edit" to my original question above: </sup>
+
+`find . \( ! -regex '.*/\..*' \) -type f -name "whatever"`, works. The regex looks for "anything, then a slash, then a dot, then anything" (i.e. all hidden files and folders including their subfolders), and the "!" negates the regex.
+
+...
+
+<https://superuser.com/questions/152958/exclude-hidden-files-when-searching-with-unix-linux-find>
 
 ---
 ---
