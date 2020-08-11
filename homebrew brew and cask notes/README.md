@@ -22,6 +22,59 @@
 
 ---
 
+|||homebrew brew github token
+
+> References
+> <https://gist.github.com/christopheranderton/8644743>
+
+<blockquote>
+___
+
+### Short version
+**PLEASE SCROLL DOWN AND READ THE COMMENTS FOR A MORE UP TO DATE WAY (AND EASIER) TO DO THIS**  
+Create a new Personal Token in your Github Account Settings (Sidebar: Applications) and then copy the Token. 
+In the Terminal, use `export HOMEBREW_GITHUB_API_TOKEN=YOURAPITOKENWITHFUNKYNUMBERSHERE` (change that to your API Token) or add that to your `.bash_profile` and then do `source .bash_profile`.  
+
+
+## Step 1 - Create a Personal Access Token for Homebrew 
+
+- Login to your [Github Account or create one](https://github.com/) if you don't have one yet. 
+- In the top menu to the right, click the tools icon (Account Settings).
+- Click on “Applications” in the sidebar (to the left).
+- In the box with the title “Personal Access Tokens”, press the **“Create new token”** button.
+
+
+**Note: As @rrotter mentions in the comments. ”UNCHECK EVERY SCOPE BOX when creating this token.** There is no reason this token needs access to private information (unless you are developing brew casks in a private repo, but that's another issue)”. Credits to [@rrotter](https://gist.github.com/rrotter)
+
+- In the next box (Create a new Personal Access Token) set the name of your Token (i used `homebrew` but you can use anything you want). Press “Create Token”. 
+- When done, you will see your token we just created in the “Personal Access Tokens” box. Copy the Token by select the token or click the copy icon to the right of the Token text. 
+- The Token text should look something like this: `9927d2878ffa105fc5236c762f2fd7zfd28b841d` (not a real token, just an example)
+
+ **IMPORTANT!** _Remember To Keep The Token Safe As It Works As A “Password” For Your Github Account_.
+
+## Step 2 - Set the Github API Token for Homebrew in the Terminal
+
+1. Fire up your Terminal.app (or iTerm.app)
+2. Use the command `export HOMEBREW_GITHUB_API_TOKEN=9927d2878ffa105fc5236c762f2fd7zfd28b841d` (but use your own API Token, and not the fake example one that don't work) and press enter. 
+3. It's now set, however, instead of repating this every session, let's add this to our .bash_profile (if you don't know about this, [see this link](http://blog.apps.npr.org/2013/06/06/how-to-setup-a-developers-environment.html).)
+4. Open your .bash_profile in your favorite text editor (in this case, we use [Nano](http://guides.macrumors.com/nano) in the Terminal). Make sure that you are in your Home directory (if unsure, use `cd $HOME` and press enter).
+5. Add the exact same line as in step 2. Press `ctrl +  o` (to save) and then `ctrl + x` (to quit Nano)
+6. In your Terminal, do the command `source .bash_profile` (loads the changes in the .bash_profile file to the active session)
+7. Well, that's it!
+
+___
+###Helpful links
+
+- [Homebrew WIKI](https://github.com/Homebrew/homebrew/wiki/Common-Issues)
+- [Set up a Developers Enviroment on Mac OS X](http://blog.apps.npr.org/2013/06/06/how-to-setup-a-developers-environment.html) 
+- [A short guide to the Mac OS X Terminal](http://guides.macrumors.com/Terminal)
+
+___
+**Tags:** homebrew, brew, github api, token, api token, terminal, mac os x
+</blockquote>
+
+---
+
 Homebrew brew cask directories
 
 ```bash
