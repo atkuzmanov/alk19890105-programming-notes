@@ -501,3 +501,12 @@ Please explain / elaborate on "alarmingly complicated"; the answers already give
 ---
 ---
 ---
+
+Bash For Loop Examples
+
+> References
+> <https://www.cyberciti.biz/faq/bash-for-loop/>
+
+---
+---
+---
