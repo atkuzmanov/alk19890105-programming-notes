@@ -182,3 +182,17 @@ Setting Up a Basic Cron Job on a Linux Server
 > <https://www.taniarascia.com/setting-up-a-basic-cron-job-in-linux/>
 
 ---
+
+What is the 'working directory' when cron executes a job?
+
+> References
+> <https://unix.stackexchange.com/questions/38951/what-is-the-working-directory-when-cron-executes-a-job>
+
+Add `cd /home/xxxx/Documents/Scripts/` if you want your job to run in that directory. There's no reason why cron would change to that particular directory. Cron runs your commands in your home directory.
+
+As for `ssmtp`, it might not be in your default `PATH`. Cron's default path is implementation-dependent, so check your man page, but in all likelihood `ssmtp` is in `/usr/sbin` which is not in your default `PATH`, only root's.
+
+    PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+    15 7 * * * cd /home/xxxx/Documents/Scripts && ./email_ip_script.sh
+
+---
