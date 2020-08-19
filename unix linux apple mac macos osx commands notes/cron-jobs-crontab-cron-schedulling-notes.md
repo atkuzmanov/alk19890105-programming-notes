@@ -210,3 +210,231 @@ As for `ssmtp`, it might not be in your default `PATH`. Cron's default path is i
     15 7 * * * cd /home/xxxx/Documents/Scripts && ./email_ip_script.sh
 
 ---
+
+How to schedule a bash script to run at a certain time
+
+> References
+> <https://superuser.com/questions/1185046/how-to-schedule-a-bash-script-to-run-at-a-certain-time>
+
+Try this:
+
+<!-- language: bash -->
+
+    #!/bin/bash
+    
+    work() {
+    	# put your job here e.g.
+        ffmpeg -re -i "input" output.mp4
+    }
+    
+    echo "Launching background job..."
+    work &
+    workPID=$!
+    RUNNING=true
+    
+    while true; do
+        # If no child process, then exit
+        [ $(pgrep -c -P$$) -eq 0 ] && echo "All done" && exit
+    	HOUR="$(date +'%H')"
+    	if [ $HOUR -ge 17 -a $HOUR -lt 21 ] ; then
+    		if [ "$RUNNING" == false ]; then
+    			echo "Start work..."
+    			kill -CONT $workPID
+    			RUNNING=true
+    		fi
+    	else
+    		if [ "$RUNNING" == true ]; then
+    			echo "Stop work..."
+    			kill -TSTP $workPID
+    			RUNNING=false
+    		fi
+    	fi
+    	sleep 2
+    done
+
+The script launches the job as a child process with `work &`, then monitors that process and freezes/unfreezes it as required. 
+
+---
+
+Create cron job or schedule jobs using bash scripts in Linux or Unix
+Last updated on January 25, 2020 at 01:58 pm
+
+> References
+> <https://www.golinuxcloud.com/create-schedule-cron-job-shell-script-linux/>
+
+```text
+Steps to create cron job manually
+Step 1: Give crontab privilege
+Before we start we need to give crontab privilege to the respective user. For the sake of this article I will create some sample cron job for root and deepak user, so I will assign permission for these two users.
+
+Append the username to /etc/cron.allow
+
+# cat /etc/cron.allow
+root
+deepak
+ 
+
+Step 2: Create cron file
+Create a cron file for root user
+
+# touch /var/spool/cron/root
+# /usr/bin/crontab /var/spool/cron/root
+Create a cron file for deepak user
+
+# touch /var/spool/cron/deepak
+# /usr/bin/crontab /var/spool/cron/deepak
+ 
+
+Step 3: Schedule your job
+I will create some dummy jobs. To give a demonstration I will schedule a job to clear temporary files every midnight for both the user
+
+# echo "0 0 * * * rm -f /tmp/root/*" >> /var/spool/cron/root
+
+# echo "0 0 * * * rm -f /tmp/deepak/*" >> /var/spool/cron/deepak
+ 
+
+Step 4: Validate the cron job content
+Here you can use -u to define the username for which you wish to perform the cron action/
+
+# crontab -u deepak -l
+0 0 * * * rm -f /tmp/deepak/*
+
+# crontab -u root -l
+0 0 * * * rm -f /tmp/root/*
+So our cron jobs are updated successfully for both root and deepak user.
+
+NOTE:
+You do not need to restart your crond service for the new changes.
+ 
+
+Script to create cron job using bash shell script
+Let us put them all together in a script
+
+#!/bin/bash
+   if [ `id -u` -ne 0 ]; then
+      echo "This script can be executed only as root, Exiting.."
+      exit 1
+   fi
+
+case "$1" in
+   install|update)
+
+	CRON_FILE="/var/spool/cron/root"
+
+	if [ ! -f $CRON_FILE ]; then
+	   echo "cron file for root doesnot exist, creating.."
+	   touch $CRON_FILE
+	   /usr/bin/crontab $CRON_FILE
+	fi
+
+	# Method 1
+	grep -qi "cleanup_script" $CRON_FILE
+	if [ $? != 0 ]; then
+	   echo "Updating cron job for cleaning temporary files"
+           /bin/echo "0 0 * * * rm -f /home/deepak/cleanup_script.sh" >> $CRON_FILE
+	fi
+
+	# Method 2
+	grep -qi "cleanup_script" $CRON_FILE
+	if [ $? != 0 ]; then
+	   echo "Updating cron job for cleaning temporary files"
+	   crontab -u deepak -l >/tmp/crontab
+           /bin/echo "0 0 * * * rm -f /home/deepak/cleanup_script.sh" >> /tmp/crontab
+	   crontab -u deepak /tmp/crontab
+	fi
+
+	;;
+	
+	*)
+	
+	echo "Usage: $0 {install|update}"
+	exit 1
+    ;;
+
+esac
+Here I have shared two methods to update cron job using a shell script for root and deepak user.
+
+You can validate the changes after executing your script
+
+# /tmp/script.sh install
+Updating cron job for cleaning temporary files
+ 
+
+List the cron jobs
+# crontab -u root -l
+0 0 * * * rm -f /home/deepak/cleanup_script.sh
+
+# crontab -u deepak -l
+0 0 * * * rm -f /home/deepak/cleanup_script.sh
+So all is working as expected.
+
+```
+
+---
+
+How to schedule tasks using at command on Linux
+
+> References
+> <https://linuxconfig.org/how-to-schedule-tasks-using-at-command-on-linux>
+
+```text
+Learning how schedule and manage tasks using the at program
+Requirements
+Root permissions to start the atd daemon
+Having the at program installed
+Difficulty
+EASY
+Conventions
+# - requires given linux commands to be executed with root privileges either directly as a root user or by use of sudo command
+$ - requires given linux commands to be executed as a regular non-privileged user
+Introduction
+During the administration of a system, being able to schedule a task for a later execution it's one crucial ability: to perform a backup of a database for example, or perhaps to run a maintenance script. Less known than cron or anacron, the at program let us do this in a pretty easy way: in this tutorial we will learn how to use it and how it is different from the programs mentioned above.
+What is at?
+Unlike cron, which let us run a task on a regular basis, at gives us the ability to execute a command or a script at a specified date and hour, or after a given interval of time. Minutes, hours, days or weeks can be used as units. It's even possible to use certain "keywords" as midnight or teatime (which corresponds to 4pm).
+SUBSCRIBE TO NEWSLETTER
+Subscribe to Linux Career NEWSLETTER and receive latest Linux news, jobs, career advice and tutorials.
+Installing at
+If not installed by default, at should be available in almost all distributions' repositories.
+
+To install it on Fedora, just run:
+# dnf install at
+On RHEL or CentOS yum is still the default package manager:
+# yum install at
+On Debian or Ubuntu:
+# apt-get install at
+On Archlinux:
+# pacman -S at
+Starting the daemon
+Once the program it's installed, we must start the atd daemon and eventually enable it if we want it to be launched automatically at boot. I will here assume the use of systemd as the init system. The command must be executed with root privileges:
+# systemctl enable --now atd.service
+Scheduling a job from the at prompt
+With everything in place, we can now use at. Let's suppose we want to run a command 1 minute from now. The correct syntax would be:
+$ at now + 1 minute
+To run the same command at 4pm, three days from now, instead, we would run:
+$ at 4pm + 3 days
+Once the above line is executed, the at prompt will appear, waiting for us to enter the command to be executed after the specified time interval:
+$ at now + 1 minutes
+at> echo "Hello world" > test.txt
+at> 
+job 4 at Tue Dec 19 11:29:00 2017
+To exit the at prompt we should press the CTRL+d key combination. At this point we will presented with a summary of the scheduled task, which will show us the job id (4 in this case) and the date at which it will be executed.
+
+Just as an example, we entered a trivial command to show how at works. A minute from now, the "Hello world" string will be written to the file test.txt, which will be automatically created if doesn't already exist.
+Schedule the execution of a script
+Instead of specifying the command to be executed, interactively, from the prompt, we can instruct at to execute an existing script or program simply by passing it as an argument to the -f flag or, alternatively, by using the < redirection operator. Therefore, assuming we want to run a script which is present in our current working directory, we would run:
+# Using the dedicated -f flag
+$ at now + 1 minute -f script.sh
+# Using the < redirection operator $ at now + 1 minute < script.sh
+Manage scheduled jobs
+To queue, examine or delete jobs scheduled with at, we can either use dedicated commands like atrm and atq or run at with specific flags, the latter being just aliases for the former. For example, say we want to obtain a list of all pending jobs scheduled with at by our user:
+ $ atq
+4      Tue Dec 19 11:29:00 2017 a egdoc
+The above command, if launched as root, will display the task scheduled by all users in the system.
+
+To delete a queued job, we could use atrm or run at with the equivalent flags: -r or -d. The job to be deleted must be referenced by its number. In the case above, we would therefore run:
+ $ atrm 4 
+Conclusions
+Although simpler than cron or anacron, the at program can be very useful in certain situations: to run a program with a specific delay or when you know exactly the time in which the task must be executed. Reference the manual for further information, and add this little tool to your toolbox, it will surely come in handy.
+```
+
+---
