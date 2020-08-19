@@ -18,6 +18,20 @@ Crontab Generator
 
 ---
 
+CronMaker
+
+> References
+> <http://www.cronmaker.com/?0>
+
+---
+
+Cron Expression Generator & Explainer - Quartz
+
+> References
+> <https://www.freeformatter.com/cron-expression-generator-quartz.html>
+
+---
+
 How To Set Up A Cron Job In Linux
 
 > References
