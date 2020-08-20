@@ -6,6 +6,14 @@
 
 ---
 
+|||learn javascript
+
+<https://eloquentjavascript.net
+
+<http://jsforcats.com/>
+
+---
+
 |||nvm
 
 ```bash

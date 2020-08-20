@@ -26,6 +26,10 @@ Scala Cats
 
 ---
 
+<https://akka.io/>
+
+---
+
 |||scala filter by predicate
 |||scala predicate
 
