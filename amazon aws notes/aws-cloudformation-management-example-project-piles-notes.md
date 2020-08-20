@@ -1,4 +1,4 @@
-# aws-cloudformation-management-example-project-piles-notes
+# aws cloudformation management example project piles notes
 
 |||aws cloudformation templates
 |||aws cloudformation management
