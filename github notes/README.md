@@ -11,6 +11,20 @@
 
 ---
 
+GitHut 2.0
+A SMALL PLACE TO DISCOVER LANGUAGES IN GITHUB
+
+<https://madnight.github.io/githut/#/pull_requests/2020/2>
+
+---
+
+Trending
+See what the GitHub community is most excited about today.
+
+<https://github.com/trending>
+
+---
+
 ## Global gitignore
 
 |||global gitignore
