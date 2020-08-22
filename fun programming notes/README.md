@@ -123,3 +123,13 @@ Pull requests with other implementations (Python, Perl, Shell, etc) are welcome.
 > <https://github.com/NARKOZ/hacker-scripts>
 
 ---
+
+## How To Write Unmaintainable Code
+
+Ensure a job for life ;-)
+Roedy Green Canadian Mind Products
+
+> References
+> <https://github.com/Droogans/unmaintainable-code>
+
+---
