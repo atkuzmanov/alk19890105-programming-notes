@@ -239,3 +239,10 @@ Atanas
 ```
 
 ---
+
+Hype Driven Development
+
+>References
+> <https://blog.daftcode.pl/hype-driven-development-3469fc2e9b22#.ei1wlpkfx>
+
+---
