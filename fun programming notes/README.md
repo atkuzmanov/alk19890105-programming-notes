@@ -16,12 +16,39 @@ How to save the Princess in 8 programming languages
 
 ---
 
+## The Seven Circles of Developer Hell [Infographic]
+
+> References
+> <https://toggl.com/blog/seven-levels-developer-hell>
+
+<img src="https://toggl.com/blog/wp-content/uploads/2017/02/7-circles-of-developer-hell-toggl-infographic-02.jpg" alt="TEMP WIP" width="320" height="800"/>
+
+---
+
+## IT Jobs Explained With A Broken Lightbulb
+
+> References
+> <https://toggl.com/blog/lightbulb-cartoon-developers>
+
+<img src="https://toggl.com/blog/wp-content/uploads/2016/12/toggl-it-jobs-explained-with-changing-lightbulb.jpg" alt="TEMP WIP" width="320" height="800"/>
+
+---
+
+## 10 Customers Every Tech Support Agent Knows [Comic]
+
+> References
+> <https://toggl.com/blog/10-customers-tech-support-knows>
+
+<img src="https://toggl.com/blog/wp-content/uploads/2017/10/support-questions-compress.jpg" alt="TEMP WIP" width="320" height="800"/>
+
+---
+
 ## How To Build A Horse With Programming [Comic]
 
 > References
 > <https://toggl.com/blog/build-horse-programming>
 
-<img src="https://toggl.com/blog/wp-content/uploads/2018/08/toggl-how-to-create-horse-with-programming.jpg" alt="Git the Princess!" width="320" height="800"/>
+<img src="https://toggl.com/blog/wp-content/uploads/2018/08/toggl-how-to-create-horse-with-programming.jpg" alt="TEMP WIP" width="320" height="800"/>
 
 ---
 
@@ -30,7 +57,7 @@ How to save the Princess in 8 programming languages
 > References
 > <https://toggl.com/blog/world-created-programmer>
 
-<img src="https://toggl.com/blog/wp-content/uploads/2018/08/toggl-if-the-world-was-created-by-a-programmer.jpg" alt="Git the Princess!" width="320" height="800"/>
+<img src="https://toggl.com/blog/wp-content/uploads/2018/08/toggl-if-the-world-was-created-by-a-programmer.jpg" alt="TEMP WIP" width="320" height="800"/>
 
 ---
 
@@ -41,7 +68,7 @@ An epic visual guide to the worst clients
 > References
 > <https://toggl.com/worst-client-types-infographic/>
 
-<img src="https://assets.toggl.com/images/terrible-clients-explained-with-pirates-toggl-infographic-mart-virkus-1900850e873d22254dc9fa28fcdfae57.jpg" alt="Git the Princess!" width="320" height="800"/>
+<img src="https://assets.toggl.com/images/terrible-clients-explained-with-pirates-toggl-infographic-mart-virkus-1900850e873d22254dc9fa28fcdfae57.jpg" alt="TEMP WIP" width="320" height="800"/>
 
 ---
 
