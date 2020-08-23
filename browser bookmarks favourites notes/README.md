@@ -1,4 +1,4 @@
-# bookmarks favourites notes
+# browser bookmarks favourites notes
 
 How to convert bookmarks.html to simple list of websites formated http://www.site.ext
 
