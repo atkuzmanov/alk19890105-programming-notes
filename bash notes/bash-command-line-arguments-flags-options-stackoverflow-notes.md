@@ -614,3 +614,47 @@ POSIX-compliant, works even on ancient Busybox setups I had to deal with (with e
 ---
 ---
 ---
+
+How do I prompt a user for confirmation in bash script? [duplicate]
+
+> References
+> <https://stackoverflow.com/questions/1885525/how-do-i-prompt-a-user-for-confirmation-in-bash-script>
+
+~~~bash
+read -p "Are you sure? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    # do dangerous stuff
+fi
+~~~
+
+I incorporated **levislevis85**'s suggestion (thanks!) and added the `-n` option to `read` to accept one character without the need to press <kbd>Enter</kbd>. You can use one or both of these.
+
+Also, the negated form might look like this:
+
+~~~bash
+read -p "Are you sure? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
+fi
+~~~
+
+However, as pointed out by Erich, under some circumstances such as a syntax error caused by the script being run in the wrong shell, the negated form could allow the script to continue to the "dangerous stuff". The failure mode should favor the safest outcome so only the first, non-negated `if` should be used.
+
+Explanation:
+------------
+
+The `read` command outputs the prompt (`-p "prompt"`) then accepts one character (`-n 1`) and accepts backslashes literally (`-r`) (otherwise `read` would see the backslash as an escape and wait for a second character). The default variable for `read` to store the result in is `$REPLY` if you don't supply a name like this: `read -p "my prompt" -n 1 -r my_var`
+
+The `if` statement uses a regular expression to check if the character in `$REPLY` matches (`=~`) an upper or lower case "Y". The regular expression used here says "a string starting (`^`) and consisting solely of one of a list of characters in a bracket expression (`[Yy]`) and ending (`$`)". The anchors (`^` and `$`) prevent matching longer strings. In this case they help reinforce the one-character limit set in the `read` command.
+
+The negated form uses the logical "not" operator (`!`) to match (`=~`) any character that is not "Y" or "y". An alternative way to express this is less readable and doesn't as clearly express the intent in my opinion in this instance. However, this is what it would look like: `if [[ $REPLY =~ ^[^Yy]$ ]]`
+
+
+
+---
+---
+---
