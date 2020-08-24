@@ -493,6 +493,104 @@ chmod -R 777 = xrwxrwxrw
 6 - read and write
 7 - read, write, and execute
 ```
+---
+
+|||chmod
+
+<https://service.futurequest.net/index.php?/Knowledgebase/Article/View/20/0/how-do-i-change-file-permissions-chmod>
+
+```text
+How do I change file permissions? (chmod)
+Posted on 24 October 2003 05:52 PM
+Change Mode: Automagically
+You may change the permissions of any file or directory within your account using your CNC. Once inside your CNC, click on the File Manager menu option. From there, navigate to the file(s) or directory you would like to change the permissions on and check the box next to it, scroll down to the bottom of the list and select the Change Mode button from the Command Menu. Select the desired permissions and click the Change button. That's it! (As a shortcut, you can also just click the permissions link under the Attributes column for the file you wish to change.)
+chmod = change mode = set the permissions
+And here's what that means
+Many are unsure how to change the permissions on a file or directory, and once the how is figured out the confusion between Octal and symbolic or what it all means appears. This tutorial is an effort to help take the confusion out of file and directory permissions.
+
+ 
+
+Other Methods to Change Permissions
+Via SSH: At the command line prompt, simply type: chmod mode filename
+Example: chmod u=rwx,go=rx file.cgi
+u = user, g = group, o = other
+There is more information available from the command line by typing man chmod or better yet type info \(fileutils\)
+Via FTP: If you are using an FTP program, the answer varies. Usually you need to right click on the file and the option will be in the menu. If not, access the help section of your FTP client and search for chmod, permissions, or change mode. Most FTP programs have this feature readily available. Some utilize octal, others utilize symbolic, yet others offer both. Making it equally important to understand how to convert between the two.
+
+ 
+
+Octal and Symbolic
+Some scripts may say 755 -- this is octal. Others may say -rwxr-xr-x -- this is symbolic. They both are telling you to set the permissions the same exact way:
+Read = r = 4
+Write = w = 2
+Execute = x = 1
+There are three types that can get to a file if you allow them to, The Owner, The Group, and Everyone.
+
+So let's assume myfile.cgi requires the owner, to be able to do everything (read it, write to it, and execute it), and requires the group (people/machines with the same access as the owner) to be able to read it and execute it but we do not want them to write to it, and requires the same permissions that the group has given to everyone else.
+
+User = rwx or 7 (since 4 + 2 + 1 = 7)
+Group = r-x or 5 (since 4 + 0 + 1 = 5)
+All = r-x or 5 (since 4 + 0 + 1 = 5)
+
+The above equals chmod 755 or chmod u=rwx,go=rx
+
+When you realize that setting the permissions on a script to mode 777 means you are giving yourself and the group and EVERYONE else permission to do things to your file, it's easy to see why mode 777 is not always a wise idea.
+
+Default modes if you upload a file to the server and change nothing are:
+
+All Files that are not scripts or directories
+644 = -rw-r--r--
+
+All directories and anything that looks like a script (.cgi and .pl files for example)
+755 = -rwxr-xr-x
+ 
+
+Summary
+There are three types of permissions:
+r	read the file or directory
+w	write to the file or directory
+x	execute the file or search the directory
+Each of these permissions can be set for any one of three types of user:
+
+u	the user who owns the file (usually you)
+g	members of the group to which the owner belongs
+o	all other users
+The access permissions for all three types of user can be given as a string of nine characters:
+
+user	group	others
+r w x	r w x	r w x
+Permission	File	Directory
+r read	read a file	list files in ...
+w write	write a file	create file in ...
+rename file in ...
+delete file ...
+x execute	execute a
+shell script	read a file in ...
+write to a file in ...
+execute a file in ...
+execute a shell script in ...
+ 
+
+Setting access permissions numerically
+
+There is a shorthand way of setting permissions by using octal numbers. Read permission is given the value 4, write permission the value 2 and execute permission 1.
+r	w	x
+4	2	1
+These values are added together for any one-user category:
+1	=	execute only
+2	=	write only
+3	=	write and execute (1+2)
+4	=	read only
+5	=	read and execute (4+1)
+6	=	read and write (4+2)
+7	=	read and write and execute (4+2+1)
+So access permissions can be expressed as three digits. For example:
+ 	user	group	others
+chmod 640 file1	rw-	r--	---
+chmod 754 file1	rwx	r-x	r--
+chmod 664 file1	rw-	rw-	r--
+Note: When installing scripts and the script author instructs you to set the permissions to mode 777, do not do this. It will not work on the FutureQuest servers. Anytime you are instructed to set the permissions to a script to 777 or 775, change them to 755 instead. Due to the way the servers are set up, mode 755 will work and offer you more security at the same time.
+```
 
 ---
 
