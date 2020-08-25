@@ -1,5 +1,18 @@
 # wget notes
 
+||| How to resume loop when wget returns error 404 - Bash
+
+Try this:
+
+    wget --user uname --password pass $url || true;
+
+This way, if wget fails, the result of that line is still zero and your script continues.
+
+> References
+> <https://stackoverflow.com/questions/29723144/how-to-resume-loop-when-wget-returns-error-404-bash>
+
+---
+
 |||wget download entire webpages websites
 
 ```sh
