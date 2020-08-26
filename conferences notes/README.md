@@ -1,7 +1,19 @@
 # conferences notes
 
-QCon 2009
+|||qcon 2014
 
-<https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/>
+Impossible Programs
 
-----
+> References
+> <https://www.infoq.com/presentations/programming-limitations/>
+
+---
+
+|||qcon 2009
+
+Null References: The Billion Dollar Mistake
+
+> References
+> <https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/>
+
+---
