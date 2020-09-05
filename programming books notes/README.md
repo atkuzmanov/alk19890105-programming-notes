@@ -39,23 +39,20 @@
 
 "Programming in Scala", Martin Odersky 2010, Second Edition, Artima 2014, ISBN-10: 9815316-4-4, ISBN-13: 978-0-9815316-4-9
 
-"Java developer's Scala cheatsheet"
-One huge Scala reference card
-<http://mbonaci.github.io/scala/>
+"Scala for Java Developers", Thomas Alexandre, Packt Publishing, ISBN-10: 1783283637 ISBN-13: 978-1783283637
 
-"Scala in Depth"
-Authorative and understandable.
+"Scala in Depth", Joshua D Suereth, ISBN 9781935182702
 <https://www.manning.com/books/scala-in-depth>
 
-"Functional Programming in Scala"
+"Functional Programming in Scala",Paul Chiusano and Runar Bjarnason, ISBN 9781617290657
 Leads to deep insights into the nature of computation.
 <https://www.manning.com/books/functional-programming-in-scala>
 
-Akka, Testing in Scala
-Effective Akka
-
-Advanced Scala with Cats Free eBook
+"Advanced Scala with Cats", Noel Welsh and Dave Gurnell, Underscore Consulting LLP.
+<https://www.scalawithcats.com/>
 <https://underscore.io/books/advanced-scala/>
+
+"Effective Akka", Jamie Allen,O'Reilly, ISBN: 9781449360078
 
 ---
 
