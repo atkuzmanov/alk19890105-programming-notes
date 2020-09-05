@@ -35,6 +35,24 @@
 
 ---
 
+|||kotlin programming books
+
+"Head First Kotlin", Dawn Griffiths, David Griffiths, O'Reilly Media, Inc., ISBN: 9781491996690
+
+"Kotlin in Action", Dmitry Jemerov and Svetlana Isakova, Manning, ISBN 9781617293290
+
+"Kotlin Programming: The Big Nerd Ranch Guide", Josh Skeen, David Greenhalgh, 1st Edition, ISBN-13: 978-0135161630 ISBN-10: 0135161630
+
+"Programming Kotlin", Venkat Subramaniam, 1st Edition, ISBN: 9781680506358
+
+"The Joy of Kotlin", Pierre-Yves Saumont, Manning, ISBN 9781617295362
+
+Kotlinlang Kotlin books
+> References
+> <https://kotlinlang.org/docs/books.html>
+
+---
+
 |||scala programming books
 
 "Programming in Scala", Martin Odersky 2010, Second Edition, Artima 2014, ISBN-10: 9815316-4-4, ISBN-13: 978-0-9815316-4-9
