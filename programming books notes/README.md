@@ -54,6 +54,10 @@ Leads to deep insights into the nature of computation.
 
 "Effective Akka", Jamie Allen,O'Reilly, ISBN: 9781449360078
 
+20 Best Scala Books To Go From Beginner To Expert
+> References
+> <https://whatpixel.com/best-scala-books/>
+
 ---
 
 |||javascript programming books
@@ -66,6 +70,9 @@ Leads to deep insights into the nature of computation.
 
 "JavaScript: The Good Parts", Douglas Crockford
 
+> References
+> <https://hackr.io/blog/javascript-books>
+
 ---
 
 |||c++ programming books |||cpp programming books
@@ -73,13 +80,21 @@ Leads to deep insights into the nature of computation.
 "Програмиране =++ Алгоритми", Преслав Наков и Панайот Добриков, Трето издание, TopTeam Co. София 2002, ISBN 954-8905-06-X
 "Programming =++ Algorithms", Preslav Nakov and Panayot Dobrikov, Third edition, TopTeam Co. Sofia 2002, ISBN 954-8905-06-X
 
+"C++ Primer", Stanley B. Lippman, Josee Lajoie and Barbara E. Moo, 5th Edition
+
+"Programming: Principles and Practice Using C++", Bjarne Stroustrup, 2nd Edition
+
+"The C++ Programming Language", Bjarne Stroustrup, Addison Wesley; 4 edition 2013, ISBN-13: 978-0321958327
+
+"Accelerated C++: Practical Programming by Example", Andrew Koenig and Barbara E. Moo
+
 "What good is a bad pointer C++", Unknown
 
 "Data Structures and Problem Solving with C++", Mark A. Weiss, Pearson; 2 edition 1999, ISBN-13: 978-0201612509
 
-"The C++ Programming Language", Bjarne Stroustrup, Addison Wesley; 4 edition 2013, ISBN-13: 978-0321958327
-
-C++ How to Program Early Objects plus MyProgrammingLab with Pearson eText, Global Edition 2017, Paul Dietel and Harvey Deitel, Pearson
+The Definitive C++ Book Guide and List
+> References
+> <https://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list>
 
 ---
 
