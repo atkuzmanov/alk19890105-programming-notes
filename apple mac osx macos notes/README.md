@@ -426,3 +426,41 @@ Since earlier this year, one can bootstrap in the old PC98 way with an EFI parti
 Well done for being the first to spot an almost 15-year-old error, by the way. 16EiB is of course the maximum file size with 64-bit file pointers, not volume or disc size with 64-bit sector numbers. 8ZiB is correct for the latter, according to the trusty log tables. – JdeBP Aug 20 '11 at 4:22"
 
 ---
+
+|||encryption |||veracrypt |||truecrypt
+
+Which TrueCrypt Algorithm is the safest?
+
+```text
+Using TrueCrypt 7.0a, the most secure method of encryption is:
+Use the AES-Twofish-Serpent cascading encryption with the XTS method.
+Use the Whirlpool hash algorithm.  (SHA-512 is a very close 2nd place here... it's debatable... I'm leaning towards Whirlpool because SHA-512 is already having a successor developed because of fears that it is based on an older SHA-1 that has been compromised.)
+MOST IMPORTANT is to use a VERY strong password.  20 to 30+ characters, uppercase, lowercase, numbers, symbols.  Use Microsoft's online password checker for a strength test.
+You can also use Keyfiles to further secure your password.
+
+I recommend the AES-Twofish-Serpent over the Serpent-Twofish-AES because you want the outermost encryption (AES will be the first layer they need to break) to be the most standard in the industry.  That one is the most tried and true and the most tested of all of them.  Plus, if someone assumes a file is encrypted with AES, there's no way of seeing that is is then encrypted with Twofish... so they do all this work to break the AES, only to find that Twofish stands in their way now.  And then again after Twofish they run into Serpent, which is the biggest beast of them all (even though it is less used / tested than AES, it still has a much higher security margin than AES)
+
+If you do use Keyfiles, I'd recommend having TrueCrypt create 3 keyfiles for you.  Create one keyfile for each hash algorithm they provide.  You might also add some .jpg's and some .mp3 files as well.  I would make sure to make each keyfile read-only however.
+
+This is probably overkill though.
+
+edited Aug 17 '11 at 1:41
+soandos
+
+answered Aug 16 '11 at 15:46
+Charles Hepburn II
+
+===
+
+You say use 20-30 chars, but isn't that overkill? Even 10 lowercase chars would be 26^10 = 141,167,095,653,376 combinations (4 million years at one check per second). More than good enough surely? – Dan W Nov 2 '12 at 19:54
+
+@Dan W: At one check per second, surely. However, though hashing methods vary a lot in performance, consumer grade hardware comes a lot closer to testing billions of passwords per second. Your ten character lowercase password would be cracked in a matter of hours. – Marcks Thomas Dec 6 '12 at 19:15
+
+Your rationale for the cascade order doesn't make any sense. An attacker will have to break through each layer (each one using an independent key), regardless of whether AES is first or last. – jjlin Sep 21 '13 at 17:18
+```
+
+> References
+>
+> <https://superuser.com/questions/207831/which-truecrypt-algorithm-is-the-safest>
+
+---
