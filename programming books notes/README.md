@@ -35,6 +35,18 @@
 
 ---
 
+|||spring programming books |||spring boot programming books
+
+"Spring in Action", Craig Walls, Fifth Edition, Manning Publications, ISBN: 9781617294945
+
+"Pro Spring 5: An In-Depth Guide to the Spring Framework and Its Tools", Iuliana Cosmina, Rob Harrop, Chris Schaefer, Clarence Ho, Apress, ISBN: 9781484228081
+
+"Learning Spring Boot 2.0", Greg L. Turnquist
+
+"Spring Boot in Action", Craig Walls
+
+---
+
 |||kotlin programming books
 
 "Head First Kotlin", Dawn Griffiths, David Griffiths, O'Reilly Media, Inc., ISBN: 9781491996690
@@ -113,6 +125,20 @@ Leads to deep insights into the nature of computation.
 The Definitive C++ Book Guide and List
 > References
 > <https://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list>
+
+---
+
+|||golang programming books
+
+"The Go Programming Language (Addison-Wesley Professional Computing Series)", Alan A. A. Donovan and Brian W. Kernighan
+
+"An Introduction to Programming in Go", Caleb Doxsey
+
+"Head First Go", Jay McGavren
+
+"Go in Action", William Kennedy
+
+"Concurrency in Go: Tools and Techniques for Developers", Katherine Cox-Buday, O'Reilly
 
 ---
 
