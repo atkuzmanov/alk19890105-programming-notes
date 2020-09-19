@@ -144,6 +144,8 @@ The Definitive C++ Book Guide and List
 
 |||general programming books |||random programming books |||other programming books
 
+"Design Patterns: Elements of Reusable Object-Oriented Software", 1st Edition, Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides, ISBN-13: 978-0201633610, ISBN-10: 0201633612
+
 "Bulletproof SSL and TLS", Ivan Ristic, Feisty Duck 2015, London, ISBN 978-1-907117-04-6
 
 "Extreme Programming Explained: Embrace Change", Kent Beck, Addison-Wesley Professional; 2 edition 2004, ISBN-13: 978-0321278654
