@@ -118,6 +118,17 @@ Kotlinlang Kotlin books
 
 "Secrets of the JavaScript Ninja", Second Edition, John Resig, Bear Bibeault, and Josip Maras, ISBN 9781617292859
 
+```text
+```
+
+"React in Action", Mark Tielens Thomas, ISBN 9781617293856
+
+"React Native in Action Developing iOS and Android apps with JavaScript",Nader Dabit, ISBN 9781617294051
+
+"AngularJS in Action", Lukas Ruebbelke, ISBN 9781617291333
+
+"Node.js in Action", Second Edition, Alex Young, Bradley Meck, and Mike Cantelon, ISBN 9781617292576
+
 ---
 
 |||c++ programming books |||cpp programming books
@@ -158,7 +169,7 @@ The Definitive C++ Book Guide and List
 
 "Head First Go", Jay McGavren
 
-"Go in Action", William Kennedy
+"Go in Action", William Kennedy, ISBN 9781617291784
 
 "Concurrency in Go: Tools and Techniques for Developers", Katherine Cox-Buday, O'Reilly
 
@@ -193,6 +204,8 @@ PureScript by example ebook
 "Linux in Action", David Clinton, ISBN 9781617294938
 
 "Kafka in Action", Dylan Scott, Viktor Gamov, MEAP began November 2017  Publication in Spring 2021 (estimated), ISBN 9781617295232
+
+"Hadoop in Action", Chuck Lam, ISBN 9781935182191
 
 ---
 
@@ -281,5 +294,15 @@ PureScript by example ebook
 "Head First Software Development", by Dan Pilone and Russ Miles
 
 "Head First Programming: A Learner's Guide to Programming Using the Python", by David Griffiths and Paul Barry
+
+---
+
+|||algorithms programming books
+
+"Grokking Algorithms An illustrated guide for programmers and other curious people", Aditya Y. Bhargava, ISBN 9781617292231
+
+"Grokking Artificial Intelligence Algorithms", Rishal Hurbans, ISBN 9781617296185
+
+"Grokking Deep Learning", Andrew W. Trask, ISBN 9781617293702
 
 ---
