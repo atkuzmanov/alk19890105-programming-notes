@@ -50,10 +50,6 @@
 
 "Spring in Action", Craig Walls, Fifth Edition, Manning Publications, ISBN: 9781617294945
 
-"Pro Spring 5: An In-Depth Guide to the Spring Framework and Its Tools", Iuliana Cosmina, Rob Harrop, Chris Schaefer, Clarence Ho, Apress, ISBN: 9781484228081
-
-"Learning Spring Boot 2.0", Greg L. Turnquist
-
 "Spring Boot in Action", Craig Walls, ISBN 9781617292545
 
 ---
@@ -74,11 +70,6 @@ Kotlinlang Kotlin books
 > References
 > <https://kotlinlang.org/docs/books.html>
 
-```text
-```
-
-"Kotlin in Action", Dmitry Jemerov and Svetlana Isakova, ISBN 9781617293290
-
 ---
 
 |||scala programming books
@@ -97,11 +88,11 @@ Kotlinlang Kotlin books
 <https://www.scalawithcats.com/>
 <https://underscore.io/books/advanced-scala/>
 
-"Effective Akka", Jamie Allen,O'Reilly, ISBN: 9781449360078
-
 20 Best Scala Books To Go From Beginner To Expert
 > References
 > <https://whatpixel.com/best-scala-books/>
+
+"Scala in Action", Nilanjan Raychaudhuri, ISBN 9781935182757
 
 ---
 
@@ -147,6 +138,13 @@ Kotlinlang Kotlin books
 The Definitive C++ Book Guide and List
 > References
 > <https://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list>
+
+```text
+```
+
+"C++ Concurrency in Action", Second Edition, Anthony Williams, ISBN 9781617294693
+
+"Functional Programming in C++", Ivan Čukić, ISBN 9781617293818
 
 ---
 
@@ -210,15 +208,11 @@ PureScript by example ebook
 
 |||kubernetes programming books
 
-"Kubernetes in Action", Second Edition, Marko Lukša, Manning Early Access Program (MEAP) began February 2020  Publication in Spring 2021 (estimated), ISBN 9781617297618
-
 "Kubernetes in Action", Marko Lukša, ISBN 9781617293726
 
 ---
 
 ||| python programming books
-
-"Deep Learning with Python", Second Edition, François Chollet, MEAP began March 2020  Publication in Spring 2021 (estimated), ISBN 9781617296864
 
 "Deep Learning with Python", François Chollet, ISBN 9781617294433
 
