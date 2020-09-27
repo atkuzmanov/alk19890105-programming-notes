@@ -33,6 +33,17 @@
 
 "SCJP Sun Certified Programmer for Java 6 Study Guide Exam 310-065", Bert Bates and Kathy Sierra, McGraw-Hill 2008, ISBN 978-0-07-159108-9 and CD ISBN 978-0-07-159109-6 part of ISBN 978-0-07-159106-5
 
+```text
+```
+
+"Modern Java in Action Lambdas, streams, functional and reactive programming", Raoul-Gabriel Urma, Mario Fusco, Alan Mycroft, ISBN 9781617293566
+
+"Functional Programming in Java", Pierre-Yves Saumont, ISBN 9781617292736
+
+"Java 8 in Action Lambdas, streams, and functional-style programming", Raoul-Gabriel Urma, Mario Fusco, and Alan Mycroft, ISBN 9781617291999
+
+"Java Puzzlers: Traps, Pitfalls, and Corner Cases", Joshua Bloch, Neal Gafter Bloch, Gafter, ISBN-10 032133678X, ISBN-13 978-0321336781
+
 ---
 
 |||spring programming books |||spring boot programming books
@@ -43,7 +54,7 @@
 
 "Learning Spring Boot 2.0", Greg L. Turnquist
 
-"Spring Boot in Action", Craig Walls
+"Spring Boot in Action", Craig Walls, ISBN 9781617292545
 
 ---
 
@@ -63,6 +74,11 @@ Kotlinlang Kotlin books
 > References
 > <https://kotlinlang.org/docs/books.html>
 
+```text
+```
+
+"Kotlin in Action", Dmitry Jemerov and Svetlana Isakova, ISBN 9781617293290
+
 ---
 
 |||scala programming books
@@ -75,7 +91,6 @@ Kotlinlang Kotlin books
 <https://www.manning.com/books/scala-in-depth>
 
 "Functional Programming in Scala",Paul Chiusano and Runar Bjarnason, ISBN 9781617290657
-Leads to deep insights into the nature of computation.
 <https://www.manning.com/books/functional-programming-in-scala>
 
 "Advanced Scala with Cats", Noel Welsh and Dave Gurnell, Underscore Consulting LLP.
@@ -102,6 +117,13 @@ Leads to deep insights into the nature of computation.
 
 > References
 > <https://hackr.io/blog/javascript-books>
+
+```text
+```
+
+"Functional Programming in JavaScript", Luis Atencio, ISBN 9781617292828
+
+"Secrets of the JavaScript Ninja", Second Edition, John Resig, Bear Bibeault, and Josip Maras, ISBN 9781617292859
 
 ---
 
@@ -162,10 +184,62 @@ The Definitive C++ Book Guide and List
 
 "Test Driven Development: By Example", Kent Beck, Addison-Wesley Professional; 01 edition 2002, ISBN-13: 978-0321146533
 
-Haskell ebook
-<http://learnyouahaskell.com/chapters>
-
 PureScript by example ebook
 <https://leanpub.com/purescript/read>
+
+```text
+```
+
+"Linux in Action", David Clinton, ISBN 9781617294938
+
+"Kafka in Action", Dylan Scott, Viktor Gamov, MEAP began November 2017  Publication in Spring 2021 (estimated), ISBN 9781617295232
+
+---
+
+|||aws books
+
+"Amazon Web Services in Action", Second Edition, Michael Wittig and Andreas Wittig, ISBN 9781617295119
+
+---
+
+|||docker programming books
+
+"Docker in Action", Second Edition, Jeff Nickoloff and Stephen Kuenzli, ISBN 9781617294761
+
+---
+
+|||kubernetes programming books
+
+"Kubernetes in Action", Second Edition, Marko Lukša, Manning Early Access Program (MEAP) began February 2020  Publication in Spring 2021 (estimated), ISBN 9781617297618
+
+"Kubernetes in Action", Marko Lukša, ISBN 9781617293726
+
+---
+
+||| python programming books
+
+"Deep Learning with Python", Second Edition, François Chollet, MEAP began March 2020  Publication in Spring 2021 (estimated), ISBN 9781617296864
+
+"Deep Learning with Python", François Chollet, ISBN 9781617294433
+
+"Math for Programmers 3D graphics, machine learning, and simulations with Python", Paul Orland, MEAP began December 2018  Publication in November 2020 (estimated), ISBN 9781617295355
+
+---
+
+|||security programming books
+
+"API Security in Action", Neil Madden, MEAP began June 2019  Publication in December 2020 (estimated), ISBN 9781617296024
+
+"Microservices Security in Action", Prabath Siriwardena and Nuwan Dias, ISBN 9781617295959
+
+"Securing DevOps Security in the Cloud", Julien Vehent, ISBN 9781617294136
+
+"AWS Security", Dylan Shields, MEAP began January 2020  This book is in development, ISBN 9781617297335
+
+---
+
+|||blockchain programming books
+
+"Blockchain in Action", Bina Ramamurthy, ISBN 9781617296338
 
 ---
