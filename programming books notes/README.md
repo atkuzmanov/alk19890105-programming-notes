@@ -248,11 +248,11 @@ PureScript by example ebook
 
 "Head First Design Patterns", Kathy Sierra, Eric Freeman, Elisabeth Robson
 
-"Head First HTML & CSS", 2nd Edition, by Elisabeth Robson & Eric Freeman
-
 "Head First JavaScript Programming: A Brain-Friendly Guide", Eric Freeman  (Author), Elisabeth Robson, 1st Edition, ISBN-13: 978-1449340131 ISBN-10: 9781449340131
 
 "Head First JavaScript", by Michael Morrison
+
+"Head First HTML & CSS", 2nd Edition, by Elisabeth Robson & Eric Freeman
 
 "Head First HTML5 Programming", by Eric Freeman & Elisabeth Robson
 
