@@ -100,6 +100,8 @@ Kotlinlang Kotlin books
 
 "Head First JavaScript Programming: A Brain-Friendly Guide", Eric Freeman  (Author), Elisabeth Robson, 1st Edition, ISBN-13: 978-1449340131 ISBN-10: 9781449340131
 
+"Head First JavaScript", by Michael Morrison
+
 "Programming JavaScript Applications: Robust Web Architecture with Node, HTML5, and Moderns JS Libraries", Eric Elliott
 
 "JavaScript: The Definitive Guide", David Flanagan, 6th Edition, O'Reilly
@@ -235,5 +237,49 @@ PureScript by example ebook
 |||blockchain programming books
 
 "Blockchain in Action", Bina Ramamurthy, ISBN 9781617296338
+
+---
+
+|||head first programming books
+
+"Head First Learn to Code", by Eric Freeman
+
+"Head First Java" 2nd Edition, Kathy Sierra, Bert Bates
+
+"Head First Design Patterns", Kathy Sierra, Eric Freeman, Elisabeth Robson
+
+"Head First HTML & CSS", 2nd Edition, by Elisabeth Robson & Eric Freeman
+
+"Head First JavaScript Programming: A Brain-Friendly Guide", Eric Freeman  (Author), Elisabeth Robson, 1st Edition, ISBN-13: 978-1449340131 ISBN-10: 9781449340131
+
+"Head First JavaScript", by Michael Morrison
+
+"Head First HTML5 Programming", by Eric Freeman & Elisabeth Robson
+
+"Head First C", by David Griffiths and Dawn Griffiths
+
+"Head First SQL", by Lynn Beighley
+
+"Head First Python", by Paul Barry
+
+```text
+```
+
+"Head First Algebra", by Dan Pilone and Tracey Pilone
+
+"Head First Geometry", by Dawn Griffiths and Lindsey Fallow
+
+"Head First 2D Geometry", by Dawn Griffiths and Lindsey Fallow
+
+"Head First 3D Geometry", by Dawn Griffiths and Lindsey Fallow
+
+"Head First Physics", by Heather Lang
+
+```text
+```
+
+"Head First Software Development", by Dan Pilone and Russ Miles
+
+"Head First Programming: A Learner's Guide to Programming Using the Python", by David Griffiths and Paul Barry
 
 ---
