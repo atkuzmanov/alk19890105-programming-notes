@@ -269,11 +269,15 @@ PureScript by example ebook
 
 "Head First HTML5 Programming", by Eric Freeman & Elisabeth Robson
 
-"Head First C", by David Griffiths and Dawn Griffiths
-
 "Head First SQL", by Lynn Beighley
 
+"Head First Kotlin", Dawn Griffiths, David Griffiths, O'Reilly Media, Inc., ISBN: 9781491996690
+
+"Head First Go", Jay McGavren
+
 "Head First Python", by Paul Barry
+
+"Head First C", by David Griffiths and Dawn Griffiths
 
 ```text
 ```
