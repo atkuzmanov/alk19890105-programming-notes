@@ -1,5 +1,9 @@
 # cron jobs crontab cron schedulling notes
 
+|||cron jobs |||crontab |||cron
+
+---
+
 Crontab Generator
 
 crontab guru
@@ -29,6 +33,21 @@ Cron Expression Generator & Explainer - Quartz
 
 > References
 > <https://www.freeformatter.com/cron-expression-generator-quartz.html>
+
+---
+
+How to skip the cron job in saturday and sunday in linux?
+
+> References
+> <https://stackoverflow.com/questions/9143965/how-to-skip-the-cron-job-in-saturday-and-sunday-in-linux>
+
+```sh
+Begin the line with `0 0 * * 1,2,3,4,5 <user> <command>`. The first fields are minutes and hours. In this case the command will run at midnight. The stars mean: for every day of the month, and for every month. The 1 to 5 specify the days. monday to friday. 6=saturday 0=sunday.
+```
+
+===
+
+`Best way, 0 0 * * 1-5 <script name> – Balamurugan Thangam Sep 12 '17 at 11:28`
 
 ---
 
