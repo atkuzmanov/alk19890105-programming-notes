@@ -1,5 +1,9 @@
 # github notes 1
 
+|||github notes 1
+
+---
+
 [github work guide 1](github-work-guide-1.md)
 
 > References
@@ -22,6 +26,28 @@ Trending
 See what the GitHub community is most excited about today.
 
 <https://github.com/trending>
+
+---
+
+|||git master |||git main
+
+<https://github.com/github/renaming>
+
+<https://www.bbc.com/news/technology-53050955>
+
+```git
+git init
+
+git remote add origin git@github.com:$USERNAME/$REPO_NAME.git
+
+git branch -M main
+
+git add .
+
+git commit -m "First commit."
+
+git push -u origin main
+```
 
 ---
 
