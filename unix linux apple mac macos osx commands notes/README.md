@@ -28,6 +28,47 @@ NF&&f{ print s"/"$0 }'
 
 ---
 
+|||symbolic links |||symlinks |||symlink
+
+|||rename symlinks |||change symlinks |||editsymlinks
+
+> References
+> <https://stackoverflow.com/questions/1727280/is-there-a-way-to-edit-a-symlink-without-deleting-it-first>
+
+```text
+On OSX, the man page for ln says you can do it like this
+
+ln -shf /location/to/link link name
+From the man page:
+
+The options are as follows:
+ -F    If the target file already exists and is a directory, then remove it so that the link may occur.  The -F
+       option should be used with either -f or -i options.  If none is specified, -f is implied.  The -F option is
+       a no-op unless -s option is specified.
+
+ -h    If the target_file or target_dir is a symbolic link, do not follow it.  This is most useful with the -f
+       option, to replace a symlink which may point to a directory.
+
+ -f    If the target file already exists, then unlink it so that the link may occur.  (The -f option overrides any
+       previous -i options.)
+
+ -i    Cause ln to write a prompt to standard error if the target file exists.  If the response from the standard
+       input begins with the character `y' or `Y', then unlink the target file so that the link may occur.  Other-
+       wise, do not attempt the link.  (The -i option overrides any previous -f options.)
+
+ -n    Same as -h, for compatibility with other ln implementations.
+
+ -s    Create a symbolic link.
+
+ -v    Cause ln to be verbose, showing files as they are processed.
+
+answered Feb 17 '14 at 21:30
+
+jschank
+```
+
+---
+
 ||find command
 |||unix commands
 |||linux commands
