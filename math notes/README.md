@@ -74,3 +74,31 @@ NOTE: This is a general explanation of Ascending and Descending means. A program
 ```
 
 ---
+
+Difference Between Ascending and Descending
+
+> References
+> <http://www.differencebetween.net/science/mathematics-statistics/difference-between-ascending-and-descending/>
+
+---
+
+sorting ascending vs descending
+
+> References
+> <https://stackapps.com/questions/2231/sorting-ascending-vs-descending>
+
+---
+
+Ascending Order
+
+> References
+> <https://www.mathsisfun.com/definitions/ascending-order.html>
+
+---
+
+Descending Order
+
+> References
+> <https://www.mathsisfun.com/definitions/descending-order.html>
+
+---
