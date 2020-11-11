@@ -20,3 +20,13 @@ Execute code in many languages with Docker!
 <https://docker-exec.github.io/>
 
 ---
+
+|||docker-compose build remove orphans |||docker compose build remove orphans
+
+```sh
+docker-compose up --remove-orphans
+
+docker-compose up --build --remove-orphans
+```
+
+---
