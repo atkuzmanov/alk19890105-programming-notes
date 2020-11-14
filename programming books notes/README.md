@@ -21,6 +21,8 @@
 
 "Effective Java", Joshua Bloch, Third Edition
 
+"Data Structures and Algorithms in Java", Robert Lafore, 2nd Edition, ISBN-13: 978-0672324536, ISBN-10: 0672324539
+
 "Spring in Action", Craig Walls, Second Edition, Manning, Dreamtech Press 2008, ISBN 978-81-7722-776-5
 
 "Clean Code A Handbook of agile software craftsmanship", Robert C. Martin, First Edition, Prentice Hall, ISBN-13: 978-0132350884
@@ -229,7 +231,11 @@ PureScript by example ebook
 
 ||| python programming books
 
-"Deep Learning with Python", François Chollet, ISBN 9781617294433
+"Head First Python: A Brain-Friendly Guide", Paul Barry, 2nd edition 2016, ISBN-10: 1491919531, ISBN-13: 978-1491919538
+
+"Python Crash Course (2nd Edition): A Hands-On, Project-Based Introduction to Programming", Eric Matthes, 2nd Edition 2019, ISBN-10: 1593279280, ISBN-13: 978-1593279288
+
+"Deep Learning with Python", François Chollet, Manning 2017, ISBN 9781617294433
 
 "Math for Programmers 3D graphics, machine learning, and simulations with Python", Paul Orland, MEAP began December 2018  Publication in November 2020 (estimated), ISBN 9781617295355
 
