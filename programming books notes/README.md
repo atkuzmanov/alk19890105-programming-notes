@@ -133,6 +133,18 @@ Kotlinlang Kotlin books
 
 ---
 
+||| python programming books
+
+"Head First Python: A Brain-Friendly Guide", Paul Barry, 2nd edition 2016, ISBN-10: 1491919531, ISBN-13: 978-1491919538
+
+"Python Crash Course (2nd Edition): A Hands-On, Project-Based Introduction to Programming", Eric Matthes, 2nd Edition 2019, ISBN-10: 1593279280, ISBN-13: 978-1593279288
+
+"Deep Learning with Python", François Chollet, Manning 2017, ISBN 9781617294433
+
+"Math for Programmers 3D graphics, machine learning, and simulations with Python", Paul Orland, MEAP began December 2018  Publication in November 2020 (estimated), ISBN 9781617295355
+
+---
+
 |||c++ programming books |||cpp programming books
 
 "Програмиране =++ Алгоритми", Преслав Наков и Панайот Добриков, Трето издание, TopTeam Co. София 2002, ISBN 954-8905-06-X
@@ -226,18 +238,6 @@ PureScript by example ebook
 |||kubernetes programming books
 
 "Kubernetes in Action", Marko Lukša, ISBN 9781617293726
-
----
-
-||| python programming books
-
-"Head First Python: A Brain-Friendly Guide", Paul Barry, 2nd edition 2016, ISBN-10: 1491919531, ISBN-13: 978-1491919538
-
-"Python Crash Course (2nd Edition): A Hands-On, Project-Based Introduction to Programming", Eric Matthes, 2nd Edition 2019, ISBN-10: 1593279280, ISBN-13: 978-1593279288
-
-"Deep Learning with Python", François Chollet, Manning 2017, ISBN 9781617294433
-
-"Math for Programmers 3D graphics, machine learning, and simulations with Python", Paul Orland, MEAP began December 2018  Publication in November 2020 (estimated), ISBN 9781617295355
 
 ---
 
