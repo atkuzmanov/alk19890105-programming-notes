@@ -315,4 +315,8 @@ PureScript by example ebook
 
 "Grokking Deep Learning", Andrew W. Trask, ISBN 9781617293702
 
+"The Algorithm Design Manual", Steven S. Skiena, 2nd Edition, 2008, Springer, ISBN-10: 1848000693, ISBN-13: 978-1848000698
+
+"The Algorithm Design Manual", Steven S. Skiena, 3rd Edition, 2020, Springer, ISBN-10: 3030542556, ISBN-13: 978-3030542559
+
 ---
