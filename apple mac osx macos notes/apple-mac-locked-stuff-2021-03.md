@@ -92,3 +92,43 @@ defaults write com.google.Chrome ExtensionInstallWhitelist -array "chrome-extens
 ```
 
 ---
+
+The Chromium Projects
+
+Mac Quick Start
+
+> References:
+
+<https://www.chromium.org/administrators/mac-quick-start>
+
+```sh
+Debugging
+
+If you have trouble, it usually pays off to examine whether the settings are correctly stored and read by Chrome. First of all, navigate to about:policy in Chrome. It lists any policy settings that Chrome has picked up. If your settings show up, good. If not, you can dig deeper and check whether macOS actually put them into place correctly. Mandatory policy is stored in /Library/Managed Preferences/<username>/com.google.Chrome.plist while recommended policy is stored in /Library/Preferences/com.google.Chrome.plist. The plutil command can be used from a terminal to convert it to XML format:
+# sudo -s
+# cd /Library/Managed Preferences/<username>
+# plutil -convert xml1 com.google.Chrome.plist
+# cat com.google.Chrome.plist
+For debugging, this file is in a place where it can be edited manually. Chrome will pick up the updated preferences automatically. Note that this is not recommended for making persistent changes to policy, since macOS will rewrite the file with settings configured through Workgroup Manager.
+
+Chrome on macOS does not show unknown policies on the chrome://policy page. If you don't find a policy you have set there check if the name is spelled correctly and if the policy is actually supported on the macOS platform.  
+```
+
+Policy List
+
+<https://www.chromium.org/administrators/policy-list-3>
+
+---
+
+How do I unlock a .plist file so that I can change it?
+
+> References:
+
+<https://apple.stackexchange.com/questions/68646/how-do-i-unlock-a-plist-file-so-that-i-can-change-it>
+
+```sh
+sudo chown $USER aomDSP.plist
+sudo chmod u+w aomDSP.plist
+```
+
+---
