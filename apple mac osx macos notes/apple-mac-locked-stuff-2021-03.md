@@ -73,3 +73,22 @@ Michelle
 ```
 
 ---
+
+Mandatory Chrome Policies on Mac
+
+> References:
+
+<https://stackoverflow.com/questions/38206916/mandatory-chrome-policies-on-mac>
+
+```sh
+~/Library/Preferences/com.google.Chrome.plist 
+/Library/Managed Preferences/
+/Library/Managed Preferences/$user
+```
+
+```sh
+defaults write com.google.Chrome ExtensionInstallSources -array "http://install-url.com/*"
+defaults write com.google.Chrome ExtensionInstallWhitelist -array "chrome-extension-id"
+```
+
+---
